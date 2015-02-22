@@ -103,7 +103,7 @@
 				<key>value</key>
 				<array>
 					<string></string>
-					<string>GameOfLifeAssets/Assets/grid.png</string>
+					<string>ColorPouringAssets/Assets/grid.png</string>
 				</array>
 			</dict>
 			<dict>
@@ -139,6 +139,8 @@
 				<array/>
 			</dict>
 		</array>
+		<key>selected</key>
+		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>

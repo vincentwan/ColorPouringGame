@@ -10,7 +10,7 @@
 		<false/>
 	</dict>
 	<key>UUID</key>
-	<integer>28</integer>
+	<integer>29</integer>
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
@@ -98,8 +98,8 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>1</real>
-							<real>1</real>
+							<real>1.0980490446090698</real>
+							<real>1.1104661226272583</real>
 							<false/>
 							<integer>0</integer>
 						</array>
@@ -112,7 +112,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>GameOfLifeAssets/BackgroundImage/background.png</string>
+							<string>ColorPouringAssets/BackgroundImage/background.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -296,7 +296,7 @@
 										<key>value</key>
 										<array>
 											<string></string>
-											<string>GameOfLifeAssets/Assets/microscope.png</string>
+											<string>ColorPouringAssets/Assets/microscope.png</string>
 										</array>
 									</dict>
 									<dict>
@@ -1285,7 +1285,7 @@
 										<key>value</key>
 										<array>
 											<string></string>
-											<string>GameOfLifeAssets/Assets/balloon.png</string>
+											<string>ColorPouringAssets/Assets/balloon.png</string>
 										</array>
 									</dict>
 									<dict>
@@ -1449,7 +1449,7 @@
 										<key>value</key>
 										<array>
 											<string></string>
-											<string>GameOfLifeAssets/Buttons/pause.png</string>
+											<string>ColorPouringAssets/Buttons/pause.png</string>
 										</array>
 									</dict>
 									<dict>
@@ -1647,8 +1647,6 @@
 										</array>
 									</dict>
 								</array>
-								<key>selected</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>UUID</key>
@@ -1777,7 +1775,7 @@
 										<key>value</key>
 										<array>
 											<string></string>
-											<string>GameOfLifeAssets/Buttons/play.png</string>
+											<string>ColorPouringAssets/Buttons/play.png</string>
 										</array>
 									</dict>
 									<dict>
@@ -2125,6 +2123,8 @@
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>
