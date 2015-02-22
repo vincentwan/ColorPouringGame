@@ -13,6 +13,8 @@
 - (instancetype)initCreature {
     // since we made Creature inherit from CCSprite, 'super' below refers to CCSprite
     self = [super initWithImageNamed:@"ColorPouringAssets/Assets/20.png"];
+    [super setScaleX:1.0];
+    [super setScaleX:2.0];
     
     if (self) {
         self.isAlive = NO;
