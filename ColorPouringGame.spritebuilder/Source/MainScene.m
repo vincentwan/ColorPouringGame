@@ -15,13 +15,13 @@
     CCLabelTTF *_generationLabel;
     CCLabelTTF *_populationLabel;
 }
-/*
+
 static UIColor * currColor;
 + (UIColor *) currColor
 { @synchronized(self) { return currColor; } }
 + (void) setCurrColor:(UIColor *)val
 { @synchronized(self) { currColor = val; } }
-*/
+
 - (id)init
 {
     self = [super init];

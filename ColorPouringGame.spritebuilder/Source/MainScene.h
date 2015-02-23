@@ -10,7 +10,7 @@
 
 @interface MainScene : CCNode
 
-//+ (UIColor *) currColor;
-//+ (void) setCurrColor:(UIColor *)val;
++ (UIColor *) currColor;
++ (void) setCurrColor:(UIColor *)val;
 
 @end
