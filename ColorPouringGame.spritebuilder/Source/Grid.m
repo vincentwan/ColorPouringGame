@@ -13,7 +13,6 @@
 // these are variables that cannot be changed
 static const int GRID_ROWS = 8;
 static const int GRID_COLUMNS = 10;
-extern UIColor * currColor;
 
 @implementation Grid {
     NSMutableArray *_gridArray;
@@ -85,7 +84,7 @@ extern UIColor * currColor;
     //invert it's state - kill it if it's alive, bring it to life if it's dead.
     if(!creature.isAlive) {
         creature.isAlive = true;
-        [creature setColor:[CCColor colorWithUIColor:currColor]];
+        [creature setColor:[CCColor colorWithUIColor:MainScene.currColor]];
     }
 }
 
