@@ -15,13 +15,13 @@
     CCLabelTTF *_generationLabel;
     CCLabelTTF *_populationLabel;
 }
-
+/*
 static UIColor * currColor;
 + (UIColor *) currColor
 { @synchronized(self) { return currColor; } }
 + (void) setCurrColor:(UIColor *)val
 { @synchronized(self) { currColor = val; } }
-
+*/
 - (id)init
 {
     self = [super init];
@@ -43,7 +43,7 @@ static UIColor * currColor;
 {
     [self unschedule:@selector(step)];
 }
-
+/*
 - (void)selectred
 {
     currColor = [UIColor colorWithRed:255.0f/255.0f
@@ -70,7 +70,7 @@ static UIColor * currColor;
                     alpha:1.0f];
     NSLog(@"Here blue!");
 }
-
+*/
 
 // this method will get called every half second when you hit the play button and will stop getting called when you hi the pause button
 - (void)step
