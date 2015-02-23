@@ -36,6 +36,7 @@
 		B77F1B3E17B978D7009739AE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B3D17B978D7009739AE /* Foundation.framework */; };
 		B77F1B4017B978D7009739AE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B3F17B978D7009739AE /* CoreGraphics.framework */; };
 		B77F1B4217B978D7009739AE /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B4117B978D7009739AE /* CoreText.framework */; };
+		BF76B3511A9ADD6A0077624B /* ColorPick.m in Sources */ = {isa = PBXBuildFile; fileRef = BF76B3501A9ADD6A0077624B /* ColorPick.m */; };
 		BFB704D81A79DB1F00497817 /* Grid.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB704D71A79DB1F00497817 /* Grid.m */; };
 		BFB704DE1A79DE0100497817 /* Creature.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB704DD1A79DE0100497817 /* Creature.m */; };
 /* End PBXBuildFile section */
@@ -106,6 +107,8 @@
 		B77F1B3F17B978D7009739AE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		B77F1B4117B978D7009739AE /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		B7B3713D180358F1007369CC /* libObjectiveChipmunk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libObjectiveChipmunk.a; path = "../libs/cocos2d-iphone/external/Chipmunk/xcode/build/Debug-iphoneos/libObjectiveChipmunk.a"; sourceTree = "<group>"; };
+		BF76B34F1A9ADD6A0077624B /* ColorPick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorPick.h; path = Source/ColorPick.h; sourceTree = "<group>"; };
+		BF76B3501A9ADD6A0077624B /* ColorPick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ColorPick.m; path = Source/ColorPick.m; sourceTree = "<group>"; };
 		BFB704D61A79DB1F00497817 /* Grid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Grid.h; path = Source/Grid.h; sourceTree = "<group>"; };
 		BFB704D71A79DB1F00497817 /* Grid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Grid.m; path = Source/Grid.m; sourceTree = "<group>"; };
 		BFB704DC1A79DE0100497817 /* Creature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Creature.h; path = Source/Creature.h; sourceTree = "<group>"; };
@@ -153,6 +156,8 @@
 				B737893E1807617C0076A88C /* AppDelegate.m */,
 				B7378992180767190076A88C /* MainScene.h */,
 				B7378993180767190076A88C /* MainScene.m */,
+				BF76B34F1A9ADD6A0077624B /* ColorPick.h */,
+				BF76B3501A9ADD6A0077624B /* ColorPick.m */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -382,6 +387,7 @@
 			files = (
 				B737893F1807617C0076A88C /* AppDelegate.m in Sources */,
 				B7378994180767190076A88C /* MainScene.m in Sources */,
+				BF76B3511A9ADD6A0077624B /* ColorPick.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
 				BFB704D81A79DB1F00497817 /* Grid.m in Sources */,
 				BFB704DE1A79DE0100497817 /* Creature.m in Sources */,
