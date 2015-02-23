@@ -32,10 +32,10 @@
     //self.colorRGBA = [CCColor colorWithCcColor3b:<#(ccColor3B)#>];
 }
 
-- (void)setColor:(CCColor *)col {
+- (void)setColor:(UIColor *)col {
     //when you create an @property as we did in the .h, an instance variable with a leading underscore is automatically created for you
     _ccolor = col;
-    self.colorRGBA = _ccolor;
+    self.colorRGBA = [CCColor colorWithUIColor:_ccolor];
     //NSLog(@"Here!");
     
     //self.colorRGBA = [CCColor colorWithCcColor3b:<#(ccColor3B)#>];

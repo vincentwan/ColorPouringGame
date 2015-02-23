@@ -9,6 +9,7 @@
 #import "Grid.h"
 #import "Creature.h"
 #import "MainScene.h"
+#import "UIColor+Mixing.h"
 
 // these are variables that cannot be changed
 static const int GRID_ROWS = 8;
@@ -74,7 +75,11 @@ static const int GRID_COLUMNS = 10;
     CGPoint touchLocation = [touch locationInNode:self];
     
     //get the Creature at that location
-    Creature *creature = [self creatureForTouchPosition:touchLocation];
+    
+    int row = touchLocation.y / _cellHeight;
+    int column = touchLocation.x / _cellWidth;
+    
+    Creature *creature = _gridArray[row][column];
     /*
     UIColor * tempC = [UIColor colorWithRed:60.0f/255.0f
                                       green:75.0f/255.0f
@@ -84,7 +89,18 @@ static const int GRID_COLUMNS = 10;
     //invert it's state - kill it if it's alive, bring it to life if it's dead.
     if(!creature.isAlive) {
         creature.isAlive = true;
-        [creature setColor:[CCColor colorWithUIColor:MainScene.currColor]];
+        [creature setColor:MainScene.currColor];
+    }
+    if(row>0) {
+        Creature * temp = _gridArray[row][column];
+        if(temp.isAlive) {
+            /*
+            [temp setColor:[UIColor rgbMixForColors:[NSArray arrayWithObjects:
+                            [UIColor colorWithCGColor:temp.colorRGBA],
+                            [UIColor colorWithCGColor:self.L13.layer.backgroundColor],
+                            nil]]];
+             */
+        }
     }
 }
 
