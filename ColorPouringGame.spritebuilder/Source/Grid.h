@@ -7,11 +7,14 @@
 //
 
 #import "CCSprite.h"
+#import "MainScene.h"
 
 @interface Grid : CCSprite
 
 @property (nonatomic, assign) int totalAlive;
 @property (nonatomic, assign) int generation;
+
+extern UIColor * currColor;
 
 - (void)evolveStep;
 - (void)countNeighbors;

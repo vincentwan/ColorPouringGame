@@ -10,6 +10,6 @@
 
 @interface MainScene : CCNode
 
-
+@property (nonatomic, assign) UIColor * currColor;
 
 @end

@@ -10,7 +10,7 @@
 		<false/>
 	</dict>
 	<key>UUID</key>
-	<integer>38</integer>
+	<integer>45</integer>
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
@@ -1936,7 +1936,7 @@
 										<string>Block</string>
 										<key>value</key>
 										<array>
-											<string>selectcolor</string>
+											<string>selectblue</string>
 											<integer>1</integer>
 										</array>
 									</dict>
@@ -2264,7 +2264,7 @@
 										<string>Block</string>
 										<key>value</key>
 										<array>
-											<string>selectcolor</string>
+											<string>selectyellow</string>
 											<integer>1</integer>
 										</array>
 									</dict>
@@ -2522,7 +2522,7 @@
 							</dict>
 							<dict>
 								<key>UUID</key>
-								<integer>35</integer>
+								<integer>42</integer>
 								<key>baseClass</key>
 								<string>CCButton</string>
 								<key>children</key>
@@ -2590,7 +2590,7 @@
 										<string>Block</string>
 										<key>value</key>
 										<array>
-											<string>selectcolor</string>
+											<string>selectred</string>
 											<integer>1</integer>
 										</array>
 									</dict>
@@ -3134,7 +3134,7 @@
 			<key>name</key>
 			<string>Default Timeline</string>
 			<key>offset</key>
-			<real>0.07500457763671875</real>
+			<real>0.0500030517578125</real>
 			<key>position</key>
 			<real>0.0</real>
 			<key>resolution</key>

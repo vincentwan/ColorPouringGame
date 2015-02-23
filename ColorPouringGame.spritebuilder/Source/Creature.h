@@ -14,6 +14,7 @@
 @property (nonatomic, assign) BOOL isAlive;
 @property (nonatomic, assign) CCColor * ccolor;
 
+
 // stores the amount of living neighbors
 @property (nonatomic, assign) NSInteger livingNeighbors;
 
