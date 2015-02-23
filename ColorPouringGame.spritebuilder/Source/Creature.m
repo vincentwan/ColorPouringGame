@@ -34,7 +34,7 @@
 
 - (void)setCcolor:(UIColor *)col {
     //when you create an @property as we did in the .h, an instance variable with a leading underscore is automatically created for you
-    _ccolor = [col mutableCopy];
+    _ccolor = [col copy];
     self.colorRGBA = [CCColor colorWithUIColor:_ccolor];
     //NSLog(@"Here!");
     
