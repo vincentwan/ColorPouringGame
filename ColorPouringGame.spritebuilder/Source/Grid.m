@@ -88,8 +88,13 @@ static const int GRID_COLUMNS = 10;
     */
     //invert it's state - kill it if it's alive, bring it to life if it's dead.
     if(!creature.isAlive) {
+        CGFloat c1, c2, c3, notUsed;
         creature.isAlive = true;
         [creature setCcolor:MainScene.currColor];
+        [MainScene.currColor getRed:&c1 green:&c2 blue:&c3 alpha:&notUsed];
+        NSLog(@"red: %g\n",c1);
+        NSLog(@"green: %g\n",c2);
+        NSLog(@"blue: %g\n",c3);
     }
     if(row>0) {
         Creature * temp = _gridArray[row-1][column];
