@@ -89,12 +89,12 @@ static const int GRID_COLUMNS = 10;
     //invert it's state - kill it if it's alive, bring it to life if it's dead.
     if(!creature.isAlive) {
         creature.isAlive = true;
-        [creature setColor:MainScene.currColor];
+        [creature setCcolor:MainScene.currColor];
     }
     if(row>0) {
         Creature * temp = _gridArray[row-1][column];
         if(temp.isAlive) {
-            [temp setColor:[UIColor rgbMixForColors:[NSArray arrayWithObjects:
+            [temp setCcolor:[UIColor rgbMixForColors:[NSArray arrayWithObjects:
                             temp.colorRGBA,
                             creature.colorRGBA,
                             nil]]];
@@ -103,7 +103,7 @@ static const int GRID_COLUMNS = 10;
     if(row<GRID_ROWS-1) {
         Creature * temp = _gridArray[row+1][column];
         if(temp.isAlive) {
-            [temp setColor:[UIColor rgbMixForColors:[NSArray arrayWithObjects:
+            [temp setCcolor:[UIColor rgbMixForColors:[NSArray arrayWithObjects:
                             temp.colorRGBA,
                             creature.colorRGBA,
                             nil]]];
@@ -112,7 +112,7 @@ static const int GRID_COLUMNS = 10;
     if(column>0) {
         Creature * temp = _gridArray[row][column-1];
         if(temp.isAlive) {
-            [temp setColor:[UIColor rgbMixForColors:[NSArray arrayWithObjects:
+            [temp setCcolor:[UIColor rgbMixForColors:[NSArray arrayWithObjects:
                             temp.colorRGBA,
                             creature.colorRGBA,
                             nil]]];
@@ -121,7 +121,7 @@ static const int GRID_COLUMNS = 10;
     if(column<GRID_COLUMNS-1) {
         Creature * temp = _gridArray[row][column+1];
         if(temp.isAlive) {
-            [temp setColor:[UIColor rgbMixForColors:[NSArray arrayWithObjects:
+            [temp setCcolor:[UIColor rgbMixForColors:[NSArray arrayWithObjects:
                             temp.colorRGBA,
                             creature.colorRGBA,
                             nil]]];
