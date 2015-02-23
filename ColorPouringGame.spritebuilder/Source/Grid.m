@@ -92,14 +92,39 @@ static const int GRID_COLUMNS = 10;
         [creature setColor:MainScene.currColor];
     }
     if(row>0) {
-        Creature * temp = _gridArray[row][column];
+        Creature * temp = _gridArray[row-1][column];
         if(temp.isAlive) {
-            /*
             [temp setColor:[UIColor rgbMixForColors:[NSArray arrayWithObjects:
-                            [UIColor colorWithCGColor:temp.colorRGBA],
-                            [UIColor colorWithCGColor:self.L13.layer.backgroundColor],
+                            temp.colorRGBA,
+                            creature.colorRGBA,
                             nil]]];
-             */
+        }
+    }
+    if(row<GRID_ROWS-1) {
+        Creature * temp = _gridArray[row+1][column];
+        if(temp.isAlive) {
+            [temp setColor:[UIColor rgbMixForColors:[NSArray arrayWithObjects:
+                            temp.colorRGBA,
+                            creature.colorRGBA,
+                            nil]]];
+        }
+    }
+    if(column>0) {
+        Creature * temp = _gridArray[row][column-1];
+        if(temp.isAlive) {
+            [temp setColor:[UIColor rgbMixForColors:[NSArray arrayWithObjects:
+                            temp.colorRGBA,
+                            creature.colorRGBA,
+                            nil]]];
+        }
+    }
+    if(column<GRID_COLUMNS-1) {
+        Creature * temp = _gridArray[row][column+1];
+        if(temp.isAlive) {
+            [temp setColor:[UIColor rgbMixForColors:[NSArray arrayWithObjects:
+                            temp.colorRGBA,
+                            creature.colorRGBA,
+                            nil]]];
         }
     }
 }
