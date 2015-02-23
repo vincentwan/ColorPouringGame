@@ -110,10 +110,11 @@ static const int GRID_COLUMNS = 10;
     if(row<GRID_ROWS-1) {
         Creature * temp = _gridArray[row+1][column];
         if(temp.isAlive) {
-            [temp setCcolor:[UIColor rgbMixForColors:[NSArray arrayWithObjects:
-                            temp.ccolor,
-                            creature.ccolor,
-                            nil]]];
+            UIColor * ctemp = [UIColor rgbMixForColors:[NSArray arrayWithObjects:
+                                                temp.ccolor,
+                                                creature.ccolor,
+                                                nil]];
+            [temp setCcolor: ctemp];
         }
     }
     if(column>0) {
