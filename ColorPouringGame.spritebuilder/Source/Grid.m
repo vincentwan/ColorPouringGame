@@ -84,7 +84,7 @@ static const int GRID_COLUMNS = 10;
     //invert it's state - kill it if it's alive, bring it to life if it's dead.
     if(!creature.isAlive) {
         creature.isAlive = true;
-        [creature setColor:[CCColor colorWithUIColor:MainScene.currColor]];
+        //[creature setColor:[CCColor colorWithUIColor:MainScene.currColor]];
     }
 }
 
