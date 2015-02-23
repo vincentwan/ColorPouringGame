@@ -79,15 +79,9 @@
 			<true/>
 		</dict>
 		<key>ColorPouringAssets</key>
-		<dict>
-			<key>isDirty</key>
-			<true/>
-		</dict>
+		<dict/>
 		<key>ColorPouringAssets/BackgroundImage</key>
-		<dict>
-			<key>isDirty</key>
-			<true/>
-		</dict>
+		<dict/>
 		<key>Sprites</key>
 		<dict/>
 		<key>ccbResources</key>
