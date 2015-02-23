@@ -73,7 +73,7 @@ static UIColor * currColor;
                     green:0.0f/255.0f
                     blue:255.0f/255.0f
                     alpha:1.0f];
-     
+    
     NSLog(@"Here blue!");
 }
 
