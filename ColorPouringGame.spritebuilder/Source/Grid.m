@@ -92,16 +92,18 @@ static const int GRID_COLUMNS = 10;
         creature.isAlive = true;
         [creature setCcolor:MainScene.currColor];
         [MainScene.currColor getRed:&c1 green:&c2 blue:&c3 alpha:&notUsed];
+        /*
         NSLog(@"red: %g\n",c1);
         NSLog(@"green: %g\n",c2);
         NSLog(@"blue: %g\n",c3);
+         */
     }
     if(row>0) {
         Creature * temp = _gridArray[row-1][column];
         if(temp.isAlive) {
             [temp setCcolor:[UIColor rgbMixForColors:[NSArray arrayWithObjects:
-                            temp.colorRGBA,
-                            creature.colorRGBA,
+                            temp.ccolor,
+                            creature.ccolor,
                             nil]]];
         }
     }
@@ -109,8 +111,8 @@ static const int GRID_COLUMNS = 10;
         Creature * temp = _gridArray[row+1][column];
         if(temp.isAlive) {
             [temp setCcolor:[UIColor rgbMixForColors:[NSArray arrayWithObjects:
-                            temp.colorRGBA,
-                            creature.colorRGBA,
+                            temp.ccolor,
+                            creature.ccolor,
                             nil]]];
         }
     }
@@ -118,8 +120,8 @@ static const int GRID_COLUMNS = 10;
         Creature * temp = _gridArray[row][column-1];
         if(temp.isAlive) {
             [temp setCcolor:[UIColor rgbMixForColors:[NSArray arrayWithObjects:
-                            temp.colorRGBA,
-                            creature.colorRGBA,
+                            temp.ccolor,
+                            creature.ccolor,
                             nil]]];
         }
     }
@@ -127,8 +129,8 @@ static const int GRID_COLUMNS = 10;
         Creature * temp = _gridArray[row][column+1];
         if(temp.isAlive) {
             [temp setCcolor:[UIColor rgbMixForColors:[NSArray arrayWithObjects:
-                            temp.colorRGBA,
-                            creature.colorRGBA,
+                            temp.ccolor,
+                            creature.ccolor,
                             nil]]];
         }
     }
