@@ -8,10 +8,12 @@
 
 #import "Grid.h"
 #import "Creature.h"
+#import "MainScene.h"
 
 // these are variables that cannot be changed
 static const int GRID_ROWS = 8;
 static const int GRID_COLUMNS = 10;
+extern UIColor * currColor;
 
 @implementation Grid {
     NSMutableArray *_gridArray;
