@@ -38,6 +38,7 @@
 		B77F1B4217B978D7009739AE /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B4117B978D7009739AE /* CoreText.framework */; };
 		BFB704D81A79DB1F00497817 /* Grid.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB704D71A79DB1F00497817 /* Grid.m */; };
 		BFB704DE1A79DE0100497817 /* Creature.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB704DD1A79DE0100497817 /* Creature.m */; };
+		BFDABBCF1A9B06E6001D921A /* UIColor+Mixing.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDABBCE1A9B06E6001D921A /* UIColor+Mixing.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +111,8 @@
 		BFB704D71A79DB1F00497817 /* Grid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Grid.m; path = Source/Grid.m; sourceTree = "<group>"; };
 		BFB704DC1A79DE0100497817 /* Creature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Creature.h; path = Source/Creature.h; sourceTree = "<group>"; };
 		BFB704DD1A79DE0100497817 /* Creature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Creature.m; path = Source/Creature.m; sourceTree = "<group>"; };
+		BFDABBCD1A9B06E6001D921A /* UIColor+Mixing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+Mixing.h"; path = "../../Materials/UIColor-Mixing-master/UIColorMixExample/UIColor+Mixing.h"; sourceTree = "<group>"; };
+		BFDABBCE1A9B06E6001D921A /* UIColor+Mixing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+Mixing.m"; path = "../../Materials/UIColor-Mixing-master/UIColorMixExample/UIColor+Mixing.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +194,7 @@
 		B77F1B2517B978D7009739AE = {
 			isa = PBXGroup;
 			children = (
+				BFDABBCC1A9B06BE001D921A /* UIColorMixing */,
 				B737893C1807616C0076A88C /* Source */,
 				B77F1B4617B978D7009739AE /* Resources */,
 				9222E2B918734FF800A246C7 /* libs */,
@@ -243,6 +247,15 @@
 				B73789861807631A0076A88C /* Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BFDABBCC1A9B06BE001D921A /* UIColorMixing */ = {
+			isa = PBXGroup;
+			children = (
+				BFDABBCD1A9B06E6001D921A /* UIColor+Mixing.h */,
+				BFDABBCE1A9B06E6001D921A /* UIColor+Mixing.m */,
+			);
+			name = UIColorMixing;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -381,6 +394,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B737893F1807617C0076A88C /* AppDelegate.m in Sources */,
+				BFDABBCF1A9B06E6001D921A /* UIColor+Mixing.m in Sources */,
 				B7378994180767190076A88C /* MainScene.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
 				BFB704D81A79DB1F00497817 /* Grid.m in Sources */,
