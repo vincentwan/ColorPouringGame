@@ -16,6 +16,12 @@
     CCLabelTTF *_populationLabel;
 }
 
+static UIColor * currColor;
++ (UIColor *) currColor
+{ @synchronized(self) { return currColor; } }
++ (void) setCurrColor:(UIColor *)val
+{ @synchronized(self) { currColor = val; } }
+
 - (id)init
 {
     self = [super init];
@@ -40,7 +46,7 @@
 
 - (void)selectred
 {
-    _currColor = [UIColor colorWithRed:255.0f/255.0f
+    currColor = [UIColor colorWithRed:255.0f/255.0f
                     green:0.0f/255.0f
                     blue:0.0f/255.0f
                     alpha:1.0f];
@@ -49,7 +55,7 @@
 
 - (void)selectyellow
 {
-    _currColor = [UIColor colorWithRed:255.0f/255.0f
+    currColor = [UIColor colorWithRed:255.0f/255.0f
                     green:255.0f/255.0f
                     blue:0.0f/255.0f
                     alpha:1.0f];
@@ -58,7 +64,7 @@
 
 - (void)selectblue
 {
-    _currColor = [UIColor colorWithRed:0.0f/255.0f
+    currColor = [UIColor colorWithRed:0.0f/255.0f
                     green:0.0f/255.0f
                     blue:255.0f/255.0f
                     alpha:1.0f];
