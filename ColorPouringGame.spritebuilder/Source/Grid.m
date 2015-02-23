@@ -74,9 +74,9 @@ static const int GRID_COLUMNS = 10;
     
     //get the Creature at that location
     Creature *creature = [self creatureForTouchPosition:touchLocation];
-    UIColor * tempC = [UIColor colorWithRed:255.0f/255.0f
-                                      green:255.0f/255.0f
-                                       blue:255.0f/255.0f
+    UIColor * tempC = [UIColor colorWithRed:60.0f/255.0f
+                                      green:75.0f/255.0f
+                                       blue:85.0f/255.0f
                                       alpha:1.0f];
     
     //invert it's state - kill it if it's alive, bring it to life if it's dead.
