@@ -48,8 +48,8 @@ static UIColor * currColor;
 {
     
     currColor = [UIColor colorWithRed:255.0f/255.0f
-                    green:89.0f/255.0f
-                    blue:116.0f/255.0f
+                    green:83.0f/255.0f
+                    blue:111.0f/255.0f
                     alpha:1.0f];
     
     NSLog(@"Here red!");
