@@ -71,6 +71,15 @@ static UIColor * currColor;
     NSLog(@"Here blue!");
 }
 
+- (void)restart
+{
+    currColor = [UIColor colorWithRed:18.0f/255.0f
+                                green:83.0f/255.0f
+                                 blue:255.0f/255.0f
+                                alpha:1.0f];
+    NSLog(@"Here blue!");
+}
+
 
 // this method will get called every half second when you hit the play button and will stop getting called when you hi the pause button
 - (void)step
