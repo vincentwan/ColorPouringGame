@@ -15,6 +15,7 @@
 static const int GRID_ROWS = 8;
 static const int GRID_COLUMNS = 10;
 
+
 @implementation Grid {
     NSMutableArray *_gridArray;
     float _cellWidth;
@@ -239,6 +240,16 @@ static const int GRID_COLUMNS = 10;
         isIndexValid = NO;
     }
     return isIndexValid;
+}
+
+- (void)clearCreatures
+{
+    for (int i = 0; i < GRID_ROWS; i++) {
+        for (int j = 0; j < GRID_COLUMNS; j++) {
+            Creature *currentCreature = _gridArray[i][j];
+            currentCreature.isAlive=false;
+        }
+    }
 }
 
 @end

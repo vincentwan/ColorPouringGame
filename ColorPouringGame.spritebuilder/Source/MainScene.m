@@ -9,6 +9,10 @@
 #import "MainScene.h"
 #import "Grid.h"
 
+
+extern const int GRID_ROWS;
+extern const int GRID_COLUMNS;
+
 @implementation MainScene {
     Grid *_grid;
     CCTimer *_timer;
@@ -73,11 +77,8 @@ static UIColor * currColor;
 
 - (void)restart
 {
-    currColor = [UIColor colorWithRed:18.0f/255.0f
-                                green:83.0f/255.0f
-                                 blue:255.0f/255.0f
-                                alpha:1.0f];
-    NSLog(@"Here blue!");
+    [_grid clearCreatures];
+    NSLog(@"Restart!");
 }
 
 

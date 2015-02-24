@@ -302,7 +302,7 @@
 												<string>Text</string>
 												<key>value</key>
 												<array>
-													<string>Population</string>
+													<string>Accuracy</string>
 													<false/>
 												</array>
 											</dict>
@@ -671,6 +671,8 @@
 												</array>
 											</dict>
 										</array>
+										<key>selected</key>
+										<true/>
 									</dict>
 									<dict>
 										<key>UUID</key>
@@ -742,7 +744,7 @@
 												<string>Text</string>
 												<key>value</key>
 												<array>
-													<string>Generation</string>
+													<string>Finished</string>
 													<false/>
 												</array>
 											</dict>
@@ -1539,8 +1541,6 @@
 										</array>
 									</dict>
 								</array>
-								<key>selected</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>UUID</key>
