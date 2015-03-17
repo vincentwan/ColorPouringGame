@@ -21,6 +21,6 @@
 @property (nonatomic, assign) int totalAlive;
 @property (nonatomic, assign) int generation;
 
-- (id)initCreature;
+- (instancetype)initCreaturewithX:(double) xlen andY:(double) ylen;
 
 @end
