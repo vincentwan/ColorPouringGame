@@ -27,6 +27,7 @@ static const int GRID_COLUMNS = 10;
 - (void)onEnter
 {
     [super onEnter];
+    self.visible = false;
     
     [self setupGrid];
     
