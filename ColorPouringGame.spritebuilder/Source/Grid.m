@@ -65,7 +65,7 @@ static const int GRID_COLUMNS = 10;
             
             Creature *creature = [[Creature alloc] initCreaturewithX:(_cellWidth/1.2) andY:(_cellHeight/1.2)];
             creature.anchorPoint = ccp(0.5, 0.5);
-            creature.position = ccp(x, y);
+            creature.position = ccp(x+(_cellWidth/2), y+(_cellHeight/2));
             
  
             
