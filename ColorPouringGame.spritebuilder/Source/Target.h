@@ -13,6 +13,6 @@
 // stores the current state of the creature
 @property (nonatomic, retain) UIColor * ccolor;
 
-- (id)initCreature;
+- (id)initTarget:(double) scale;
 
 @end

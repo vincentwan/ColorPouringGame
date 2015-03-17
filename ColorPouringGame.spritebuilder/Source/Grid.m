@@ -8,6 +8,7 @@
 
 #import "Grid.h"
 #import "Creature.h"
+#import "Target.h"
 #import "MainScene.h"
 #import "UIColor+Mixing.h"
 
@@ -17,7 +18,8 @@ static const int GRID_COLUMNS = 10;
 
 
 @implementation Grid {
-    NSMutableArray *_gridArray;
+    NSMutableArray *_colorCell;
+    NSMutableArray *_colorTarget;
     float _cellWidth;
     float _cellHeight;
 }
@@ -45,22 +47,29 @@ static const int GRID_COLUMNS = 10;
     _totalAlive = 0;
     
     // initialize the array as a blank NSMutableArray
-    _gridArray = [NSMutableArray array];
+    _colorCell = [NSMutableArray array];
+    _colorTarget = [NSMutableArray array];
     
     // initialize Creatures
     for (int i = 0; i < GRID_ROWS; i++) {
         // this is how you create two dimensional arrays in Objective-C. You put arrays into arrays.
-        _gridArray[i] = [NSMutableArray array];
+        _colorCell[i] = [NSMutableArray array];
+        _colorTarget[i] = [NSMutableArray array];
         x = 0;
         
         for (int j = 0; j < GRID_COLUMNS; j++) {
             Creature *creature = [[Creature alloc] initCreature];
             creature.anchorPoint = ccp(0, 0);
             creature.position = ccp(x, y);
+            
+            Target *targetcolor = [[Target alloc] initTarget:1.1];
+            targetcolor.anchorPoint = ccp(0,0);
+            targetcolor.position = ccp(x,y);
+            
             [self addChild:creature];
             
             // this is shorthand to access an array inside an array
-            _gridArray[i][j] = creature;
+            _colorCell[i][j] = creature;
             
             
             x+=_cellWidth;
@@ -80,7 +89,7 @@ static const int GRID_COLUMNS = 10;
     int row = touchLocation.y / _cellHeight;
     int column = touchLocation.x / _cellWidth;
     
-    Creature *creature = _gridArray[row][column];
+    Creature *creature = _colorCell[row][column];
     /*
     UIColor * tempC = [UIColor colorWithRed:60.0f/255.0f
                                       green:75.0f/255.0f
@@ -100,7 +109,7 @@ static const int GRID_COLUMNS = 10;
          */
     }
     if(row>0) {
-        Creature * temp = _gridArray[row-1][column];
+        Creature * temp = _colorCell[row-1][column];
         if(temp.isAlive) {
             [temp setCcolor:[UIColor rgbMixForColors:[NSArray arrayWithObjects:
                             temp.ccolor,
@@ -109,7 +118,7 @@ static const int GRID_COLUMNS = 10;
         }
     }
     if(row<GRID_ROWS-1) {
-        Creature * temp = _gridArray[row+1][column];
+        Creature * temp = _colorCell[row+1][column];
         if(temp.isAlive) {
             UIColor * ctemp = [UIColor rgbMixForColors:[NSArray arrayWithObjects:
                                 temp.ccolor,
@@ -119,7 +128,7 @@ static const int GRID_COLUMNS = 10;
         }
     }
     if(column>0) {
-        Creature * temp = _gridArray[row][column-1];
+        Creature * temp = _colorCell[row][column-1];
         if(temp.isAlive) {
             [temp setCcolor:[UIColor rgbMixForColors:[NSArray arrayWithObjects:
                             temp.ccolor,
@@ -128,7 +137,7 @@ static const int GRID_COLUMNS = 10;
         }
     }
     if(column<GRID_COLUMNS-1) {
-        Creature * temp = _gridArray[row][column+1];
+        Creature * temp = _colorCell[row][column+1];
         if(temp.isAlive) {
             [temp setCcolor:[UIColor rgbMixForColors:[NSArray arrayWithObjects:
                             temp.ccolor,
@@ -143,7 +152,7 @@ static const int GRID_COLUMNS = 10;
     //get the row and column that was touched, return the Creature inside the corresponding cell
     int row = touchPosition.y / _cellHeight;
     int column = touchPosition.x / _cellWidth;
-    return _gridArray[row][column];
+    return _colorCell[row][column];
 }
 
 - (void)evolveStep
@@ -163,13 +172,13 @@ static const int GRID_COLUMNS = 10;
 {
     // iterate through the rows
     // note that NSArray has a method 'count' that will return the number of elements in the array
-    for (int i = 0; i < [_gridArray count]; i++)
+    for (int i = 0; i < [_colorCell count]; i++)
     {
         // iterate through all the columns for a given row
-        for (int j = 0; j < [_gridArray[i] count]; j++)
+        for (int j = 0; j < [_colorCell[i] count]; j++)
         {
             // access the creature in the cell that corresponds to the current row/column
-            Creature *currentCreature = _gridArray[i][j];
+            Creature *currentCreature = _colorCell[i][j];
             
             // remember that every creature has a 'livingNeighbors' property that we created earlier
             currentCreature.livingNeighbors = 0;
@@ -189,7 +198,7 @@ static const int GRID_COLUMNS = 10;
                     // skip over all cells that are off screen AND the cell that contains the creature we are currently updating
                     if (!((x == i) && (y == j)) && isIndexValid)
                     {
-                        Creature *neighbor = _gridArray[x][y];
+                        Creature *neighbor = _colorCell[x][y];
                         if (neighbor.isAlive)
                         {
                             currentCreature.livingNeighbors += 1;
@@ -206,13 +215,13 @@ static const int GRID_COLUMNS = 10;
     // iterate through the rows
     // note that NSArray has a method 'count' that will return the number of elements in the array
     int numAlive = 0;
-    for (int i = 0; i < [_gridArray count]; i++)
+    for (int i = 0; i < [_colorCell count]; i++)
     {
         // iterate through all the columns for a given row
-        for (int j = 0; j < [_gridArray[i] count]; j++)
+        for (int j = 0; j < [_colorCell[i] count]; j++)
         {
             // access the creature in the cell that corresponds to the current row/column
-            Creature *currentCreature = _gridArray[i][j];
+            Creature *currentCreature = _colorCell[i][j];
             long liveNeighbors = currentCreature.livingNeighbors;
             if (liveNeighbors == 3)
             {
@@ -246,7 +255,7 @@ static const int GRID_COLUMNS = 10;
 {
     for (int i = 0; i < GRID_ROWS; i++) {
         for (int j = 0; j < GRID_COLUMNS; j++) {
-            Creature *currentCreature = _gridArray[i][j];
+            Creature *currentCreature = _colorCell[i][j];
             currentCreature.isAlive=false;
         }
     }
