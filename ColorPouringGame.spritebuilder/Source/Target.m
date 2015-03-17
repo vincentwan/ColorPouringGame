@@ -10,10 +10,11 @@
 
 @implementation Target
 
-- (instancetype)initTarget:(double) scale {
+- (instancetype)initTargetwithX:(double) xlen andY:(double) ylen {
     // since we made Creature inherit from CCSprite, 'super' below refers to CCSprite
     self = [super initWithImageNamed:@"ColorPouringAssets/Assets/cell.png"];
-    [super setScaleX:scale];
+    [super setScaleX:(xlen/self.contentSize.width)];
+    [super setScaleY:(ylen/self.contentSize.height)];
     self.visible = true;
     return self;
 }
