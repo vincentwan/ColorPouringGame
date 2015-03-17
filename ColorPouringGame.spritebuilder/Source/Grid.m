@@ -59,20 +59,24 @@ static const int GRID_COLUMNS = 10;
         x = 0;
         
         for (int j = 0; j < GRID_COLUMNS; j++) {
-            Creature *creature = [[Creature alloc] initCreature];
-            creature.anchorPoint = ccp(0, 0);
-            creature.position = ccp(x, y);
-            
             Target *targetcolor = [[Target alloc] initTargetwithX:_cellWidth andY:_cellHeight];
             targetcolor.anchorPoint = ccp(0,0);
             targetcolor.position = ccp(x,y);
             
-            [self addChild:creature];
+            Creature *creature = [[Creature alloc] initCreature];
+            creature.anchorPoint = ccp(0, 0);
+            creature.position = ccp(x, y);
+            
+ 
+            
             [self addChild:targetcolor];
+            [self addChild:creature];
+            
             
             // this is shorthand to access an array inside an array
-            _colorCell[i][j] = creature;
             _colorTarget[i][j] = targetcolor;
+            _colorCell[i][j] = creature;
+
             
             x+=_cellWidth;
         }
