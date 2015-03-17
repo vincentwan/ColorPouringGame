@@ -68,10 +68,11 @@ static const int GRID_COLUMNS = 10;
             targetcolor.position = ccp(x,y);
             
             [self addChild:creature];
+            [self addChild:targetcolor];
             
             // this is shorthand to access an array inside an array
             _colorCell[i][j] = creature;
-            
+            _colorTarget[i][j] = targetcolor;
             
             x+=_cellWidth;
         }
