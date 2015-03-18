@@ -18,9 +18,8 @@ add obstacles
 
 or
 
-add obstacles 
-set more levels 
-
+add obstacles
+set more levels
 according to the difficulty of current game through playtests
 
 week 3
