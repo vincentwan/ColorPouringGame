@@ -38,6 +38,7 @@
 		B77F1B4217B978D7009739AE /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B4117B978D7009739AE /* CoreText.framework */; };
 		BF42F7871AB8AE15001567D2 /* Level.m in Sources */ = {isa = PBXBuildFile; fileRef = BF42F7861AB8AE15001567D2 /* Level.m */; };
 		BF42F7931AB8E42C001567D2 /* Target.m in Sources */ = {isa = PBXBuildFile; fileRef = BF42F7921AB8E42C001567D2 /* Target.m */; };
+		BF42F79A1AB915A2001567D2 /* Level_0.json in Resources */ = {isa = PBXBuildFile; fileRef = BF42F7991AB915A2001567D2 /* Level_0.json */; };
 		BFB704D81A79DB1F00497817 /* Grid.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB704D71A79DB1F00497817 /* Grid.m */; };
 		BFB704DE1A79DE0100497817 /* Creature.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB704DD1A79DE0100497817 /* Creature.m */; };
 		BFDABBCF1A9B06E6001D921A /* UIColor+Mixing.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDABBCE1A9B06E6001D921A /* UIColor+Mixing.m */; };
@@ -113,6 +114,7 @@
 		BF42F7861AB8AE15001567D2 /* Level.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Level.m; path = Source/Level.m; sourceTree = "<group>"; };
 		BF42F7911AB8E42C001567D2 /* Target.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Target.h; path = Source/Target.h; sourceTree = "<group>"; };
 		BF42F7921AB8E42C001567D2 /* Target.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Target.m; path = Source/Target.m; sourceTree = "<group>"; };
+		BF42F7991AB915A2001567D2 /* Level_0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_0.json; sourceTree = "<group>"; };
 		BFB704D61A79DB1F00497817 /* Grid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Grid.h; path = Source/Grid.h; sourceTree = "<group>"; };
 		BFB704D71A79DB1F00497817 /* Grid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Grid.m; path = Source/Grid.m; sourceTree = "<group>"; };
 		BFB704DC1A79DE0100497817 /* Creature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Creature.h; path = Source/Creature.h; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 		B77F1B2517B978D7009739AE = {
 			isa = PBXGroup;
 			children = (
+				BF42F7981AB90B6A001567D2 /* Levels */,
 				BFDABBCC1A9B06BE001D921A /* UIColorMixing */,
 				B737893C1807616C0076A88C /* Source */,
 				B77F1B4617B978D7009739AE /* Resources */,
@@ -257,6 +260,14 @@
 				B73789861807631A0076A88C /* Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BF42F7981AB90B6A001567D2 /* Levels */ = {
+			isa = PBXGroup;
+			children = (
+				BF42F7991AB915A2001567D2 /* Level_0.json */,
+			);
+			name = Levels;
 			sourceTree = "<group>";
 		};
 		BFDABBCC1A9B06BE001D921A /* UIColorMixing */ = {
@@ -372,6 +383,7 @@
 				B7378976180762440076A88C /* Default-Landscape~ipad.png in Resources */,
 				B71F5915188484E7003F4D28 /* iPhone-old.png in Resources */,
 				B71F5917188484E7003F4D28 /* iPhone.png in Resources */,
+				BF42F79A1AB915A2001567D2 /* Level_0.json in Resources */,
 				B7378975180762440076A88C /* Default-568h@2x.png in Resources */,
 				B71F5918188484E7003F4D28 /* iPhone@2x.png in Resources */,
 				B7378977180762440076A88C /* Default.png in Resources */,
