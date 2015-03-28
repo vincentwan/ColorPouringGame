@@ -60,8 +60,10 @@ static const int GRID_COLUMNS = 10;
         x = 0;
         
         for (int j = 0; j < GRID_COLUMNS; j++) {
+            int serial = [tlevel serialAtX:i andY:j];
+            NSLog(@"Here's %d, %d: %d\n", i, j, serial);
             Target *targetcolor = [[Target alloc] initTargetwithX:_cellWidth andY:_cellHeight
-                                                         andImage:[tlevel serialAtX:i andY:j]];
+                                                         andImage:serial];
             targetcolor.anchorPoint = ccp(0,0);
             targetcolor.position = ccp(x,y);
             targetcolor.opacity = 0.3;
