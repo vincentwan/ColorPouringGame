@@ -112,6 +112,9 @@ static const int GRID_COLUMNS = 10;
         NSLog(@"blue: %g\n",c3);
          */
     }
+    else {
+        return;
+    }
     if(row>0) {
         Creature * temp = _colorCell[row-1][column];
         if(temp.isAlive) {
