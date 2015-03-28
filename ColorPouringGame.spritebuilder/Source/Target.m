@@ -10,13 +10,20 @@
 
 @implementation Target
 
-- (instancetype)initTargetwithX:(double) xlen andY:(double) ylen {
+- (instancetype)initTargetwithX:(double) xlen andY:(double) ylen andImage:(int) serialnum{
     // since we made Creature inherit from CCSprite, 'super' below refers to CCSprite
     self = [super initWithImageNamed:@"ColorPouringAssets/Assets/cell.png"];
     [super setScaleX:(xlen/self.contentSize.width)];
     [super setScaleY:(ylen/self.contentSize.height)];
     self.visible = true;
     return self;
+    self.ccolor =
+}
+
+- (void)setColorWithFile:(int)serialnum {
+    
+    _ccolor = [UIColor colorWithRed:255.0f/255.0f green:83.0f/255.0f blue:111.0f/255.0f alpha:1.0f]
+    self.colorRGBA = [];
 }
 
 

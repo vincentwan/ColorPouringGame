@@ -12,4 +12,6 @@
 
 @interface Level : NSObject
 
+- (instancetype)initWithFile:(NSString *)filename;
+
 @end
