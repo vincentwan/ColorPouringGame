@@ -7,10 +7,12 @@
 //
 
 #import "CCNode.h"
+#import "Level.h"
 
 @interface MainScene : CCNode
 
 + (UIColor *) currColor;
 + (void) setCurrColor:(UIColor *)val;
+@property (strong, nonatomic) Level *level;
 
 @end

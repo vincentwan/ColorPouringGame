@@ -17,6 +17,6 @@ static const NSInteger NumRows = 8;
 @property (nonatomic, retain) UIColor * ccolor;
 @property (nonatomic) int * serialnum;
 
-- (instancetype)initTargetwithX:(double) xlen andY:(double) ylen;
+- (instancetype)initTargetwithX:(double) xlen andY:(double) ylen andImage:(int) serialnum;
 
 @end

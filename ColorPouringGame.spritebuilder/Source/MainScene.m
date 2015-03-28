@@ -15,7 +15,7 @@ extern const int GRID_COLUMNS;
 
 @implementation MainScene {
     Grid *_grid;
-    
+    Level *_level;
     CCTimer *_timer;
     CCLabelTTF *_generationLabel;
     CCLabelTTF *_populationLabel;
@@ -34,7 +34,8 @@ static UIColor * currColor;
     if (self) {
         _timer = [[CCTimer alloc] init];
     }
-    
+    _level = [[Level alloc] initWithFile:@"Level_0"];
+    _grid.level = self.level;
     return self;
 }
 

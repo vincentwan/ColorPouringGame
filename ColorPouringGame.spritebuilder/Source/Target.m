@@ -16,14 +16,51 @@
     [super setScaleX:(xlen/self.contentSize.width)];
     [super setScaleY:(ylen/self.contentSize.height)];
     self.visible = true;
+    
+    [self setColorWithFile:serialnum];
     return self;
-    self.ccolor =
 }
 
 - (void)setColorWithFile:(int)serialnum {
-    
-    _ccolor = [UIColor colorWithRed:255.0f/255.0f green:83.0f/255.0f blue:111.0f/255.0f alpha:1.0f]
-    self.colorRGBA = [];
+    UIColor * tempc;
+    if(serialnum==0) {
+        tempc=[UIColor colorWithRed:0xFF/255.0f green:0x0/255.0f blue:0x0/255.0f alpha:1.0f];
+    }
+    else if(serialnum==1) {
+        tempc=[UIColor colorWithRed:0xBF/255.0f green:0x0/255.0f blue:0xFF/255.0f alpha:1.0f];
+    }
+    else if(serialnum==2) {
+        tempc=[UIColor colorWithRed:0x99/255.0f green:0x0/255.0f blue:0xCC/255.0f alpha:1.0f];
+    }
+    else if(serialnum==3) {
+        tempc=[UIColor colorWithRed:0x5E/255.0f green:0x0/255.0f blue:0xFF/255.0f alpha:1.0f];
+    }
+    else if(serialnum==4) {
+        tempc=[UIColor colorWithRed:0x0/255.0f green:0x0/255.0f blue:0xFF/255.0f alpha:1.0f];
+    }
+    else if(serialnum==5) {
+        tempc=[UIColor colorWithRed:0x0/255.0f green:0xFF/255.0f blue:0x40/255.0f alpha:1.0f];
+    }
+    else if(serialnum==6) {
+        tempc=[UIColor colorWithRed:0x0/255.0f green:0xFF/255.0f blue:0x0/255.0f alpha:1.0f];
+    }
+    else if(serialnum==7) {
+        tempc=[UIColor colorWithRed:0x80/255.0f green:0xFF/255.0f blue:0x0/255.0f alpha:1.0f];
+    }
+    else if(serialnum==8) {
+        tempc=[UIColor colorWithRed:0xFF/255.0f green:0xFF/255.0f blue:0x0/255.0f alpha:1.0f];
+    }
+    else if(serialnum==9) {
+        tempc=[UIColor colorWithRed:0xFF/255.0f green:0xBF/255.0f blue:0x0/255.0f alpha:1.0f];
+    }
+    else if(serialnum==10) {
+        tempc=[UIColor colorWithRed:0xFF/255.0f green:0x80/255.0f blue:0x0/255.0f alpha:1.0f];
+    }
+    else {
+        tempc=[UIColor colorWithRed:0xFF/255.0f green:0x33/255.0f blue:0x0/255.0f alpha:1.0f];
+    }
+    _ccolor = [tempc copy];
+    self.colorRGBA = [CCColor colorWithUIColor:_ccolor];
 }
 
 

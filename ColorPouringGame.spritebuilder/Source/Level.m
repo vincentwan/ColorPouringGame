@@ -10,7 +10,7 @@
 
 @implementation Level
 
-UIColor *_targetGrid[NumColumns][NumRows];
+NSNumber *_targetGrid[NumColumns][NumRows];
 
 - (NSDictionary *)loadJSON:(NSString *)filename {
     NSString *path = [[NSBundle mainBundle] pathForResource:filename ofType:@"json"];
@@ -44,20 +44,20 @@ UIColor *_targetGrid[NumColumns][NumRows];
         [dictionary[@"grids"] enumerateObjectsUsingBlock:^(NSArray *array, NSUInteger row, BOOL *stop) {
             
             // Loop through the columns in the current row
-            [array enumerateObjectsUsingBlock:^(NSArray *value, NSUInteger column, BOOL *stop) {
+            [array enumerateObjectsUsingBlock:^(NSNumber *value, NSUInteger column, BOOL *stop) {
                 
                 // Note: In Sprite Kit (0,0) is at the bottom of the screen,
                 // so we need to read this file upside down.
                 
-                double cred = [[value objectAtIndex:0] doubleValue];
-                double cgreen = [[value objectAtIndex:1] doubleValue];
-                double cblue = [[value objectAtIndex:2] doubleValue];
-                
-                _targetGrid[column][row] = [UIColor colorWithRed:cred green:cgreen blue:cblue alpha:1.0];
+                _targetGrid[column][row] = value;
             }];
         }];
     }
     return self;
 }
 
+
+- (int)serialAtX:(int) x andY:(int)y {
+    return [_targetGrid[x][y] intValue];
+}
 @end

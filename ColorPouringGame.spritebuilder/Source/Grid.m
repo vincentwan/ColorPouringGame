@@ -47,7 +47,7 @@ static const int GRID_COLUMNS = 10;
     
     _generation = 0;
     _totalAlive = 0;
-    
+    Level * tlevel = self.level;
     // initialize the array as a blank NSMutableArray
     _colorCell = [NSMutableArray array];
     _colorTarget = [NSMutableArray array];
@@ -60,7 +60,8 @@ static const int GRID_COLUMNS = 10;
         x = 0;
         
         for (int j = 0; j < GRID_COLUMNS; j++) {
-            Target *targetcolor = [[Target alloc] initTargetwithX:_cellWidth andY:_cellHeight];
+            Target *targetcolor = [[Target alloc] initTargetwithX:_cellWidth andY:_cellHeight
+                                                         andImage:[tlevel serialAtX:i andY:j]];
             targetcolor.anchorPoint = ccp(0,0);
             targetcolor.position = ccp(x,y);
             targetcolor.opacity = 0.3;
