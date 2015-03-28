@@ -13,6 +13,5 @@
 
 + (UIColor *) currColor;
 + (void) setCurrColor:(UIColor *)val;
-@property (strong, nonatomic) Level *level;
 
 @end

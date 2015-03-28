@@ -28,7 +28,7 @@ static const int GRID_COLUMNS = 10;
 {
     [super onEnter];
     //self.visible = false;
-    
+    _level = [[Level alloc] initWithFile:@"Level_0"];
     [self setupGrid];
     
     // accept touches on the grid
