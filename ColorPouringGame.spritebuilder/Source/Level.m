@@ -10,7 +10,7 @@
 
 @implementation Level
 
-NSNumber *_targetGrid[NumColumns][NumRows];
+int _targetGrid[NumColumns][NumRows];
 
 - (NSDictionary *)loadJSON:(NSString *)filename {
     NSString *path = [[NSBundle mainBundle] pathForResource:filename ofType:@"json"];
@@ -49,7 +49,7 @@ NSNumber *_targetGrid[NumColumns][NumRows];
                 // Note: In Sprite Kit (0,0) is at the bottom of the screen,
                 // so we need to read this file upside down.
                 NSLog(@"Oh, value:%d\n",[value intValue]);
-                _targetGrid[column][row] = value;
+                _targetGrid[column][row] = [value intValue];
             }];
         }];
     }
@@ -58,6 +58,6 @@ NSNumber *_targetGrid[NumColumns][NumRows];
 
 
 - (int)serialAtX:(int) x andY:(int)y {
-    return [_targetGrid[x][y] intValue];
+    return _targetGrid[x][y];
 }
 @end
