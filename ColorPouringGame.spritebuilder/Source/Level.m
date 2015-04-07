@@ -9,13 +9,9 @@
 #import "Level.h"
 
 
-
-extern const int GRID_ROWS;
-extern const int GRID_COLUMNS;
-
 @implementation Level
 
-int _targetGrid[GRID_COLUMNS][GRID_ROWS];
+int _targetGrid[10][8];
 
 - (NSDictionary *)loadJSON:(NSString *)filename {
     NSString *path = [[NSBundle mainBundle] pathForResource:filename ofType:@"json"];
