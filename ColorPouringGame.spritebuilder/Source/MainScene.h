@@ -11,6 +11,8 @@
 
 @interface MainScene : CCNode
 
+@property (nonatomic, retain) ColorHelper * helper;
+
 + (UIColor *) currColor;
 + (void) setCurrColor:(UIColor *)val;
 

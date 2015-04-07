@@ -7,6 +7,7 @@
 //
 
 #import "CCSprite.h"
+#import "ColorHelper.h"
 
 @interface Creature : CCSprite
 
