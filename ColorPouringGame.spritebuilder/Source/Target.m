@@ -16,7 +16,7 @@
     [super setScaleX:(xlen/self.contentSize.width)];
     [super setScaleY:(ylen/self.contentSize.height)];
     self.visible = true;
-    
+    NSLog(@"Here! initTargetwithX");
     _ccolor = [_helper setColorWithFile:serialnum];
     return self;
 }
@@ -26,7 +26,7 @@
     //when you create an @property as we did in the .h, an instance variable with a leading underscore is automatically created for you
     _ccolor = [col copy];
     self.colorRGBA = [CCColor colorWithUIColor:_ccolor];
-    //NSLog(@"Here!");
+    NSLog(@"Here! setCcolor");
     
     //self.colorRGBA = [CCColor colorWithCcColor3b:<#(ccColor3B)#>];
 }
