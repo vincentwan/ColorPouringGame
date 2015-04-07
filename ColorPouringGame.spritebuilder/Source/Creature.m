@@ -33,6 +33,13 @@
     //self.colorRGBA = [CCColor colorWithCcColor3b:<#(ccColor3B)#>];
 }
 
+- (void) setSerialnum:(int)num {
+    self.serialnum = num;
+    _ccolor = [_helper setColorWithFile:num];
+}
+
+
+
 - (void)setCcolor:(UIColor *)col {
     //when you create an @property as we did in the .h, an instance variable with a leading underscore is automatically created for you
     _ccolor = [col copy];

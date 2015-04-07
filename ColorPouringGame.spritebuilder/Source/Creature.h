@@ -14,6 +14,8 @@
 // stores the current state of the creature
 @property (nonatomic, assign) BOOL isAlive;
 @property (nonatomic, retain) UIColor * ccolor;
+@property (nonatomic, retain) ColorHelper * helper;
+@property (nonatomic) int serialnum;
 
 
 // stores the amount of living neighbors

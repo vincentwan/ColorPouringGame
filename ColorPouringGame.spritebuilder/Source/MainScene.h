@@ -13,7 +13,7 @@
 
 @property (nonatomic, retain) ColorHelper * helper;
 
-+ (UIColor *) currColor;
-+ (void) setCurrColor:(UIColor *)val;
++ (int) currNum;
++ (void) setCurrNum:(int)val;
 
 @end

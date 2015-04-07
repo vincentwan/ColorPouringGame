@@ -86,6 +86,28 @@ static const int GRID_COLUMNS = 10;
     }
 }
 
+- (int)mixWithNum:(int) num1 and:(int)num2
+{
+    int ansnum=0;
+    if(abs(num1-num2)>6) {
+        if((num1+num2)%2==1) {
+            if(num2>num1) {
+                ansnum = (num1+num2+11)/2;
+            }
+            else {
+                ansnum = (num1+num2+13)/2;
+            }
+        }
+        else {
+            ansnum = (num1+num2+12)/2;
+        }
+    }
+    else {
+        ansnum = (num1+num2)/2;
+    }
+    return ansnum;
+}
+
 - (void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event
 {
     //get the x,y coordinates of the touch
@@ -105,11 +127,11 @@ static const int GRID_COLUMNS = 10;
     */
     //invert it's state - kill it if it's alive, bring it to life if it's dead.
     if(!creature.isAlive) {
-        CGFloat c1, c2, c3, notUsed;
+        //CGFloat c1, c2, c3, notUsed;
         creature.isAlive = true;
-        [creature setCcolor:MainScene.currColor];
-        [MainScene.currColor getRed:&c1 green:&c2 blue:&c3 alpha:&notUsed];
+        [creature setSerialnum:MainScene.currNum];
         /*
+        [MainScene.currColor getRed:&c1 green:&c2 blue:&c3 alpha:&notUsed];
         NSLog(@"red: %g\n",c1);
         NSLog(@"green: %g\n",c2);
         NSLog(@"blue: %g\n",c3);
@@ -121,38 +143,43 @@ static const int GRID_COLUMNS = 10;
     if(row>0) {
         Creature * temp = _colorCell[row-1][column];
         if(temp.isAlive) {
+            /*
             [temp setCcolor:[UIColor rgbMixForColors:[NSArray arrayWithObjects:
                             temp.ccolor,
                             creature.ccolor,
                             nil]]];
+             */
+            int num1 = temp.serialnum;
+            int num2 = creature.serialnum;
+            int ansnum = [self mixWithNum:num1 and:num2];
+            [temp setSerialnum:ansnum];
         }
     }
     if(row<GRID_ROWS-1) {
         Creature * temp = _colorCell[row+1][column];
         if(temp.isAlive) {
-            UIColor * ctemp = [UIColor rgbMixForColors:[NSArray arrayWithObjects:
-                                temp.ccolor,
-                                creature.ccolor,
-                                nil]];
-            [temp setCcolor: ctemp];
+            int num1 = temp.serialnum;
+            int num2 = creature.serialnum;
+            int ansnum = [self mixWithNum:num1 and:num2];
+            [temp setSerialnum:ansnum];
         }
     }
     if(column>0) {
         Creature * temp = _colorCell[row][column-1];
         if(temp.isAlive) {
-            [temp setCcolor:[UIColor rgbMixForColors:[NSArray arrayWithObjects:
-                            temp.ccolor,
-                            creature.ccolor,
-                            nil]]];
+            int num1 = temp.serialnum;
+            int num2 = creature.serialnum;
+            int ansnum = [self mixWithNum:num1 and:num2];
+            [temp setSerialnum:ansnum];
         }
     }
     if(column<GRID_COLUMNS-1) {
         Creature * temp = _colorCell[row][column+1];
         if(temp.isAlive) {
-            [temp setCcolor:[UIColor rgbMixForColors:[NSArray arrayWithObjects:
-                            temp.ccolor,
-                            creature.ccolor,
-                            nil]]];
+            int num1 = temp.serialnum;
+            int num2 = creature.serialnum;
+            int ansnum = [self mixWithNum:num1 and:num2];
+            [temp setSerialnum:ansnum];
         }
     }
 }

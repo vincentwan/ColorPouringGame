@@ -20,11 +20,11 @@ extern const int GRID_COLUMNS;
     CCLabelTTF *_populationLabel;
 }
 
-static UIColor * currColor;
-+ (UIColor *) currColor
-{ @synchronized(self) { return currColor; } }
-+ (void) setCurrColor:(UIColor *)val
-{ @synchronized(self) { currColor = val; } }
+static int currNum;
++ (int) currNum
+{ @synchronized(self) { return currNum; } }
++ (void) setCurrNum:(int)val
+{ @synchronized(self) { currNum = val; } }
 
 - (id)init
 {
@@ -57,7 +57,7 @@ static UIColor * currColor;
                     blue:111.0f/255.0f
                     alpha:1.0f];
      */
-    currColor = [_helper setColorWithFile:0];
+    currNum = 0;
     NSLog(@"Here red!");
 }
 
@@ -69,7 +69,7 @@ static UIColor * currColor;
                     blue:62.0f/255.0f
                     alpha:1.0f];
      */
-    currColor = [_helper setColorWithFile:8];
+    currNum = 8;
     NSLog(@"Here yellow!");
 }
 
@@ -81,7 +81,7 @@ static UIColor * currColor;
                     blue:255.0f/255.0f
                     alpha:1.0f];
      */
-    currColor = [_helper setColorWithFile:4];
+    currNum = 4;
     NSLog(@"Here blue!");
 }
 
