@@ -17,7 +17,7 @@
     [super setScaleY:(ylen/self.contentSize.height)];
     self.visible = true;
     NSLog(@"Here! initTargetwithX");
-    _ccolor = [_helper setColorWithFile:serialnum];
+    [self setCcolor:[_helper setColorWithFile:serialnum]];
     return self;
 }
 
