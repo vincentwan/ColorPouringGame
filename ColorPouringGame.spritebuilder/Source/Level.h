@@ -14,6 +14,5 @@
 
 - (instancetype)initWithFile:(NSString *)filename;
 - (int)serialAtX:(int) x andY:(int)y;
-- (int *) targetGrid;
 
 @end
