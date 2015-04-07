@@ -9,9 +9,6 @@
 #import "CCSprite.h"
 #import "ColorHelper.h"
 
-static const NSInteger NumColumns = 10;
-static const NSInteger NumRows = 8;
-
 @interface Target : CCSprite
 
 // stores the current state of the creature
