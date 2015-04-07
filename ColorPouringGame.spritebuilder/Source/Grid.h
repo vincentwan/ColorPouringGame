@@ -13,7 +13,7 @@
 
 @property (nonatomic, assign) int totalAlive;
 @property (nonatomic, assign) int generation;
-@property (strong, nonatomic) Level * level;
+@property (strong, nonatomic) Level *level;
 
 
 
