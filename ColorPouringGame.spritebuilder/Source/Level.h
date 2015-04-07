@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "UIColor+Mixing.h"
+#import "Grid.h"
 #import "Target.h"
 
 @interface Level : NSObject
