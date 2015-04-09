@@ -35,7 +35,7 @@
     //self.colorRGBA = [CCColor colorWithCcColor3b:<#(ccColor3B)#>];
 }
 
-- (void) setSerialnum:(int)num {
+- (void) setSerialnum:(int) num {
     self.serialnum = num;
     [self setCcolor:[_helper setColorWithFile:num]];
 }

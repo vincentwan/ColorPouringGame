@@ -118,7 +118,8 @@ static const int GRID_COLUMNS = 10;
     Creature *creature = _colorCell[row][column];
     if(!creature.isAlive) {
         creature.isAlive = true;
-        NSLog(@"Here is creating creature: \n");
+        int tempnum = MainScene.currNum;
+        NSLog(@"Here is creating creature: %d\n",tempnum);
         [creature setSerialnum:0];
 
     }
