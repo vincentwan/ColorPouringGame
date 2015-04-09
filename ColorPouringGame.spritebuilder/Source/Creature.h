@@ -18,5 +18,6 @@
 @property (nonatomic) int serialnum;
 
 - (instancetype)initCreaturewithX:(double) xlen andY:(double) ylen;
+- (void) setSerialnum:(int) num;
 
 @end
