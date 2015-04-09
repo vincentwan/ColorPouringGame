@@ -9,9 +9,11 @@
 #import "Level.h"
 
 
-@implementation Level
+@implementation Level {
 
-int _targetGrid[10][8];
+    int _targetGrid[10][8];
+    
+}
 
 - (NSDictionary *)loadJSON:(NSString *)filename {
     NSString *path = [[NSBundle mainBundle] pathForResource:filename ofType:@"json"];
@@ -58,7 +60,7 @@ int _targetGrid[10][8];
 }
 
 
-- (int)serialAtX:(int) x andY:(int)y {
+- (int) serialAtX:(int) x andY:(int)y {
     return _targetGrid[x][y];
 }
 @end

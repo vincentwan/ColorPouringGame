@@ -13,6 +13,6 @@
 @interface Level : NSObject
 
 - (instancetype)initWithFile:(NSString *)filename;
-- (int)serialAtX:(int) x andY:(int)y;
+- (int) serialAtX:(int) x andY:(int)y;
 
 @end
