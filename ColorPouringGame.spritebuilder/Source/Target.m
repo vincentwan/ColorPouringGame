@@ -16,7 +16,7 @@
     [super setScaleX:(xlen/self.contentSize.width)];
     [super setScaleY:(ylen/self.contentSize.height)];
     self.visible = true;
-    NSLog(@"Here! initTargetwithX");
+    NSLog(@"Here! initTargetwithNum: %d\n", serialnum);
     [self setCcolor:[_helper setColorWithFile:serialnum]];
     return self;
 }

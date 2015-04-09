@@ -26,6 +26,7 @@ static int currNum;
 + (void) setCurrNum:(int)val
 { @synchronized(self) { currNum = val; } }
 
+
 - (id)init
 {
     self = [super init];

@@ -51,7 +51,7 @@
                 
                 // Note: In Sprite Kit (0,0) is at the bottom of the screen,
                 // so we need to read this file upside down.
-                NSLog(@"Oh, value:%d\n",[value intValue]);
+                // NSLog(@"Oh, value:%d\n",[value intValue]);
                 _targetGrid[column][row] = [value intValue];
             }];
         }];

@@ -17,13 +17,6 @@
 @property (nonatomic, retain) ColorHelper * helper;
 @property (nonatomic) int serialnum;
 
-
-// stores the amount of living neighbors
-@property (nonatomic, assign) NSInteger livingNeighbors;
-
-@property (nonatomic, assign) int totalAlive;
-@property (nonatomic, assign) int generation;
-
 - (instancetype)initCreaturewithX:(double) xlen andY:(double) ylen;
 
 @end

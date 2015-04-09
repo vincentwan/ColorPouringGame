@@ -16,10 +16,6 @@
 @property (strong, nonatomic) Level *level;
 
 
-
-- (void)evolveStep;
-- (void)countNeighbors;
-- (void)updateCreatures;
 - (void)clearCreatures;
 
 @end
