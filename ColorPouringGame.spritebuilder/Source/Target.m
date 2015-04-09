@@ -17,7 +17,12 @@
     [super setScaleY:(ylen/self.contentSize.height)];
     self.visible = true;
     NSLog(@"Here! initTargetwithNum: %d\n", serialnum);
-    [self setCcolor:[_helper setColorWithFile:serialnum]];
+    UIColor * tempc = [_helper setColorWithFile:serialnum];
+    CGFloat red = 0.0, green = 0.0, blue = 0.0, alpha = 0.0;
+    [tempc getRed:&red green:&green blue:&blue alpha:&alpha];
+    NSLog(@"Before setting target color red %f green %f blue %f\n", red, green, blue);
+
+    [self setCcolor:tempc];
     return self;
 }
 
