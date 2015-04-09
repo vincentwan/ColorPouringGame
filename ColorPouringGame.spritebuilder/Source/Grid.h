@@ -8,6 +8,9 @@
 
 #import "CCSprite.h"
 #import "Level.h"
+#import "Creature.h"
+#import "Target.h"
+#import "MainScene.h"
 
 @interface Grid : CCSprite
 

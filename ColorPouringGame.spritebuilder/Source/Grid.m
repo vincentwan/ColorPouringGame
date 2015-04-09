@@ -7,9 +7,6 @@
 //
 
 #import "Grid.h"
-#import "Creature.h"
-#import "Target.h"
-#import "MainScene.h"
 #import "UIColor+Mixing.h"
 
 // these are variables that cannot be changed
@@ -119,23 +116,11 @@ static const int GRID_COLUMNS = 10;
     int column = touchLocation.x / _cellWidth;
     
     Creature *creature = _colorCell[row][column];
-    /*
-    UIColor * tempC = [UIColor colorWithRed:60.0f/255.0f
-                                      green:75.0f/255.0f
-                                       blue:85.0f/255.0f
-                                      alpha:1.0f];
-    */
-    //invert it's state - kill it if it's alive, bring it to life if it's dead.
     if(!creature.isAlive) {
-        //CGFloat c1, c2, c3, notUsed;
         creature.isAlive = true;
-        [creature setSerialnum:MainScene.currNum];
-        /*
-        [MainScene.currColor getRed:&c1 green:&c2 blue:&c3 alpha:&notUsed];
-        NSLog(@"red: %g\n",c1);
-        NSLog(@"green: %g\n",c2);
-        NSLog(@"blue: %g\n",c3);
-         */
+
+        [creature setSerialnum:0];
+
     }
     else {
         return;
@@ -152,6 +137,7 @@ static const int GRID_COLUMNS = 10;
             int num1 = temp.serialnum;
             int num2 = creature.serialnum;
             int ansnum = [self mixWithNum:num1 and:num2];
+            NSLog(@"ansnum = %d\n", ansnum);
             [temp setSerialnum:ansnum];
         }
     }
@@ -161,6 +147,7 @@ static const int GRID_COLUMNS = 10;
             int num1 = temp.serialnum;
             int num2 = creature.serialnum;
             int ansnum = [self mixWithNum:num1 and:num2];
+            NSLog(@"ansnum = %d\n", ansnum);
             [temp setSerialnum:ansnum];
         }
     }
@@ -170,6 +157,7 @@ static const int GRID_COLUMNS = 10;
             int num1 = temp.serialnum;
             int num2 = creature.serialnum;
             int ansnum = [self mixWithNum:num1 and:num2];
+            NSLog(@"ansnum = %d\n", ansnum);
             [temp setSerialnum:ansnum];
         }
     }
@@ -179,6 +167,7 @@ static const int GRID_COLUMNS = 10;
             int num1 = temp.serialnum;
             int num2 = creature.serialnum;
             int ansnum = [self mixWithNum:num1 and:num2];
+            NSLog(@"ansnum = %d\n", ansnum);
             [temp setSerialnum:ansnum];
         }
     }
