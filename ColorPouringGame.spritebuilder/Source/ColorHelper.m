@@ -49,6 +49,12 @@
         tempc=[UIColor colorWithRed:0xFF/255.0f green:0x33/255.0f blue:0x0/255.0f alpha:1.0f];
     }
     UIColor * color = [tempc copy];
+    
+    CGFloat red = 0.0, green = 0.0, blue = 0.0, alpha = 0.0;
+    [color getRed:&red green:&green blue:&blue alpha:&alpha];
+    
+    NSLog(@"Here's setting target color red %f green %f blue %f\n", red, green, blue);
+    
     return color;
 }
 
