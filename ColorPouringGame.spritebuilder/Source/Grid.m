@@ -76,6 +76,10 @@ static const int GRID_COLUMNS = 10;
             // this is shorthand to access an array inside an array
             _colorTarget[i][j] = targetcolor;
             _colorCell[i][j] = creature;
+            NSLog(@"creature created!");
+            if(creature==nil) {
+                NSLog(@"First nil!");
+            }
             
             x+=_cellWidth;
         }
@@ -116,10 +120,14 @@ static const int GRID_COLUMNS = 10;
     int column = touchLocation.x / _cellWidth;
     
     Creature *creature = _colorCell[row][column];
+    if(creature==nil) {
+        NSLog(@"Second nil!");
+    }
     if(!creature.isAlive) {
         creature.isAlive = true;
         int tempnum = MainScene.currNum;
         NSLog(@"Here is creating creature: %d\n",tempnum);
+
         creature.serialnum = tempnum;
 
     }
