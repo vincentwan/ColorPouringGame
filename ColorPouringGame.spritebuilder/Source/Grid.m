@@ -120,7 +120,7 @@ static const int GRID_COLUMNS = 10;
         creature.isAlive = true;
         int tempnum = MainScene.currNum;
         NSLog(@"Here is creating creature: %d\n",tempnum);
-        [creature setSerialnum:0];
+        creature.serialnum = tempnum;
 
     }
     else {
