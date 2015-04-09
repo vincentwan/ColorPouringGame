@@ -11,7 +11,6 @@
 
 @interface MainScene : CCNode
 
-@property (nonatomic, retain) ColorHelper * helper;
 
 + (int) currNum;
 + (void) setCurrNum:(int)val;
