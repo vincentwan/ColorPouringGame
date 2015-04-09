@@ -36,7 +36,7 @@
 }
 
 - (void) setSerialnum:(int) num {
-    self.serialnum = num;
+    _serialnum = num;
     [self setCcolor:[_helper setColorWithFile:num]];
 }
 
