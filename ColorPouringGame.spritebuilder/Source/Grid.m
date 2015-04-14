@@ -109,7 +109,7 @@ static const int GRID_COLUMNS = 10;
     return ansnum;
 }
 
-- (void)touchBegan:(CCTouch *)touch withEvent:( *)event
+- (void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event
 {
     //get the x,y coordinates of the touch
     CGPoint touchLocation = [touch locationInNode:self];

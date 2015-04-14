@@ -11,6 +11,7 @@
 #import "Creature.h"
 #import "Target.h"
 #import "MainScene.h"
+#import "cocos2d.h"
 
 @interface Grid : CCSprite
 
