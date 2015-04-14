@@ -10,6 +10,7 @@
 #import "Level.h"
 #import "Creature.h"
 #import "Target.h"
+#import "CCNode.h"
 #import "MainScene.h"
 #import "cocos2d.h"
 
