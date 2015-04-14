@@ -26,7 +26,7 @@
  */
 
 #import <Foundation/Foundation.h>
-#if __CC_PLATFORM_IOS || __CC_PLATFORM_ANDROID
+#ifdef __CC_PLATFORM_IOS
 #import <CoreGraphics/CoreGraphics.h>
 #endif
 
@@ -35,9 +35,11 @@
 @class CCSpriteFrame;
 
 /**
- CCAnimationFrame contains information for a single animation frame.
+ CCAnimationFrame contains core information relating to a single animation frame.
  
- A `CCAnimationFrameDisplayedNotification` notification will be broadcast when a frame is displayed that contains a non-nil dictionary.
+ ### Notes
+ 
+ A CCAnimationFrameDisplayedNotification notification will be broadcasted when a frame is displayed that contains a non nil dictionary.
  
  */
 @interface CCAnimationFrame : NSObject <NSCopying> {
@@ -54,7 +56,21 @@
 
 
 /// -----------------------------------------------------------------------
-/// @name Creating a Animation Frame
+/// @name Accessing the Animation Frame Attributes
+/// -----------------------------------------------------------------------
+
+/** CCSpriteFrame to be used. */
+@property (nonatomic, readwrite, strong) CCSpriteFrame* spriteFrame;
+
+/** Number of time units to display this frame. */
+@property (nonatomic, readwrite) float delayUnits;
+
+/** Custom dictionary. */
+@property (nonatomic, readwrite, strong) NSDictionary *userInfo;
+
+
+/// -----------------------------------------------------------------------
+/// @name Initializing a CCAnimationFrame Object
 /// -----------------------------------------------------------------------
 
 /**
@@ -65,33 +81,15 @@
  *  @param userInfo    Custom dictionary.
  *
  *  @return An initialized CCAnimationFrame Object.
- *  @see CCSpriteFrame
  */
 -(id) initWithSpriteFrame:(CCSpriteFrame*)spriteFrame delayUnits:(float)delayUnits userInfo:(NSDictionary*)userInfo;
-
-
-/// -----------------------------------------------------------------------
-/// @name Animation Frame Properties
-/// -----------------------------------------------------------------------
-
-/** CCSpriteFrame to be used.
- @see CCSpriteFrame */
-@property (nonatomic, readwrite, strong) CCSpriteFrame* spriteFrame;
-
-/** Number of time units to display this frame. */
-@property (nonatomic, readwrite) float delayUnits;
-
-/** Dictionary with custom user data. */
-@property (nonatomic, readwrite, strong) NSDictionary *userInfo;
 
 @end
 
 
 /** 
- A CCAnimation is used to perform animations on a CCSprite.
- 
- The CCAnimation primarily contains a collection of CCAnimationFrame objects that contain information about
- individual animation frames.
+ A CCAnimation object is used to perform animations on a CCSprite object.  
+ The CCAnimation object primarily contains a collection of CCAnimationFrame objects to define the animation.
  */
 @interface CCAnimation : NSObject <NSCopying>
 {
@@ -111,8 +109,32 @@
 	NSUInteger		_loops;
 }
 
+
 /// -----------------------------------------------------------------------
-/// @name Creating an Animation
+/// @name Accessing the Animation Attributes
+/// -----------------------------------------------------------------------
+
+/** Total Delay units. */
+@property (nonatomic, readonly) float totalDelayUnits;
+
+/** Delay in seconds of the per frame delay unit. */
+@property (nonatomic, readwrite) float delayPerUnit;
+
+/** Duration in seconds of the whole animation. */
+@property (nonatomic,readonly) float duration;
+
+/** Array of CCAnimationFrames. */
+@property (nonatomic,readwrite,strong) NSMutableArray *frames;
+
+/** True to restore original frame when animation complete. */
+@property (nonatomic,readwrite) BOOL restoreOriginalFrame;
+
+/** Number of times to loop animation. */
+@property (nonatomic, readwrite) NSUInteger loops;
+
+
+/// -----------------------------------------------------------------------
+/// @name Creating a CCAnimation Object
 /// -----------------------------------------------------------------------
 
 /**
@@ -153,6 +175,11 @@
  */
 +(id) animationWithAnimationFrames:(NSArray*)arrayOfAnimationFrames delayPerUnit:(float)delayPerUnit loops:(NSUInteger)loops;
 
+
+/// -----------------------------------------------------------------------
+/// @name Initializing a CCAnimation Object
+/// -----------------------------------------------------------------------
+
 /**
  *  Initializes and returns an animation object.
  *
@@ -185,14 +212,13 @@
 
 
 /// -----------------------------------------------------------------------
-/// @name Adding Sprite Frames
+/// @name Animation Management
 /// -----------------------------------------------------------------------
 
 /**
  *  Add the specified sprite frame to the animation object.
  *
  *  @param frame CCSpriteFrame object.
- *  @see CCSpriteFrame
  */
 -(void) addSpriteFrame:(CCSpriteFrame*)frame;
 
@@ -208,34 +234,7 @@
  *
  *  @param texture Texture object.
  *  @param rect    Rectangle to use.
- *  @see CCTexture
  */
 -(void) addSpriteFrameWithTexture:(CCTexture*)texture rect:(CGRect)rect;
-
-/// -----------------------------------------------------------------------
-/// @name Animation Timing
-/// -----------------------------------------------------------------------
-
-/** Total Delay units. */
-@property (nonatomic, readonly) float totalDelayUnits;
-
-/** Delay in seconds of the per frame delay unit. */
-@property (nonatomic, readwrite) float delayPerUnit;
-
-/** Duration in seconds of the whole animation. */
-@property (nonatomic,readonly) float duration;
-
-/** Number of times to loop animation. */
-@property (nonatomic, readwrite) NSUInteger loops;
-
-/// -----------------------------------------------------------------------
-/// @name Animation Frames
-/// -----------------------------------------------------------------------
-
-/** Array of CCAnimationFrames. */
-@property (nonatomic,readwrite,strong) NSMutableArray *frames;
-
-/** True to restore original frame when animation complete. */
-@property (nonatomic,readwrite) BOOL restoreOriginalFrame;
 
 @end

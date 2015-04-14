@@ -12,7 +12,7 @@
 
 - (instancetype)initTargetwithX:(double) xlen andY:(double) ylen andImage:(int) serialnum{
     // since we made Creature inherit from CCSprite, 'super' below refers to CCSprite
-    self = [super initWithImageNamed:@"ColorPouringAssets/Assets/cell.png"];
+    self = [super initWithImageNamed:@"ColorPouringAssets/Assets/cut4.png"];
     _helper = [[ColorHelper alloc] init];
     [super setScaleX:(xlen/self.contentSize.width)];
     [super setScaleY:(ylen/self.contentSize.height)];

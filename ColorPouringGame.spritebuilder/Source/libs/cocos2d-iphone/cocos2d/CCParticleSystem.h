@@ -32,21 +32,27 @@
 @class CCSpriteFrame;
 
 /**
- Default particle emitter. Batches particles for improved performance.
  
- See also CCParticleSystemBase documentation.
+ CCParticleSytem improves upon the performance in CCParticleSystemBase and is the default class
+ for adding particles.  Please see CCParticleSystemBase documentation.
+
+ ### Special features and Limitations
+ 
+ - Particle size can be any float number.
+ - The system can be scaled.
+ - The particles can be rotated.
+ - It supports subrects.
+ - It supports batched rendering for improved performance.
+
  */
 
 @interface CCParticleSystem : CCParticleSystemBase
 
-/** @name Setting the Particle Texture */
-
 /**
- Set particle system texture using specified texture and texture coords value.
- 
- @param texture Texture.
- @param rect    Texture coords.
- @see CCTexture
+ *  Set particle system texture using specified texture and texture coords value.
+ *
+ *  @param texture Texture.
+ *  @param rect    Texture coords.
  */
 -(void) setTexture:(CCTexture *)texture withRect:(CGRect)rect;
 

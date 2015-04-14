@@ -25,37 +25,24 @@
 #import "cocos2d.h"
 #import "CCControl.h"
 
-#import "CCPlatformTextField.h"
-
-#if __CC_PLATFORM_ANDROID
-#import <AndroidKit/AndroidEditText.h>
-#endif
-
-
-@class CCPlatformTextField;
-
+#ifdef __CC_PLATFORM_IOS
 /**
- A text field is used for editing text. It is implemented by encapsulating the platform's native text field ([NSTextField](https://developer.apple.com/library/mac/Documentation/Cocoa/Reference/ApplicationKit/Classes/NSTextField_Class/index.html#//apple_ref/doc/uid/20000128-SW2)
- on Mac and [UITextField](https://developer.apple.com/library/ios/documentation/Uikit/reference/UITextField_Class/index.html) on iOS and
- [EditText](http://developer.android.com/reference/android/widget/EditText.html) on Android).
+ The CCTextField is used for editing text by encapsulating a native text field (NSTextField on Mac and UITextField on iOS). An action callback will be sent when the text finishes editing or if the return key is pressed.
  
- An action callback will be sent when the user is done editing the text (clicks/taps outside) or when the return key is pressed.
- 
- A CCSprite9Slice is used a the text field's background image.
- 
- @note The native text field is only translated (positioned), no other transformations (rotation, scale) are applied.
- The text field may not be displayed correctly if the node is rotated, scaled, skewed.
- 
- @warning Since the text field is a native UI control, it will always be drawn on top of everything that Cocos2D draws. That means you can't
- have another node (ie a sprite) partially or entirely drawn above the text field.
+ @warning The native text field is only translated, no other transformations are applied. The text field may not be displayed correctly if rotated or scaled.
  */
-@interface CCTextField : CCControl <CCPlatformTextFieldDelegate>
+@interface CCTextField : CCControl <UITextFieldDelegate>
+#elif defined(__CC_PLATFORM_MAC)
+@interface CCTextField : CCControl <NSTextFieldDelegate>
+#endif
 {
     CCSprite9Slice* _background;
-
+		CGFloat _scaleMultiplier;
+#ifdef __CC_PLATFORM_IOS
+    BOOL _keyboardIsShown;
+    float _keyboardHeight;
+#endif
 }
-
-/** @name Creating a Text Field */
 
 /**
  *  Creates a new text field with the specified sprite frame used as its background.
@@ -67,36 +54,24 @@
 + (id) textFieldWithSpriteFrame:(CCSpriteFrame*)frame;
 
 /**
- Initializes a text field with the specified sprite frame used as its background.
- 
- @param frame Sprite frame to use as the text fields background.
- 
- @return Returns a new text field.
+ *  Initializes a text field with the specified sprite frame used as its background.
+ *
+ *  @param frame Sprite frame to use as the text fields background.
+ *
+ *  @return Returns a new text field.
  */
 - (id) initWithSpriteFrame:(CCSpriteFrame*)frame;
 
-/** @name Accessing the Platform-Specific Text Field */
-
-/** The platform-native text field object. On iOS it's a UITextField, on OS X it's a NSTextField, on Android it's a EditText.
- @see [UITextField](https://developer.apple.com/library/ios/documentation/Uikit/reference/UITextField_Class/index.html)
- @see [NSTextField](https://developer.apple.com/library/mac/Documentation/Cocoa/Reference/ApplicationKit/Classes/NSTextField_Class/index.html#//apple_ref/doc/uid/20000128-SW2)
- @see [EditText](http://developer.android.com/reference/android/widget/EditText.html)
- */
-#if __CC_PLATFORM_IOS
+#ifdef __CC_PLATFORM_IOS
+/** iOS: UITextField used by the CCTextField. */
 @property (nonatomic,readonly) UITextField* textField;
-#elif __CC_PLATFORM_MAC
+#elif defined(__CC_PLATFORM_MAC)
+
+/** Mac: NSTextField used by the CCTextField. */
 @property (nonatomic,readonly) NSTextField* textField;
-#elif __CC_PLATFORM_ANDROID
-@property (nonatomic,readonly) AndroidEditText* textField;
 #endif
 
-// purposefully undocumented: internal property
-@property (nonatomic,readonly) CCPlatformTextField *platformTextField;
-
-/** @name Changing the Text Field's Appearance */
-
-/** The sprite frame used to render the text field's background.
- @see CCSpriteFrame */
+/** The sprite frame used to render the text field's background. */
 @property (nonatomic,strong) CCSpriteFrame* backgroundSpriteFrame;
 
 /** The font size of the text field, defined in the unit specified by the heightUnit component of the contentSizeType. */
@@ -106,9 +81,9 @@
 @property (nonatomic,readonly) float fontSizeInPoints;
 
 /** Padding from the edge of the text field's background to the native text field component. */
-@property (nonatomic,assign) CGFloat padding;
+@property (nonatomic,assign) float padding;
 
-/** The text displayed by the text field. Directly forwarded to/from the native text field object. */
+/** The text displayed by the text field. */
 @property (nonatomic,strong) NSString* string;
 
 @end

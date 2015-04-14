@@ -29,19 +29,7 @@
 
 #pragma mark - Ease Actions
 /**
- CCActionEase is an abstract class that adds the ability to interpolate an action over time using quadratic functions. Easing essentially
- will have the action animate in non-linear fashion, for instance starting slow and then speeding up, or overshooting beyond
- the target value before honing in on the target value.
- 
- ### Subclasses
- 
- You should not create an instance of the abstract CCActionEase classe. Instead use one of its subclasses:
- 
- - CCActionEaseBackIn, CCActionEaseBackInOut, CCActionEaseBackOut
- - CCActionEaseBounce, CCActionEaseBounceIn, CCActionEaseBounceInOut, CCActionEaseBounceOut
- - CCActionEaseElastic, CCActionEaseElasticIn, CCActionEaseElasticInOut, CCActionEaseElasticOut
- - CCActionEaseRate, CCActionEaseIn, CCActionEaseInOut, CCActionEaseOut
- - CCActionEaseSineIn, CCActionEaseSineInOut, CCActionEaseSineOut
+ *  CCActionEase adds the ability to modify existing actions to create more realistic effects.
  */
 @interface CCActionEase : CCActionInterval <NSCopying> {
 	CCActionInterval *_inner;
@@ -50,10 +38,8 @@
 // The inner action.
 @property (nonatomic, readonly) CCActionInterval *inner;
 
-/** @name Creating an Ease Action */
-
 /**
- *  Creates a new ease action.
+ *  Creates a new basic ease action.
  *
  *  @param action Interval action.
  *
@@ -62,7 +48,7 @@
 + (id)actionWithAction:(CCActionInterval*)action;
 
 /**
- *  Initializes a new ease action.
+ *  Initializes a new basic ease action.
  *
  *  @param action Interval action.
  *
@@ -77,7 +63,7 @@
 /**
  *  This action will start the specified action with an sine effect.
  *
- *  @warning Using an ease action on a CCActionSequence might have an unexpected results. However you can use ease actions within a CCActionSequence.
+ *  Note: This action doesn't use a bijective function, actions like CCActionSequence might have an unexpected result when used with this action.
  */
 @interface CCActionEaseSineIn : CCActionEase <NSCopying>
 @end
@@ -85,7 +71,7 @@
 /**
  *  This action will start the specified action with an sine effect.
  *
- *  @warning Using an ease action on a CCActionSequence might have an unexpected results. However you can use ease actions within a CCActionSequence.
+ *  Note: This action doesn't use a bijective function, actions like CCActionSequence might have an unexpected result when used with this action.
  */
 @interface CCActionEaseSineOut : CCActionEase <NSCopying>
 @end
@@ -93,7 +79,7 @@
 /**
  *  This action will start the specified action with an sine effect.
  *
- *  @warning Using an ease action on a CCActionSequence might have an unexpected results. However you can use ease actions within a CCActionSequence.
+ *  Note: This action doesn't use a bijective function, actions like CCActionSequence might have an unexpected result when used with this action.
  */
 @interface CCActionEaseSineInOut : CCActionEase <NSCopying>
 @end
@@ -139,11 +125,8 @@
 	float	_rate;
 }
 
-// purposefully undocumented: little need to change rate while action is running
-/* Rate value for the ease action. */
+/** Rate value for the ease action. */
 @property (nonatomic,readwrite,assign) float rate;
-
-/** @name Creating an Ease Action */
 
 /**
  *  Creates the action with the inner action and the rate parameter.
@@ -199,11 +182,8 @@
 	float _period;
 }
 
-// purposefully undocumented: little need to change period while action is running
-/* Period of the wave in radians. Default is 0.3. */
+/** Period of the wave in radians. Default is 0.3. */
 @property (nonatomic,readwrite) float period;
-
-/** @name Creating an Ease Action */
 
 /**
  *  Creates the action with the inner action and the period in radians (default is 0.3).
@@ -232,7 +212,7 @@
 /**
  *  This action will start the specified action with an elastic effect.
  *
- *  @warning Using an ease action on a CCActionSequence might have an unexpected results. However you can use ease actions within a CCActionSequence.
+ *  Note: This action doesn't use a bijective function, actions like CCActionSequence might have an unexpected result when used with this action.
  */
 @interface CCActionEaseElasticIn : CCActionEaseElastic <NSCopying>
 
@@ -242,7 +222,7 @@
 /**
  *  This action will end the specified action with an elastic effect.
  *
- *  @warning Using an ease action on a CCActionSequence might have an unexpected results. However you can use ease actions within a CCActionSequence.
+ *  Note: This action doesn't use a bijective function, actions like CCActionSequence might have an unexpected result when used with this action.
  */
 @interface CCActionEaseElasticOut : CCActionEaseElastic <NSCopying>
 
@@ -252,7 +232,7 @@
 /**
  *  This action will start and end the specified action with an elastic effect.
  *
- *  @warning Using an ease action on a CCActionSequence might have an unexpected results. However you can use ease actions within a CCActionSequence.
+ *  Note: This action doesn't use a bijective function, actions like CCActionSequence might have an unexpected result when used with this action.
  */
 @interface CCActionEaseElasticInOut : CCActionEaseElastic <NSCopying>
 
@@ -274,7 +254,7 @@
 /**
  *  This action will start the specified action with a bounce effect.
  *
- *  @warning Using an ease action on a CCActionSequence might have an unexpected results. However you can use ease actions within a CCActionSequence.
+ *  Note: This action doesn't use a bijective function, actions like CCActionSequence might have an unexpected result when used with this action.
  */
 @interface CCActionEaseBounceIn : CCActionEaseBounce <NSCopying>
 
@@ -284,7 +264,7 @@
 /**
  *  This action will end the specified action with a bounce effect.
  *
- *  @warning Using an ease action on a CCActionSequence might have an unexpected results. However you can use ease actions within a CCActionSequence.
+ *  Note: This action doesn't use a bijective function, actions like CCActionSequence might have an unexpected result when used with this action.
  */
 @interface CCActionEaseBounceOut : CCActionEaseBounce <NSCopying>
 
@@ -294,7 +274,7 @@
 /**
  *  This action will start and end the specified action with a bounce effect.
  *
- *  @warning Using an ease action on a CCActionSequence might have an unexpected results. However you can use ease actions within a CCActionSequence.
+ *  Note: This action doesn't use a bijective function, actions like CCActionSequence might have an unexpected result when used with this action.
  */
 @interface CCActionEaseBounceInOut : CCActionEaseBounce <NSCopying>
 

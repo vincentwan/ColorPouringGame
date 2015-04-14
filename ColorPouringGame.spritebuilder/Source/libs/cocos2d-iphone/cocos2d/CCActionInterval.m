@@ -155,11 +155,6 @@
 	
 	return prev;
 }
--(id) initWithArray:(NSArray *)actions
-{
-    // this is backwards because it's "safer" as a quick Swift fix for v3.4
-    return [CCActionSequence actionWithArray:actions];
-}
 
 +(id) actionOne: (CCActionFiniteTime*) one two: (CCActionFiniteTime*) two
 {
@@ -422,11 +417,6 @@
 		prev = [self actionOne:prev two:[actions objectAtIndex:i]];
 
 	return prev;
-}
--(id) initWithArray: (NSArray*) actions
-{
-    // this is backwards because it's "safer" as a quick Swift fix for v3.4
-    return [CCActionSpawn actionWithArray:actions];
 }
 
 +(id) actionOne: (CCActionFiniteTime*) one two: (CCActionFiniteTime*) two

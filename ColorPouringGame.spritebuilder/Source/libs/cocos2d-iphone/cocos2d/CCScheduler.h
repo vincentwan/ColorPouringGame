@@ -48,56 +48,41 @@
 @end
 
 
-/** Contains information about a scheduled selector. Returned by [CCNode schedule:interval:] and related methods.
-
- @note New CCTimer objects can only be created with the schedule methods. CCTimer should not be subclassed.
- */
+// Wraps a block scheduled with a CCScheduler.
 @interface CCTimer : NSObject
 
-/** @name Interval and Repeat Count */
-
-/** Number of times to run the selector again. First run does not count as a repeat. */
+// Number of times to repeat call the block.
 @property(nonatomic, assign) NSUInteger repeatCount;
 
-/** Amount of time to wait between selector calls. Defaults to the initial delay value.
- 
- `CCTime` is a typedef for `double`. */
+// Amount of time to wait between calls of the block.
+// Defaults to the initial delay value.
 @property(nonatomic, assign) CCTime repeatInterval;
 
-/** @name Time Info */
+// Is the timer paused or not.
+@property(nonatomic, assign) BOOL paused;
 
-/** Elapsed time since the last invocation.
- 
- `CCTime` is a typedef for `double`. */
+// Elapsed time since the last invocation.
 @property(nonatomic, readonly) CCTime deltaTime;
 
-/** Absolute time the timer will invoke at.
- 
- `CCTime` is a typedef for `double`. */
+// Absolute time the timer will invoke at.
 @property(nonatomic, readonly) CCTime invokeTime;
 
-// purposefully undocumented: CCScheduler is a private, undocumented class
-// CCScheduler this timer was invoked from. Useful if you need to schedule more timers, or access lastUpdate times, etc.
+// Scheduler this timer was invoked from.
+// Useful if you need to schedule more timers, or access lastUpdate times, etc.
 @property(nonatomic, readonly) CCScheduler *scheduler;
 
-// purposefully undocumented
-/* Track an object along with the timer. [CCNode schedule:interval:] methods use this to store the selector name. */
+// Returns YES if the timer is no longer scheduled.
+@property(nonatomic, readonly) BOOL invalid;
+
+// Track an object along with the timer.
+// [CCNode schedule:] methods use this to store the selector name.
 @property(nonatomic, strong) id userData;
 
-// purposefully undocumented: same as setting repeatCount and repeatInterval
 // Set the timer to repeat once with the given interval.
 // Can be used from a timer block to make the timer run again.
 -(void)repeatOnceWithInterval:(CCTime)interval;
 
-/** @name Pausing and Stopping Timer */
-
-/** Whether the timer is paused. */
-@property(nonatomic, assign) BOOL paused;
-
-/** Returns YES if the timer is no longer scheduled. */
-@property(nonatomic, readonly) BOOL invalid;
-
-/** Cancel the timer. */
+// Cancel the timer.
 -(void)invalidate;
 
 @end
@@ -109,8 +94,6 @@ typedef void (^CCTimerBlock)(CCTimer *timer);
 
 #define CCTimerRepeatForever NSUIntegerMax
 
-
-// purposefully left undocumented: CCScheduler is a private/internal class
 
 //
 // CCScheduler

@@ -32,15 +32,13 @@
 @class CCSprite;
 
 /**
- A CCSpriteBatchNode offers improved rendering performance for multiple sprite rendering by utilising a single OpenGL call to render 
- all of its child sprites from one texture. This is called batch drawing.
+ A CCSpriteBatchNode offers improved rendering performance for multiple sprite rendering by utilising a single OpenGL call to render all sprites from one (and only one) texture (one image file, one texture atlas), often knows as a 'batch draw'.
  
- ### Requirements
+ ### Notes
  
- - Only CCSprite or CCSprite subclass instances can be added to the CCSpriteBatchNode
- - All sprites added must use the same CCTexture object
- 
- Failing to meet these requirements will result in a runtime error.
+ - Only CCSprites or any subclass of CCSprite may be added to the CCSpriteBatchNode.
+ - All CCSprites must reference the same texture atlas.
+ - Default child capacity is 29 children and will be increased by 33% at runtime each time capacity is reached.
  
  */
 __attribute__((deprecated))
@@ -48,7 +46,7 @@ __attribute__((deprecated))
 
 
 /// -----------------------------------------------------------------------
-/// @name Creating a Sprite Batch Node
+/// @name Creating a CCSpriteBatchNode Object
 /// -----------------------------------------------------------------------
 
 /**
@@ -57,7 +55,6 @@ __attribute__((deprecated))
  *  @param tex Texture to use.
  *
  *  @return The CCSpriteBatchNode Object.
- *  @see CCTexture
  */
 +(id)batchNodeWithTexture:(CCTexture *)tex;
 
@@ -70,6 +67,11 @@ __attribute__((deprecated))
  */
 +(id)batchNodeWithFile:(NSString*) fileImage;
 
+
+/// -----------------------------------------------------------------------
+/// @name Initializing a CCSpriteBatchNode Object
+/// -----------------------------------------------------------------------
+
 /**
  *  Creates and returns a batch node with the specified texture and capacity values.
  *
@@ -77,7 +79,6 @@ __attribute__((deprecated))
  *  @param capacity Initial capacity.
  *
  *  @return An initialized CCSpriteBatchNode Object.
- *  @see CCTexture
  */
 -(id)initWithTexture:(CCTexture *)tex capacity:(NSUInteger)capacity;
 

@@ -30,14 +30,11 @@
 
 /**
  *  This action is for use with the CCProgressNode to control the progression to animation.
- *  @warning The target node must be a CCProgressNode or subclass of CCProgressNode.
  */
 @interface CCActionProgressTo : CCActionInterval <NSCopying> {
 	float _to;
 	float _from;
 }
-
-/** @name Creating a Progress Action */
 
 /**
  *  Creates a progress action.
@@ -64,14 +61,11 @@
 
 /**
  *  This action is for use with the CCProgressNode to control the progression from and to animation.
- *  @warning The target node must be a CCProgressNode or subclass of CCProgressNode.
  */
 @interface CCActionProgressFromTo : CCActionInterval <NSCopying> {
 	float _to;
 	float _from;
 }
-
-/** @name Creating a Progress Action */
 
 /**
  *  Creates a progress action.

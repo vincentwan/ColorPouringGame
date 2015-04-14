@@ -10,10 +10,10 @@
 #import "CCEffectStackProtocol.h"
 
 
-@interface CCEffectStack ()
+@interface CCEffectStack () <CCEffectStackProtocol>
 
+@property (nonatomic, assign) BOOL passesDirty;
 @property (nonatomic, assign) BOOL stitchingEnabled;
-@property (nonatomic, readonly) NSArray *effects;
-@property (nonatomic, readonly) NSArray *flattenedEffects;
+@property (nonatomic, strong) NSMutableArray *effects;
 
 @end

@@ -39,39 +39,45 @@
 //
 //  <End GPUImage license>
 
-#import "CCEffectBlur.h"
-#import "CCEffectUtils.h"
 #import "CCEffect_Private.h"
+#import "CCEffectBlur.h"
 #import "CCTexture.h"
 
 
-@interface CCEffectBlurImpl : CCEffectImpl
-@property (nonatomic, weak) CCEffectBlur *interface;
-@end
+@implementation CCEffectBlur {
+    NSUInteger _numberOfOptimizedOffsets;
+    NSUInteger _blurRadius;
+    GLfloat _sigma;
+    BOOL _shaderDirty;
+}
 
-@implementation CCEffectBlurImpl
-
--(id)initWithInterface:(CCEffectBlur *)interface
+-(id)init
 {
-    CCEffectBlurParams blurParams = CCEffectUtilsComputeBlurParams(interface.blurRadius);
-    
-    NSArray *uniforms = @[
-                          [CCEffectUniform uniform:@"highp vec2" name:@"u_blurDirection" value:[NSValue valueWithGLKVector2:GLKVector2Make(0.0f, 0.0f)]]
-                          ];
-    
-    unsigned long count = (unsigned long)(1 + (blurParams.numberOfOptimizedOffsets * 2));
-    NSArray *varyings = @[
-                          [CCEffectVarying varying:@"vec2" name:@"v_blurCoordinates" count:count]
-                          ];
-    
-    NSArray *fragFunctions = [CCEffectBlurImpl buildFragmentFunctionsWithBlurParams:blurParams];
-    NSArray *vertFunctions = [CCEffectBlurImpl buildVertexFunctionsWithBlurParams:blurParams];
-    NSArray *renderPasses = [CCEffectBlurImpl buildRenderPasses];
-    
-    if((self = [super initWithRenderPasses:renderPasses fragmentFunctions:fragFunctions vertexFunctions:vertFunctions fragmentUniforms:uniforms vertexUniforms:uniforms varyings:varyings]))
+    if((self = [self initWithPixelBlurRadius:2]))
     {
-        self.interface = interface;
-        self.debugName = @"CCEffectBlurImpl";
+        return self;
+    }
+    
+    return self;
+}
+
+
+-(id)initWithPixelBlurRadius:(NSUInteger)blurRadius
+{
+    [self setBlurRadiusAndDependents:blurRadius];
+    
+    CCEffectUniform* u_blurDirection = [CCEffectUniform uniform:@"vec2" name:@"u_blurDirection"
+                                                          value:[NSValue valueWithGLKVector2:GLKVector2Make(0.0f, 0.0f)]];
+    
+    unsigned long count = (unsigned long)(1 + (_numberOfOptimizedOffsets * 2));
+    CCEffectVarying* v_blurCoords = [CCEffectVarying varying:@"vec2" name:@"v_blurCoordinates" count:count];
+    
+    if(self = [super initWithFragmentUniforms:nil
+                               vertexUniforms:[NSArray arrayWithObjects:u_blurDirection, nil]
+                                     varyings:[NSArray arrayWithObjects:v_blurCoords, nil]])
+    {
+        
+        self.debugName = @"CCEffectBlur";
         self.stitchFlags = 0;
         return self;
     }
@@ -79,13 +85,42 @@
     return self;
 }
 
-+ (NSArray *)buildFragmentFunctionsWithBlurParams:(CCEffectBlurParams)blurParams
++(id)effectWithBlurRadius:(NSUInteger)blurRadius
 {
-    GLfloat *standardGaussianWeights = calloc(blurParams.trueRadius + 2, sizeof(GLfloat));
+    return [[self alloc] initWithPixelBlurRadius:blurRadius];
+}
+
+-(void)setBlurRadius:(NSUInteger)blurRadius
+{
+    [self setBlurRadiusAndDependents:blurRadius];
+    
+    // The shader is constructed dynamically based on the blur radius
+    // so mark it dirty and make sure this propagates up to any containing
+    // effect stacks.
+    _shaderDirty = YES;
+    [self.owningStack passesDidChange:self];
+}
+
+- (void)setBlurRadiusAndDependents:(NSUInteger)blurRadius
+{
+    blurRadius = MIN(blurRadius, BLUR_OPTIMIZED_RADIUS_MAX);
+    _blurRadius = blurRadius;
+    _sigma = blurRadius / 2;
+    if(_sigma == 0.0)
+        _sigma = 1.0f;
+    
+    _numberOfOptimizedOffsets = MIN(blurRadius / 2 + (blurRadius % 2), BLUR_OPTIMIZED_RADIUS_MAX);
+}
+
+-(void)buildFragmentFunctions
+{
+    self.fragmentFunctions = [[NSMutableArray alloc] init];
+
+    GLfloat *standardGaussianWeights = calloc(_blurRadius + 1, sizeof(GLfloat));
     GLfloat sumOfWeights = 0.0;
-    for (NSUInteger currentGaussianWeightIndex = 0; currentGaussianWeightIndex < blurParams.trueRadius + 2; currentGaussianWeightIndex++)
+    for (NSUInteger currentGaussianWeightIndex = 0; currentGaussianWeightIndex < _blurRadius + 1; currentGaussianWeightIndex++)
     {
-        standardGaussianWeights[currentGaussianWeightIndex] = (1.0 / sqrt(2.0 * M_PI * pow(blurParams.sigma, 2.0))) * exp(-pow(currentGaussianWeightIndex, 2.0) / (2.0 * pow(blurParams.sigma, 2.0)));
+        standardGaussianWeights[currentGaussianWeightIndex] = (1.0 / sqrt(2.0 * M_PI * pow(_sigma, 2.0))) * exp(-pow(currentGaussianWeightIndex, 2.0) / (2.0 * pow(_sigma, 2.0)));
         
         if (currentGaussianWeightIndex == 0)
         {
@@ -98,89 +133,72 @@
     }
     
     // Next, normalize these weights to prevent the clipping of the Gaussian curve at the end of the discrete samples from reducing luminance
-    for (NSUInteger currentGaussianWeightIndex = 0; currentGaussianWeightIndex < blurParams.trueRadius + 2; currentGaussianWeightIndex++)
+    for (NSUInteger currentGaussianWeightIndex = 0; currentGaussianWeightIndex < _blurRadius + 1; currentGaussianWeightIndex++)
     {
         standardGaussianWeights[currentGaussianWeightIndex] = standardGaussianWeights[currentGaussianWeightIndex] / sumOfWeights;
     }
     
     // From these weights we calculate the offsets to read interpolated values from
-    NSUInteger trueNumberOfOptimizedOffsets = blurParams.trueRadius / 2;
+    NSUInteger numberOfOptimizedOffsets = MIN(_blurRadius / 2 + (_blurRadius % 2), BLUR_OPTIMIZED_RADIUS_MAX);
+    NSUInteger trueNumberOfOptimizedOffsets = _blurRadius / 2 + (_blurRadius % 2);
     
     NSMutableString *shaderString = [[NSMutableString alloc] init];
     
     // Header
     [shaderString appendFormat:@"\
-     lowp vec4 sum = vec4(0.0);\n\
-     vec2 compare;\
-     float inBounds;\
-     vec2 blurCoords;\
-     "];
+     lowp vec4 sum = vec4(0.0);\n"];
     
     // Inner texture loop
-    [shaderString appendString:@"compare = cc_FragTexCoord1Extents - abs(v_blurCoordinates[0] - cc_FragTexCoord1Center);"];
-    [shaderString appendString:@"inBounds = step(0.0, min(compare.x, compare.y));"];
-    [shaderString appendFormat:@"sum += texture2D(cc_PreviousPassTexture, v_blurCoordinates[0]) * inBounds * %f;\n", (blurParams.trueRadius == 0) ? 1.0 : standardGaussianWeights[0]];
+    [shaderString appendFormat:@"sum += texture2D(cc_PreviousPassTexture, v_blurCoordinates[0]) * %f;\n", standardGaussianWeights[0]];
     
-    for (NSUInteger currentBlurCoordinateIndex = 0; currentBlurCoordinateIndex < blurParams.numberOfOptimizedOffsets; currentBlurCoordinateIndex++)
+    for (NSUInteger currentBlurCoordinateIndex = 0; currentBlurCoordinateIndex < numberOfOptimizedOffsets; currentBlurCoordinateIndex++)
     {
         GLfloat firstWeight = standardGaussianWeights[currentBlurCoordinateIndex * 2 + 1];
         GLfloat secondWeight = standardGaussianWeights[currentBlurCoordinateIndex * 2 + 2];
         GLfloat optimizedWeight = firstWeight + secondWeight;
         
-        [shaderString appendFormat:@"blurCoords = v_blurCoordinates[%lu];", (unsigned long)((currentBlurCoordinateIndex * 2) + 1)];
-        [shaderString appendString:@"compare = cc_FragTexCoord1Extents - abs(blurCoords - cc_FragTexCoord1Center);"];
-        [shaderString appendString:@"inBounds = step(0.0, min(compare.x, compare.y));"];
-        [shaderString appendFormat:@"sum += texture2D(cc_PreviousPassTexture, blurCoords) * inBounds * %f;\n", optimizedWeight];
-
-        
-        [shaderString appendFormat:@"blurCoords = v_blurCoordinates[%lu];", (unsigned long)((currentBlurCoordinateIndex * 2) + 2)];
-        [shaderString appendString:@"compare = cc_FragTexCoord1Extents - abs(blurCoords - cc_FragTexCoord1Center);"];
-        [shaderString appendString:@"inBounds = step(0.0, min(compare.x, compare.y));"];
-        [shaderString appendFormat:@"sum += texture2D(cc_PreviousPassTexture, blurCoords) * inBounds * %f;\n", optimizedWeight];
+        [shaderString appendFormat:@"sum += texture2D(cc_PreviousPassTexture, v_blurCoordinates[%lu]) * %f;\n", (unsigned long)((currentBlurCoordinateIndex * 2) + 1), optimizedWeight];
+        [shaderString appendFormat:@"sum += texture2D(cc_PreviousPassTexture, v_blurCoordinates[%lu]) * %f;\n", (unsigned long)((currentBlurCoordinateIndex * 2) + 2), optimizedWeight];
     }
     
     // If the number of required samples exceeds the amount we can pass in via varyings, we have to do dependent texture reads in the fragment shader
-    if (trueNumberOfOptimizedOffsets > blurParams.numberOfOptimizedOffsets)
+    if (trueNumberOfOptimizedOffsets > numberOfOptimizedOffsets)
     {
         [shaderString appendString:@"highp vec2 singleStepOffset = u_blurDirection;\n"];
         
-        for (NSUInteger currentOverlowTextureRead = blurParams.numberOfOptimizedOffsets; currentOverlowTextureRead < trueNumberOfOptimizedOffsets; currentOverlowTextureRead++)
+        for (NSUInteger currentOverlowTextureRead = numberOfOptimizedOffsets; currentOverlowTextureRead < trueNumberOfOptimizedOffsets; currentOverlowTextureRead++)
         {
             GLfloat firstWeight = standardGaussianWeights[currentOverlowTextureRead * 2 + 1];
             GLfloat secondWeight = standardGaussianWeights[currentOverlowTextureRead * 2 + 2];
             
             GLfloat optimizedWeight = firstWeight + secondWeight;
             GLfloat optimizedOffset = (firstWeight * (currentOverlowTextureRead * 2 + 1) + secondWeight * (currentOverlowTextureRead * 2 + 2)) / optimizedWeight;
-
-            [shaderString appendFormat:@"blurCoords = v_blurCoordinates[0] + singleStepOffset * %f;", optimizedOffset];
-            [shaderString appendString:@"compare = cc_FragTexCoord1Extents - abs(blurCoords - cc_FragTexCoord1Center);"];
-            [shaderString appendString:@"inBounds = step(0.0, min(compare.x, compare.y));"];
-            [shaderString appendFormat:@"sum += texture2D(cc_PreviousPassTexture, blurCoords) * inBounds * %f;\n", optimizedWeight];
-
-            [shaderString appendFormat:@"blurCoords = v_blurCoordinates[0] - singleStepOffset * %f;", optimizedOffset];
-            [shaderString appendString:@"compare = cc_FragTexCoord1Extents - abs(blurCoords - cc_FragTexCoord1Center);"];
-            [shaderString appendString:@"inBounds = step(0.0, min(compare.x, compare.y));"];
-            [shaderString appendFormat:@"sum += texture2D(cc_PreviousPassTexture, blurCoords) * inBounds * %f;\n", optimizedWeight];
+            
+            [shaderString appendFormat:@"sum += texture2D(cc_PreviousPassTexture, v_blurCoordinates[0] + singleStepOffset * %f) * %f;\n", optimizedOffset, optimizedWeight];
+            [shaderString appendFormat:@"sum += texture2D(cc_PreviousPassTexture, v_blurCoordinates[0] - singleStepOffset * %f) * %f;\n", optimizedOffset, optimizedWeight];
         }
     }
     
     [shaderString appendString:@"\
-     return sum * inputValue;\n"];
-
-    free(standardGaussianWeights);
+     return sum;\n"];
     
-    CCEffectFunctionInput *input = [[CCEffectFunctionInput alloc] initWithType:@"vec4" name:@"inputValue" initialSnippet:@"cc_FragColor" snippet:@"vec4(1,1,1,1)"];
-    CCEffectFunction* fragmentFunction = [[CCEffectFunction alloc] initWithName:@"blurEffect" body:shaderString inputs:@[input] returnType:@"vec4"];
-    return @[fragmentFunction];
+    NSString* effectBody = [NSString stringWithString:shaderString];
+    
+    CCEffectFunction* fragmentFunction = [[CCEffectFunction alloc] initWithName:@"blurEffect" body:effectBody inputs:nil returnType:@"vec4"];
+    [self.fragmentFunctions addObject:fragmentFunction];
+    
+    free(standardGaussianWeights);
 }
 
-+ (NSArray *)buildVertexFunctionsWithBlurParams:(CCEffectBlurParams)blurParams
+-(void)buildVertexFunctions
 {
-    GLfloat* standardGaussianWeights = calloc(blurParams.trueRadius + 1, sizeof(GLfloat));
+    self.vertexFunctions = [[NSMutableArray alloc] init];
+    
+    GLfloat* standardGaussianWeights = calloc(_blurRadius + 1, sizeof(GLfloat));
     GLfloat sumOfWeights = 0.0;
-    for (NSUInteger currentGaussianWeightIndex = 0; currentGaussianWeightIndex < blurParams.trueRadius + 1; currentGaussianWeightIndex++)
+    for (NSUInteger currentGaussianWeightIndex = 0; currentGaussianWeightIndex < _blurRadius + 1; currentGaussianWeightIndex++)
     {
-        standardGaussianWeights[currentGaussianWeightIndex] = (1.0 / sqrt(2.0 * M_PI * pow(blurParams.sigma, 2.0))) * exp(-pow(currentGaussianWeightIndex, 2.0) / (2.0 * pow(blurParams.sigma, 2.0)));
+        standardGaussianWeights[currentGaussianWeightIndex] = (1.0 / sqrt(2.0 * M_PI * pow(_sigma, 2.0))) * exp(-pow(currentGaussianWeightIndex, 2.0) / (2.0 * pow(_sigma, 2.0)));
         
         if (currentGaussianWeightIndex == 0)
         {
@@ -193,15 +211,15 @@
     }
     
     // Next, normalize these weights to prevent the clipping of the Gaussian curve at the end of the discrete samples from reducing luminance
-    for (NSUInteger currentGaussianWeightIndex = 0; currentGaussianWeightIndex < blurParams.trueRadius + 1; currentGaussianWeightIndex++)
+    for (NSUInteger currentGaussianWeightIndex = 0; currentGaussianWeightIndex < _blurRadius + 1; currentGaussianWeightIndex++)
     {
         standardGaussianWeights[currentGaussianWeightIndex] = standardGaussianWeights[currentGaussianWeightIndex] / sumOfWeights;
     }
     
     // From these weights we calculate the offsets to read interpolated values from
-    GLfloat* optimizedGaussianOffsets = calloc(blurParams.numberOfOptimizedOffsets, sizeof(GLfloat));
+    GLfloat* optimizedGaussianOffsets = calloc(_numberOfOptimizedOffsets, sizeof(GLfloat));
     
-    for (NSUInteger currentOptimizedOffset = 0; currentOptimizedOffset < blurParams.numberOfOptimizedOffsets; currentOptimizedOffset++)
+    for (NSUInteger currentOptimizedOffset = 0; currentOptimizedOffset < _numberOfOptimizedOffsets; currentOptimizedOffset++)
     {
         GLfloat firstWeight = standardGaussianWeights[currentOptimizedOffset*2 + 1];
         GLfloat secondWeight = standardGaussianWeights[currentOptimizedOffset*2 + 2];
@@ -219,7 +237,7 @@
     
     // Inner offset loop
     [shaderString appendString:@"v_blurCoordinates[0] = cc_TexCoord1.xy;\n"];
-    for (NSUInteger currentOptimizedOffset = 0; currentOptimizedOffset < blurParams.numberOfOptimizedOffsets; currentOptimizedOffset++)
+    for (NSUInteger currentOptimizedOffset = 0; currentOptimizedOffset < _numberOfOptimizedOffsets; currentOptimizedOffset++)
     {
         [shaderString appendFormat:@"\
          v_blurCoordinates[%lu] = cc_TexCoord1.xy + singleStepOffset * %f;\n\
@@ -228,113 +246,72 @@
     
     [shaderString appendString:@"return cc_Position;\n"];
 
+    NSString* effectBody =  [NSString stringWithString:shaderString];
+
+    CCEffectFunction* vertexFunction = [[CCEffectFunction alloc] initWithName:@"blurEffect" body:effectBody inputs:nil returnType:@"vec4"];
+    [self.vertexFunctions addObject:vertexFunction];
+    
     free(optimizedGaussianOffsets);
     free(standardGaussianWeights);
-
-    CCEffectFunction* vertexFunction = [[CCEffectFunction alloc] initWithName:@"blurEffect" body:shaderString inputs:nil returnType:@"vec4"];
-    return @[vertexFunction];
 }
 
-+ (NSArray *)buildRenderPasses
+-(void)buildRenderPasses
 {
     // optmized approach based on linear sampling - http://rastergrid.com/blog/2010/09/efficient-gaussian-blur-with-linear-sampling/ and GPUImage - https://github.com/BradLarson/GPUImage
     // pass 0: blurs (horizontal) texture[0] and outputs blurmap to texture[1]
     // pass 1: blurs (vertical) texture[1] and outputs to texture[2]
 
-    CCEffectRenderPass *pass0 = [[CCEffectRenderPass alloc] initWithIndex:0];
+    __weak CCEffectBlur *weakSelf = self;
+    
+    CCEffectRenderPass *pass0 = [[CCEffectRenderPass alloc] init];
     pass0.debugLabel = @"CCEffectBlur pass 0";
+    pass0.shader = self.shader;
     pass0.blendMode = [CCBlendMode premultipliedAlphaMode];
-    pass0.beginBlocks = @[[^(CCEffectRenderPass *pass, CCEffectRenderPassInputs *passInputs){
+    pass0.beginBlocks = @[[^(CCEffectRenderPass *pass, CCTexture *previousPassTexture){
 
-        passInputs.shaderUniforms[CCShaderUniformMainTexture] = passInputs.previousPassTexture;
-        passInputs.shaderUniforms[CCShaderUniformPreviousPassTexture] = passInputs.previousPassTexture;
+        pass.shaderUniforms[CCShaderUniformMainTexture] = previousPassTexture;
+        pass.shaderUniforms[CCShaderUniformPreviousPassTexture] = previousPassTexture;
         
-        passInputs.shaderUniforms[CCShaderUniformTexCoord1Center] = [NSValue valueWithGLKVector2:passInputs.texCoord1Center];
-        passInputs.shaderUniforms[CCShaderUniformTexCoord1Extents] = [NSValue valueWithGLKVector2:passInputs.texCoord1Extents];
-        
-        GLKVector2 dur = GLKVector2Make(1.0 / (passInputs.previousPassTexture.pixelWidth / passInputs.previousPassTexture.contentScale), 0.0);
-        passInputs.shaderUniforms[pass.uniformTranslationTable[@"u_blurDirection"]] = [NSValue valueWithGLKVector2:dur];
+        GLKVector2 dur = GLKVector2Make(1.0 / (previousPassTexture.pixelWidth / previousPassTexture.contentScale), 0.0);
+        pass.shaderUniforms[weakSelf.uniformTranslationTable[@"u_blurDirection"]] = [NSValue valueWithGLKVector2:dur];
         
     } copy]];
 
     
-    CCEffectRenderPass *pass1 = [[CCEffectRenderPass alloc] initWithIndex:1];
+    CCEffectRenderPass *pass1 = [[CCEffectRenderPass alloc] init];
     pass1.debugLabel = @"CCEffectBlur pass 1";
+    pass1.shader = self.shader;
     pass1.blendMode = [CCBlendMode premultipliedAlphaMode];
-    pass1.beginBlocks = @[[^(CCEffectRenderPass *pass, CCEffectRenderPassInputs *passInputs){
+    pass1.beginBlocks = @[[^(CCEffectRenderPass *pass, CCTexture *previousPassTexture){
 
-        passInputs.shaderUniforms[CCShaderUniformPreviousPassTexture] = passInputs.previousPassTexture;
-        
-        passInputs.shaderUniforms[CCShaderUniformTexCoord1Center] = [NSValue valueWithGLKVector2:GLKVector2Make(0.5f, 0.5f)];
-        passInputs.shaderUniforms[CCShaderUniformTexCoord1Extents] = [NSValue valueWithGLKVector2:GLKVector2Make(1.0f, 1.0f)];
-        
-        GLKVector2 dur = GLKVector2Make(0.0, 1.0 / (passInputs.previousPassTexture.pixelHeight / passInputs.previousPassTexture.contentScale));
-        passInputs.shaderUniforms[pass.uniformTranslationTable[@"u_blurDirection"]] = [NSValue valueWithGLKVector2:dur];
+        pass.shaderUniforms[CCShaderUniformPreviousPassTexture] = previousPassTexture;
+        GLKVector2 dur = GLKVector2Make(0.0, 1.0 / (previousPassTexture.pixelHeight / previousPassTexture.contentScale));
+        pass.shaderUniforms[weakSelf.uniformTranslationTable[@"u_blurDirection"]] = [NSValue valueWithGLKVector2:dur];
         
     } copy]];
     
-    return @[pass0, pass1];
+    self.renderPasses = @[pass0, pass1];
 }
 
-@end
-
-
-@implementation CCEffectBlur
+- (CCEffectPrepareStatus)prepareForRendering
 {
-    BOOL _shaderDirty;
-}
-
--(id)init
-{
-    if((self = [self initWithPixelBlurRadius:2]))
-    {
-        return self;
-    }
-    
-    return self;
-}
-
--(id)initWithPixelBlurRadius:(NSUInteger)blurRadius
-{
-    if(self = [super init])
-    {
-        self.blurRadius = blurRadius;
-        
-        self.effectImpl = [[CCEffectBlurImpl alloc] initWithInterface:self];
-        self.debugName = @"CCEffectBlur";
-        return self;
-    }
-    
-    return self;
-}
-
-+(id)effectWithBlurRadius:(NSUInteger)blurRadius
-{
-    return [[self alloc] initWithPixelBlurRadius:blurRadius];
-}
-
--(void)setBlurRadius:(NSUInteger)blurRadius
-{
-    _blurRadius = blurRadius;
-
-    // The shader is constructed dynamically based on the blur radius
-    // so mark it dirty.
-    _shaderDirty = YES;
-}
-
-- (CCEffectPrepareResult)prepareForRenderingWithSprite:(CCSprite *)sprite
-{
-    CCEffectPrepareResult result = CCEffectPrepareNoop;
+    CCEffectPrepareStatus result = CCEffectPrepareNothingToDo;
     if (_shaderDirty)
     {
-        self.effectImpl = [[CCEffectBlurImpl alloc] initWithInterface:self];
+        unsigned long count = (unsigned long)(1 + (_numberOfOptimizedOffsets * 2));
+        CCEffectVarying* v_blurCoords = [CCEffectVarying varying:@"vec2" name:@"v_blurCoordinates" count:count];
+        [self setVaryings:@[v_blurCoords]];
 
-        _shaderDirty = NO;
+        [self buildFragmentFunctions];
+        [self buildVertexFunctions];
+        [self buildEffectShader];
+        [self buildRenderPasses];
         
-        result.status = CCEffectPrepareSuccess;
-        result.changes = CCEffectPrepareShaderChanged;
+        _shaderDirty = NO;
+        result = CCEffectPrepareSuccess;
     }
     return result;
 }
 
 @end
+

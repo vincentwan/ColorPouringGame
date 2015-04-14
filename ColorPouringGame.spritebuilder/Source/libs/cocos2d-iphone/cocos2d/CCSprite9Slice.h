@@ -29,42 +29,33 @@
 #import "cocos2d.h"
 
 /**
- CCSprite9Slice will render an image in nine quads, keeping the margins fixed and stretching the center quad to fit the content size.
- The effect is that the image's borders will remain unstretched while the center stretches.
+ *  CCSprite9Slice will render a single image as nine quads, keeping the margins fixed, and stretching the center quads, to fit the content size.
+ *  See CCSprite for usage.
  */
 @interface CCSprite9Slice : CCSprite {
 }
 
+
 /// -----------------------------------------------------------------------
-/// @name Setting the Margin
+/// @name Accessing Margin Attributes
 /// -----------------------------------------------------------------------
 
 /**
- Sets the margin as a normalized percentage of the total image size.
- If set to 0.25, 25% of the left, right, top and bottom borders of the image will remain unstretched.
- 
- @note Margin must be in the range 0.0 to below 0.5.
+ *  Sets the margin as a normalized percentage of the total image size.
+ *  If set to 0.25, 25% of the left, right, top and bottom of the image, will be unstratched.
  */
 @property (nonatomic, assign) float margin;
 
-/// -----------------------------------------------------------------------
-/// @name Individual Margins
-/// -----------------------------------------------------------------------
-
-/** Adjusts the margin only for this border.
- @note The sum of the this border's margin plus its opposing border's margin must not be equal to or greater than 1.0! */
+/** Sets the left margin exclusively. */
 @property (nonatomic, assign) float marginLeft;
 
-/** Adjusts the margin only for this border.
- @note The sum of the this border's margin plus its opposing border's margin must not be equal to or greater than 1.0! */
+/** Sets the right margin exclusively. */
 @property (nonatomic, assign) float marginRight;
 
-/** Adjusts the margin only for this border.
- @note The sum of the this border's margin plus its opposing border's margin must not be equal to or greater than 1.0! */
+/** Sets the top margin exclusively. */
 @property (nonatomic, assign) float marginTop;
 
-/** Adjusts the margin only for this border.
- @note The sum of the this border's margin plus its opposing border's margin must not be equal to or greater than 1.0! */
+/** Sets the bottom margin exclusively. */
 @property (nonatomic, assign) float marginBottom;
 
 @end

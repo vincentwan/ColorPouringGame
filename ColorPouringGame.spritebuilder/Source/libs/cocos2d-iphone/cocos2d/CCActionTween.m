@@ -47,11 +47,6 @@
 	return self;
 }
 
--(id) copyWithZone: (NSZone*) zone
-{
-    CCAction *copy = [[[self class] allocWithZone: zone] initWithDuration: [self duration] key:_key from:_from to:_to];
-    return copy;
-}
 
 - (void)startWithTarget:aTarget
 {

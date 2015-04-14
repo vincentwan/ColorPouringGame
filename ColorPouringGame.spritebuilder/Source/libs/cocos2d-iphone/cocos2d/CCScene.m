@@ -31,7 +31,6 @@
 #import "Support/CGPointExtension.h"
 #import "CCDirector.h"
 #import "CCDirector_Private.h"
-#import "CCLightCollection.h"
 
 // -----------------------------------------------------------------
 
@@ -51,8 +50,6 @@
 		[self setContentSize:s];
 		
 		self.colorRGBA = [CCColor blackColor];
-        
-        _lights = [[CCLightCollection alloc] init];
 	}
 	
 	return( self );

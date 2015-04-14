@@ -37,7 +37,6 @@
 #import "CCDirector_Private.h"
 #import "CCPhysics+ObjectiveChipmunk.h"
 #import "CCAnimationManager_Private.h"
-#import "CCEffectStack.h"
 
 #ifdef CCB_ENABLE_UNZIP
 #import "SSZipArchive.h"
@@ -52,19 +51,14 @@
 @interface CCBFile : CCNode
 {
     CCNode* ccbFile;
-
 }
 @property (nonatomic,strong) CCNode* ccbFile;
 @end
 
 
 @interface CCBReader()
-{
-
-}
 
 @property (nonatomic, copy) NSString *currentCCBFile;
-
 
 @end
 
@@ -88,24 +82,14 @@
      @"resources-phonehd", CCFileUtilsSuffixiPhoneHD,
      @"resources-phone", CCFileUtilsSuffixiPhone5,
      @"resources-phonehd", CCFileUtilsSuffixiPhone5HD,
-     @"resources-phone", CCFileUtilsSuffixMac,
-     @"resources-phonehd", CCFileUtilsSuffixMacHD,
      @"", CCFileUtilsSuffixDefault,
      nil];
     
-#if __CC_PLATFORM_ANDROID
-    sharedFileUtils.searchPath =
-    [NSArray arrayWithObjects:
-     [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Published-Android"],
-     [[NSBundle mainBundle] resourcePath],
-     nil];
-#else
     sharedFileUtils.searchPath =
     [NSArray arrayWithObjects:
      [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Published-iOS"],
      [[NSBundle mainBundle] resourcePath],
      nil];
-#endif
     
 	sharedFileUtils.enableiPhoneResourcesOniPad = YES;
     sharedFileUtils.searchMode = CCFileUtilsSearchModeDirectory;
@@ -130,7 +114,7 @@
     animationManager.rootContainerSize = [CCDirector sharedDirector].designSize;
     
     nodeMapping = [NSMutableDictionary dictionary];
-    postDeserializationUUIDFixup = [NSMutableArray array];
+    
     return self;
 }
 
@@ -356,6 +340,11 @@ static inline float readFloat(CCBReader *self)
     return [stringCache objectAtIndex:n];
 }
 
+-(void) readerDidSetSpriteFrame:(CCSpriteFrame*)spriteFrame node:(CCNode*)node
+{
+	// does nothing, overridden by Sprite Kit reader
+}
+
 - (void) readPropertyForNode:(CCNode*) node parent:(CCNode*)parent isExtraProp:(BOOL)isExtraProp
 {
     // Read type and property name
@@ -417,9 +406,9 @@ static inline float readFloat(CCBReader *self)
 
         if (setProp)
         {
-#if __CC_PLATFORM_IOS || __CC_PLATFORM_ANDROID
+#ifdef __CC_PLATFORM_IOS
             [node setValue:[NSValue valueWithCGPoint:ccp(x,y)] forKey:name];
-#elif __CC_PLATFORM_MAC
+#elif defined (__CC_PLATFORM_MAC)
             [node setValue:[NSValue valueWithPoint:ccp(x,y)] forKey:name];
 #endif
             CCPositionType pType = CCPositionTypeMake(xUnit, yUnit, corner);
@@ -452,7 +441,7 @@ static inline float readFloat(CCBReader *self)
         if (setProp)
         {
             CGPoint pt = ccp(x,y);
-#if __CC_PLATFORM_IOS || __CC_PLATFORM_ANDROID
+#ifdef __CC_PLATFORM_IOS
             [node setValue:[NSValue valueWithCGPoint:pt] forKey:name];
 #else
             [node setValue:[NSValue valueWithPoint:NSPointFromCGPoint(pt)] forKey:name];
@@ -473,9 +462,9 @@ static inline float readFloat(CCBReader *self)
         if (setProp)
         {
             CGSize size = CGSizeMake(w, h);
-#if __CC_PLATFORM_IOS || __CC_PLATFORM_ANDROID
+#ifdef __CC_PLATFORM_IOS
             [node setValue:[NSValue valueWithCGSize:size] forKey:name];
-#elif __CC_PLATFORM_MAC
+#elif defined (__CC_PLATFORM_MAC)
             [node setValue:[NSValue valueWithSize:size] forKey:name];
 #endif
             
@@ -623,6 +612,7 @@ static inline float readFloat(CCBReader *self)
         {
             CCSpriteFrame* spriteFrame = [CCSpriteFrame frameWithImageNamed:spriteFile];
             [node setValue:spriteFrame forKey:name];
+			[self readerDidSetSpriteFrame:spriteFrame node:node];
             
 #if DEBUG_READER_PROPERTIES
 			valueString = [NSString stringWithFormat:@"%@ (%@)", valueString, spriteFrame];
@@ -914,12 +904,10 @@ static inline float readFloat(CCBReader *self)
     else if(type == kCCBPropTypeNodeReference)
     {
         int uuid = readIntWithSign(self, NO);
-		
-		//Node references are fixed after the whole node graph is deserialized (since since the node ref may not be deserialized yet)
-		NSArray * queuedFixupTask = @[node, name, @(uuid)];
-		[postDeserializationUUIDFixup addObject:queuedFixupTask];
-		
-	}
+        CCNode * mappedNode = nodeMapping[@(uuid)];
+        NSAssert(mappedNode != nil, @"CCBReader: Failed to find node UUID:%i", uuid);
+        [node setValue:mappedNode forKey:name];
+    }
     else if(type == kCCBPropTypeFloatCheck)
     {
         float f = readFloat(self);
@@ -931,78 +919,10 @@ static inline float readFloat(CCBReader *self)
             [node setValue:@(f) forKey:name];
         }
     }
-	else if(type == kCCBPropTypeEffects)
-	{
-		CCEffect * effect  = [self readEffects];
-		
-		if(effect)
-		{
-		//Hmmm..... Force it to write to @"effect" property.
-		[node setValue:effect forKey:@"effect"];
-		}
-				
-	}
-    else if(type == kCCBPropTypeTokenArray)
-    {
-        NSString *arrayString = [self readCachedString];
-        if(![arrayString isEqualToString:@""])
-        {
-            NSArray *array = [arrayString componentsSeparatedByString:@";"];
-            [node setValue:array forKey:name];
-        }        
-    }
     else
     {
         NSAssert(false, @"[PROPERTY] %@ - Failed to read property type %d, node class name: \"%@\", name: \"%@\", in ccb file: \"%@\"", name, type, [node class], [node name], _currentCCBFile);
     }
-}
-
-
-
-//Either returns a CCStackEffect or the one single effect.
--(CCEffect*)readEffects
-{
-
-	int numberOfEffects = readIntWithSign(self, NO);
-	
-	if(numberOfEffects == 0)
-	{
-		return nil;
-	}
-	
-	NSMutableArray * effectsStack = [NSMutableArray array];
-	
-	for (int i = 0; i < numberOfEffects; i++) {
-		NSString * className = [self readCachedString];
-		
-		Class nodeClass = NSClassFromString(className);
-		if (nodeClass == nil)
-		{
-			NSAssert(nil, @"CCBReader: Could not create class named: %@", className);
-			return nil;
-		}
-		
-		CCEffect* effect = [[nodeClass alloc] init];
-		
-		int propCount = readIntWithSign(self,NO);
-		
-		for(int propIndex = 0; propIndex < propCount; propIndex++)
-		{
-			//Just lie and let the property reader do its work.
-			[self readPropertyForNode:(CCNode*)effect parent:nil isExtraProp:NO];
-			
-		}
-		
-		if(numberOfEffects == 1)
-		{
-			return effect;
-		}
-		[effectsStack addObject:effect];
-		
-	}
-	
-	return [[CCEffectStack alloc] initWithArray:effectsStack];
-
 }
 
 - (BOOL)isPropertyKeySettable:(NSString *)key onInstance:(id)instance
@@ -1143,24 +1063,6 @@ static inline float readFloat(CCBReader *self)
 {
 }
 
--(void)postDeserialization
-{
-	//Post deserialization fixup.
-	for (NSArray * task in postDeserializationUUIDFixup) {
-		id node = task[0];
-		NSString * name = task[1];
-		int uuid = (int)[task[2] integerValue];
-		
-		if(uuid == 0)
-			return;
-		
-		CCNode * mappedNode = nodeMapping[@(uuid)];
-		NSAssert(mappedNode != nil, @"CCBReader: Failed to find node UUID:%i", uuid);
-		[node setValue:mappedNode forKey:name];
-		
-	}
-}
-
 -(void)readJoints
 {
     int numJoints = readIntWithSign(self, NO);
@@ -1187,15 +1089,14 @@ static inline float readFloat(CCBReader *self)
         [self readPropertyForNode:(CCNode*)properties parent:nil isExtraProp:NO];
     }
     
-    // TODO: This is a hack because things are happening in the wrong order, needs refactoring!
-    [self postDeserialization];
-    
     CCNode * nodeBodyA = properties[@"bodyA"];
     CCNode * nodeBodyB = properties[@"bodyB"];
     
     float breakingForce = [properties[@"breakingForceEnabled"] boolValue] ? [properties[@"breakingForce"] floatValue] : INFINITY;
     float maxForce = [properties[@"maxForceEnabled"] boolValue] ? [properties[@"maxForce"] floatValue] : INFINITY;
     bool  collideBodies = [properties[@"collideBodies"] boolValue];
+    float referenceAngle = [properties[@"referenceAngle"] floatValue];
+    referenceAngle = CC_DEGREES_TO_RADIANS(referenceAngle);
     
     if([className isEqualToString:@"CCPhysicsPivotJoint"])
     {
@@ -1220,7 +1121,7 @@ static inline float readFloat(CCBReader *self)
             float   damping = properties[@"dampedSpringDamping"] ? [properties[@"dampedSpringDamping"] floatValue] : 4.0f;
             damping *= 100.0f;
 
-            CCPhysicsJoint * rotarySpringJoint = [CCPhysicsJoint connectedRotarySpringJointWithBodyA:nodeBodyA.physicsBody bodyB:nodeBodyB.physicsBody restAngle:restAngle stiffness:stiffness damping:damping];
+            CCPhysicsJoint * rotarySpringJoint = [CCPhysicsJoint connectedRotarySpringJointWithBodyA:nodeBodyA.physicsBody bodyB:nodeBodyB.physicsBody restAngle:restAngle stifness:stiffness damping:damping];
             
             rotarySpringJoint.maxForce = maxForce;
             rotarySpringJoint.breakingForce = breakingForce;
@@ -1330,32 +1231,6 @@ static inline float readFloat(CCBReader *self)
 	return node;
 }
 
-// I cannot believe there isn't a stdlib way to do this...
-static SEL
-SelectorNameForProperty(objc_property_t property)
-{
-    char *customSetterName = property_copyAttributeValue(property, "S");
-    
-    if(customSetterName){
-        SEL selector = sel_registerName(customSetterName);
-        free(customSetterName);
-        
-        return selector;
-    } else {
-        const int MAX_LENGTH = 256;
-        
-        const char *pname = property_getName(property);
-        char sname[MAX_LENGTH + 1];
-        int len =   snprintf(sname, MAX_LENGTH, "set%s:", pname);
-        NSCAssert(len < MAX_LENGTH, @"Property name too long!");
-        
-        // Capitalize the name.
-        sname[3] = toupper(sname[3]);
-        
-        return sel_registerName(sname);
-    }
-}
-
 - (CCNode*) readNodeGraphParent:(CCNode*)parent
 {
     NSString* className = [self readCachedString];
@@ -1374,7 +1249,7 @@ SelectorNameForProperty(objc_property_t property)
         // Class was not found. Maybe it's a Swift class?
         // See http://stackoverflow.com/questions/24030814/swift-language-nsclassfromstring
         NSString *appName = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"];
-        NSString *classStringName = [NSString stringWithFormat:@"_TtC%lu%@%lu%@", (unsigned long)appName.length, appName, (unsigned long)className.length, className];
+        NSString *classStringName = [NSString stringWithFormat:@"_TtC%d%@%d%@", appName.length, appName, className.length, className];
         class = NSClassFromString(classStringName);
     }
     if (!class)
@@ -1489,28 +1364,16 @@ SelectorNameForProperty(objc_property_t property)
         if (memberVarAssignmentType == kCCBTargetTypeDocumentRoot) target = animationManager.rootNode;
         else if (memberVarAssignmentType == kCCBTargetTypeOwner) target = owner;
         
-        const char *varName = [memberVarAssignmentName UTF8String];
         if (target)
         {
-            Class targetClass = [target class];
-            objc_property_t property = class_getProperty(targetClass, varName);
-            
-            if(property)
+            Ivar ivar = class_getInstanceVariable([target class],[memberVarAssignmentName UTF8String]);
+            if (ivar)
             {
-              typedef void (*Func)(id, SEL, id);
-              ((Func)objc_msgSend)(target, SelectorNameForProperty(property), node);
+                object_setIvar(target,ivar,node);
             }
             else
             {
-                Ivar ivar = class_getInstanceVariable(targetClass, varName);
-                if (ivar)
-                {
-                    object_setIvar(target,ivar,node);
-                }
-                else
-                {
-                    NSLog(@"CCBReader: Couldn't find member variable: %@", memberVarAssignmentName);
-                }
+                NSLog(@"CCBReader: Couldn't find member variable: %@", memberVarAssignmentName);
             }
         }
     }
@@ -1521,7 +1384,7 @@ SelectorNameForProperty(objc_property_t property)
     BOOL hasPhysicsBody = readBool(self);
     if (hasPhysicsBody)
     {
-//#if __CC_PLATFORM_IOS
+//#ifdef __CC_PLATFORM_IOS
 			// Read body shape
         int bodyShape = readIntWithSign(self, NO);
         float cornerRadius = readFloat(self);
@@ -1806,7 +1669,6 @@ SelectorNameForProperty(objc_property_t property)
     
     CCNode* node = [self readNodeGraphParent:NULL];
     [self readJoints];
-	[self postDeserialization];
     
     [actionManagers setObject:self.animationManager forKey:[NSValue valueWithPointer:(__bridge const void *)(node)]];
     
@@ -1900,6 +1762,13 @@ SelectorNameForProperty(objc_property_t property)
 
 + (CCBReader*) reader
 {
+	// if available, create an instance of Sprite Kit Reader class instead
+	Class spriteKitReaderClass = NSClassFromString(@"CCBSpriteKitReader");
+	if (spriteKitReaderClass)
+	{
+		return [[spriteKitReaderClass alloc] init];
+	}
+	
     return [[CCBReader alloc] init];
 }
 
@@ -1950,6 +1819,16 @@ SelectorNameForProperty(objc_property_t property)
 {
     NSArray *searchPaths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
     return [[searchPaths objectAtIndex:0] stringByAppendingPathComponent:@"ccb"];
+}
+
++(void) setSceneSize:(CGSize)sceneSize
+{
+	[[CCBReader reader] setSceneSize:sceneSize];
+}
+
+-(void) setSceneSize:(CGSize)sceneSize
+{
+	// does nothing, only needed for CCBSpriteKitReader
 }
 
 @end

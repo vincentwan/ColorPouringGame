@@ -15,24 +15,24 @@
 @interface CCEffectPixellate : CCEffect
 
 /// -----------------------------------------------------------------------
-/// @name Creating a Pixelate Effect
+/// @name Accessing Effect Attributes
 /// -----------------------------------------------------------------------
 
-/**
- *  Creates a CCEffectPixellate object with the supplied parameters.
- *
- *  @param blockSize The desired block size.
- *
- *  @return The CCEffectPixellate object.
- *  @since v3.2 and later
+/** The resulting size of the pixel blocks of the affected node. This value is specified in points
+ *  and is in the range [1..inf]. A value of 1 results in no change to the affected pixels
+ *  and larger values result in larger output pixel blocks.
  */
-+(id)effectWithBlockSize:(float)blockSize;
+@property (nonatomic, assign) float blockSize;
+
+
+/// -----------------------------------------------------------------------
+/// @name Initializing a CCEffectPixellate object
+/// -----------------------------------------------------------------------
 
 /**
  *  Initializes a CCEffectPixellate object with a block size of 1.
  *
  *  @return The CCEffectPixellate object.
- *  @since v3.2 and later
  */
 -(id)init;
 
@@ -42,20 +42,21 @@
  *  @param blockSize The desired block size.
  *
  *  @return The CCEffectPixellate object.
- *  @since v3.2 and later
  */
 -(id)initWithBlockSize:(float)blockSize;
 
 
 /// -----------------------------------------------------------------------
-/// @name Adjusting Pixel Size
+/// @name Initializing a CCEffectPixellate object
 /// -----------------------------------------------------------------------
 
-/** The resulting size of the pixel blocks of the affected node. This value is specified in points
- *  and is in the range [1..inf]. A value of 1 results in no change to the affected pixels
- *  and larger values result in larger output pixel blocks.
- *  @since v3.2 and later
+/**
+ *  Creates a CCEffectPixellate object with the supplied parameters.
+ *
+ *  @param blockSize The desired block size.
+ *
+ *  @return The CCEffectPixellate object.
  */
-@property (nonatomic, assign) float blockSize;
++(id)effectWithBlockSize:(float)blockSize;
 
 @end
