@@ -50,10 +50,15 @@ static int currNum;
         panel.zOrder = 1;
         [self addChild:panel];
     }
-    
+    return self;
+}
+
+- (void)onEnter
+{
+    [super onEnter];
+
     _grid.stepCount = _stepCount;
     _stepCount.string = [NSString stringWithFormat:@"%d", 1];
-    return self;
 }
 
 - (void)selectred
@@ -65,7 +70,7 @@ static int currNum;
                     alpha:1.0f];
      */
     currNum = 0;
-    _stepCount.string = [NSString stringWithFormat:@"%d", 1];
+    _stepCount.string = [NSString stringWithFormat:@"%d", 2];
     NSLog(@"Here red!");
 }
 
