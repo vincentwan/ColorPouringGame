@@ -8,9 +8,9 @@
 
 #import "CCNode.h"
 #import "Level.h"
+#import "ColorPanel.h"
 
 @interface MainScene : CCNode
-
 
 + (int) currNum;
 + (void) setCurrNum:(int)val;

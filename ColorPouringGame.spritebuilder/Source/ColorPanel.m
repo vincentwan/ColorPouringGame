@@ -11,7 +11,7 @@
 @implementation ColorPanel
 
 - (instancetype)initPanelwithX:(double) xlen Y:(double) ylen PosX:(double) xpos PosY:(double) ypos
-                          angle:(double) angle andImage:(int) serialnum{
+                          angle:(double) angle andColor:(int) serialnum{
     // since we made Creature inherit from CCSprite, 'super' below refers to CCSprite
     self = [super initWithImageNamed:@"ColorPouringAssets/Assets/color-wheel-part-white.png"];
     [super setScaleX:(xlen/self.contentSize.width)];
