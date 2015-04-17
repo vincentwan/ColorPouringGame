@@ -35,6 +35,8 @@ static int currNum;
         _timer = [[CCTimer alloc] init];
     }
 
+    NSLog(@"This is MainScene!");
+    
     ColorPanel * panel = [[ColorPanel alloc] initPanelwithX:77 Y:93 PosX:89 PosY:106
                                                       angle:0.3 andColor:0];
 
