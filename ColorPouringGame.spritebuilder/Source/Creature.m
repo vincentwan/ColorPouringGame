@@ -14,7 +14,6 @@
     // since we made Creature inherit from CCSprite, 'super' below refers to CCSprite
     
     self = [super initWithImageNamed:@"ColorPouringAssets/Assets/cell.png"];
-    _helper = [[ColorHelper alloc] init];
     [super setScaleX:(xlen/self.contentSize.width)];
     [super setScaleY:(ylen/self.contentSize.height)];
     
@@ -37,7 +36,7 @@
 
 - (void) setSerialnum:(int) num {
     _serialnum = num;
-    [self setCcolor:[_helper setColorWithFile:num]];
+    [self setCcolor:[ColorHelper setColorWithFile:num]];
 }
 
 

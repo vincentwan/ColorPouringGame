@@ -7,7 +7,6 @@
 //
 
 #import "Grid.h"
-#import "UIColor+Mixing.h"
 
 // these are variables that cannot be changed
 static const int GRID_ROWS = 8;
