@@ -137,7 +137,6 @@ static const int GRID_COLUMNS = 10;
     else {
         return;
     }
-    NSLog(@"Middle of creating creature:\n");
 
     if(row>0) {
         Creature * temp = _colorCell[row-1][column];
