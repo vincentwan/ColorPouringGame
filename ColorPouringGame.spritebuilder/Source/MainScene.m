@@ -53,7 +53,7 @@ static int currNum;
     }
     
     _grid.stepCount = _stepCount;
-    _stepCount.string = [NSString stringWithFormat:@"%d", 0];
+    _stepCount.string = [NSString stringWithFormat:@"%d", 1];
     return self;
 }
 
@@ -66,6 +66,7 @@ static int currNum;
                     alpha:1.0f];
      */
     currNum = 0;
+    _stepCount.string = [NSString stringWithFormat:@"%d", 1];
     NSLog(@"Here red!");
 }
 
