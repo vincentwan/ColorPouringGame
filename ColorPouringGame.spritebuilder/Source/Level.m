@@ -11,7 +11,7 @@
 
 @implementation Level {
 
-    NSMutableArray *_targetGrid;
+    int *_targetGrid;
     
 }
 
@@ -54,12 +54,7 @@
             }
         }];
         
-        _targetGrid = [[NSMutableArray alloc] init];
-        for(int i =0; i<_numRow; i++) {
-            [_targetGrid addObject:[NSMutableArray array]];
-            NSMutableArray *tempRow = [_targetGrid objectAtIndex: i];
-            [_targetGrid addObject:tempRow];
-        }
+        _targetGrid = malloc(sizeof(int) * _numRow * _numCol);
         
         // Loop through the rows
         [dictionary[@"grids"] enumerateObjectsUsingBlock:^(NSArray *array, NSUInteger row, BOOL *stop) {
@@ -70,9 +65,7 @@
                 // Note: In Sprite Kit (0,0) is at the bottom of the screen,
                 // so we need to read this file upside down.
                 // NSLog(@"Oh, value:%d\n",[value intValue]);
-                NSNumber* xWrapped = [NSNumber numberWithInt:[value intValue]];
-                NSMutableArray *tempRow = [_targetGrid objectAtIndex: row];
-                [tempRow addObject:xWrapped];
+                _targetGrid[(row*_numCol)+column] = [value intValue];
             }];
         }];
     }
@@ -81,7 +74,7 @@
 
 
 - (int) serialAtX:(int) x andY:(int)y {
-    NSMutableArray *tempRow = [_targetGrid objectAtIndex:x];
-    return [[tempRow objectAtIndex:y] intValue];
+
+    return _targetGrid[(x*_numCol)+y];
 }
 @end
