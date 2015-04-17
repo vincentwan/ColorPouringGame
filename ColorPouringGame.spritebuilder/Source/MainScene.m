@@ -16,7 +16,7 @@ extern const int GRID_COLUMNS;
 @implementation MainScene {
     Grid *_grid;
     CCTimer *_timer;
-    CCLabelTTF *_stepCount;
+    CCLabelTTF * _stepCount;
 
 }
 
