@@ -17,7 +17,6 @@ extern const int GRID_COLUMNS;
     Grid *_grid;
     CCTimer *_timer;
     CCLabelTTF * _stepCount;
-
 }
 
 static int currNum;
@@ -52,6 +51,8 @@ static int currNum;
         [self addChild:panel];
     }
     
+    _stepCount.zOrder = 1;
+    _grid.zOrder = 2;
     _grid.stepCount = _stepCount;
     _stepCount.string = [NSString stringWithFormat:@"%d", 1];
     return self;
