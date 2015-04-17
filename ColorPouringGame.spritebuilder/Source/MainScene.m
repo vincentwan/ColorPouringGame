@@ -33,7 +33,7 @@ static int currNum;
     if (self) {
         _timer = [[CCTimer alloc] init];
     }
-
+    
     NSLog(@"This is MainScene!");
     double centralX = 90;
     double centralY = 65;
@@ -56,7 +56,7 @@ static int currNum;
 - (void)onEnter
 {
     [super onEnter];
-
+    
     _grid.stepCount = _stepCount;
     _stepCount.string = [NSString stringWithFormat:@"%d", 0];
 }

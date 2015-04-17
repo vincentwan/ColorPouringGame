@@ -77,7 +77,7 @@
 
 
 - (int) serialAtX:(int) x andY:(int)y {
-
+    
     return _targetGrid[(x*_numCol)+y];
 }
 @end
