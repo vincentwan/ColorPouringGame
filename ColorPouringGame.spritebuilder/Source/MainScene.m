@@ -42,7 +42,7 @@ static int currNum;
     double sizeX = 23;
     double sizeY = 28;
     
-    for(int i=0; i<2; i++) {
+    for(int i=0; i<12; i++) {
         double ang = (i*M_PI)/6;
         double x = centralX + radius * sin(ang);
         double y = centralY + radius * cos(ang);
