@@ -43,6 +43,7 @@
 		BFB704D81A79DB1F00497817 /* Grid.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB704D71A79DB1F00497817 /* Grid.m */; };
 		BFB704DE1A79DE0100497817 /* Creature.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB704DD1A79DE0100497817 /* Creature.m */; };
 		BFC55F2C1AE0E246004D157E /* ColorPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC55F2B1AE0E246004D157E /* ColorPanel.m */; };
+		BFC55F401AE19D35004D157E /* Level_1.json in Resources */ = {isa = PBXBuildFile; fileRef = BFC55F3F1AE19D35004D157E /* Level_1.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +132,7 @@
 		BFB704DD1A79DE0100497817 /* Creature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Creature.m; path = Source/Creature.m; sourceTree = "<group>"; };
 		BFC55F2A1AE0E246004D157E /* ColorPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorPanel.h; path = Source/ColorPanel.h; sourceTree = "<group>"; };
 		BFC55F2B1AE0E246004D157E /* ColorPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ColorPanel.m; path = Source/ColorPanel.m; sourceTree = "<group>"; };
+		BFC55F3F1AE19D35004D157E /* Level_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_1.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -280,6 +282,7 @@
 			isa = PBXGroup;
 			children = (
 				BF42F7991AB915A2001567D2 /* Level_0.json */,
+				BFC55F3F1AE19D35004D157E /* Level_1.json */,
 			);
 			name = Levels;
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 				B71F5917188484E7003F4D28 /* iPhone.png in Resources */,
 				BF42F79A1AB915A2001567D2 /* Level_0.json in Resources */,
 				B7378975180762440076A88C /* Default-568h@2x.png in Resources */,
+				BFC55F401AE19D35004D157E /* Level_1.json in Resources */,
 				B71F5918188484E7003F4D28 /* iPhone@2x.png in Resources */,
 				B7378977180762440076A88C /* Default.png in Resources */,
 				B71F5911188484E7003F4D28 /* iPad-old.png in Resources */,

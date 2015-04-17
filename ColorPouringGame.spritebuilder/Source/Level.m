@@ -11,7 +11,7 @@
 
 @implementation Level {
 
-    int _targetGrid[10][8];
+    NSMutableArray *_targetGrid;
     
 }
 
@@ -43,6 +43,23 @@
     if (self != nil) {
         NSDictionary *dictionary = [self loadJSON:filename];
         
+        [dictionary[@"dimension"] enumerateObjectsUsingBlock:^(NSNumber *value, NSUInteger row, BOOL *stop) {
+            
+            // Loop through the columns in the current row
+            if(row == 0) {
+                _numRow = [value intValue];
+            }
+            else if(row == 1) {
+                _numCol = [value intValue];
+            }
+        }];
+        
+        for(int i =0; i<_numRow; i++) {
+            [_targetGrid addObject:[NSMutableArray array]];
+            NSMutableArray *tempRow = [_targetGrid objectAtIndex: i];
+            tempRow = [[NSMutableArray alloc] initWithCapacity:_numCol];
+        }
+        
         // Loop through the rows
         [dictionary[@"grids"] enumerateObjectsUsingBlock:^(NSArray *array, NSUInteger row, BOOL *stop) {
             
@@ -52,7 +69,9 @@
                 // Note: In Sprite Kit (0,0) is at the bottom of the screen,
                 // so we need to read this file upside down.
                 // NSLog(@"Oh, value:%d\n",[value intValue]);
-                _targetGrid[column][row] = [value intValue];
+                NSNumber* xWrapped = [NSNumber numberWithInt:[value intValue]];
+                NSMutableArray *tempRow = [_targetGrid objectAtIndex: row];
+                [tempRow addObject:xWrapped];
             }];
         }];
     }
@@ -61,6 +80,7 @@
 
 
 - (int) serialAtX:(int) x andY:(int)y {
-    return _targetGrid[x][y];
+    NSMutableArray *tempRow = [_targetGrid objectAtIndex:x];
+    return [[tempRow objectAtIndex:y] intValue];
 }
 @end

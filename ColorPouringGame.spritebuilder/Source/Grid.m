@@ -214,6 +214,8 @@ static const int GRID_COLUMNS = 10;
             currentCreature.isAlive=false;
         }
     }
+    _steps = 0;
+    _accurate = 0;
 }
 
 @end

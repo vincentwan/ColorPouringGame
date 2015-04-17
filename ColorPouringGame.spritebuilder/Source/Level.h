@@ -11,6 +11,9 @@
 
 @interface Level : NSObject
 
+@property (nonatomic, assign) int numRow;
+@property (nonatomic, assign) int numCol;
+
 - (instancetype)initWithFile:(NSString *)filename;
 - (int) serialAtX:(int) x andY:(int)y;
 
