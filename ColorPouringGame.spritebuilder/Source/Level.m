@@ -80,4 +80,15 @@
     
     return _targetGrid[(x*_numCol)+y];
 }
+
+- (int) getNumRow {
+    
+    return _numRow;
+}
+
+- (int) getNumCol {
+    
+    return _numCol;
+}
+
 @end

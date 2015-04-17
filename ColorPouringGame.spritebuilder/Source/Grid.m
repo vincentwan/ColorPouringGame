@@ -9,9 +9,6 @@
 #import "Grid.h"
 
 // these are variables that cannot be changed
-static const int GRID_ROWS = 8;
-static const int GRID_COLUMNS = 10;
-
 
 @implementation Grid {
     NSMutableArray *_colorCell;
@@ -25,6 +22,8 @@ static const int GRID_COLUMNS = 10;
     [super onEnter];
     //self.visible = false;
     _level = [[Level alloc] initWithFile:@"Level_0"];
+    _numRow = [_level getNumRow];
+    _numCol = [_level getNumCol];
     [self setupGrid];
     
     // accept touches on the grid
@@ -34,8 +33,8 @@ static const int GRID_COLUMNS = 10;
 - (void)setupGrid
 {
     // divide the grid's size by the number of columns/rows to figure out the right width and height of each cell
-    _cellWidth = self.contentSize.width / GRID_COLUMNS;
-    _cellHeight = self.contentSize.height / GRID_ROWS;
+    _cellWidth = self.contentSize.width / _numCol;
+    _cellHeight = self.contentSize.height / _numRow;
     self.opacity = 0;
     
     float x = 0;
@@ -49,13 +48,13 @@ static const int GRID_COLUMNS = 10;
     _colorTarget = [NSMutableArray array];
     
     // initialize Creatures
-    for (int i = 0; i < GRID_ROWS; i++) {
+    for (int i = 0; i < _numRow; i++) {
         // this is how you create two dimensional arrays in Objective-C. You put arrays into arrays.
         _colorCell[i] = [NSMutableArray array];
         _colorTarget[i] = [NSMutableArray array];
         x = 0;
         
-        for (int j = 0; j < GRID_COLUMNS; j++) {
+        for (int j = 0; j < _numCol; j++) {
             int serial = [tlevel serialAtX:i andY:j];
             // NSLog(@"Here's Target %d, %d: %d\n", i, j, serial);
             Target *targetcolor = [[Target alloc] initTargetwithX:_cellWidth andY:_cellHeight
@@ -154,7 +153,7 @@ static const int GRID_COLUMNS = 10;
             [temp setSerialnum:ansnum];
         }
     }
-    if(row<GRID_ROWS-1) {
+    if(row<_numRow-1) {
         Creature * temp = _colorCell[row+1][column];
         if(temp.isAlive) {
             int num1 = temp.serialnum;
@@ -174,7 +173,7 @@ static const int GRID_COLUMNS = 10;
             [temp setSerialnum:ansnum];
         }
     }
-    if(column<GRID_COLUMNS-1) {
+    if(column<_numCol-1) {
         Creature * temp = _colorCell[row][column+1];
         if(temp.isAlive) {
             int num1 = temp.serialnum;
@@ -199,7 +198,7 @@ static const int GRID_COLUMNS = 10;
 - (BOOL)isIndexValidForX:(int)x andY:(int)y
 {
     BOOL isIndexValid = YES;
-    if(x < 0 || y < 0 || x >= GRID_ROWS || y >= GRID_COLUMNS)
+    if(x < 0 || y < 0 || x >= _numRow || y >= _numCol)
     {
         isIndexValid = NO;
     }
@@ -208,14 +207,15 @@ static const int GRID_COLUMNS = 10;
 
 - (void)clearCreatures
 {
-    for (int i = 0; i < GRID_ROWS; i++) {
-        for (int j = 0; j < GRID_COLUMNS; j++) {
+    for (int i = 0; i < _numRow; i++) {
+        for (int j = 0; j < _numCol; j++) {
             Creature *currentCreature = _colorCell[i][j];
             currentCreature.isAlive=false;
         }
     }
     _steps = 0;
     _accurate = 0;
+    _stepCount.string = [NSString stringWithFormat:@"%d", _steps];
 }
 
 @end

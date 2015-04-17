@@ -20,7 +20,8 @@
 @property (nonatomic, assign) int steps;
 @property (nonatomic) CCLabelTTF * stepCount;
 @property (strong, nonatomic) Level *level;
-
+@property (nonatomic, assign) int numRow;
+@property (nonatomic, assign) int numCol;
 
 - (void)clearCreatures;
 
