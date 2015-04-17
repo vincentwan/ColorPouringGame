@@ -10,6 +10,6 @@
 
 @interface ColorHelper : NSObject
 
-- (UIColor *)setColorWithFile:(int)serialnum;
++ (UIColor *)setColorWithFile:(int)serialnum;
 
 @end

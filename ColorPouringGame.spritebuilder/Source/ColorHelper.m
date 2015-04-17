@@ -10,7 +10,7 @@
 
 @implementation ColorHelper
 
-- (UIColor *)setColorWithFile:(int)serialnum {
++ (UIColor *)setColorWithFile:(int)serialnum {
     UIColor * tempc;
     if(serialnum==0) {
         tempc=[UIColor colorWithRed:0xFF/255.0f green:0x0/255.0f blue:0x0/255.0f alpha:1.0f];

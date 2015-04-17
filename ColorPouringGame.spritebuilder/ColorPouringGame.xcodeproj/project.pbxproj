@@ -42,7 +42,7 @@
 		BFA698831AD264EC00E05766 /* ColorHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA698821AD264EC00E05766 /* ColorHelper.m */; };
 		BFB704D81A79DB1F00497817 /* Grid.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB704D71A79DB1F00497817 /* Grid.m */; };
 		BFB704DE1A79DE0100497817 /* Creature.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB704DD1A79DE0100497817 /* Creature.m */; };
-		BFDABBCF1A9B06E6001D921A /* UIColor+Mixing.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDABBCE1A9B06E6001D921A /* UIColor+Mixing.m */; };
+		BFC55F2C1AE0E246004D157E /* ColorPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC55F2B1AE0E246004D157E /* ColorPanel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +73,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = 7A4037A819E37038007B6E8F;
 			remoteInfo = "cocos2d-mac";
+		};
+		BFC55F281AE0E1F6004D157E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B7378940180761A80076A88C /* cocos2d-ios.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B7E7DE341A76DB7D004234B7;
+			remoteInfo = cocos2dMacFramework;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -122,8 +129,8 @@
 		BFB704D71A79DB1F00497817 /* Grid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Grid.m; path = Source/Grid.m; sourceTree = "<group>"; };
 		BFB704DC1A79DE0100497817 /* Creature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Creature.h; path = Source/Creature.h; sourceTree = "<group>"; };
 		BFB704DD1A79DE0100497817 /* Creature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Creature.m; path = Source/Creature.m; sourceTree = "<group>"; };
-		BFDABBCD1A9B06E6001D921A /* UIColor+Mixing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+Mixing.h"; path = "../../Materials/UIColor-Mixing-master/UIColorMixExample/UIColor+Mixing.h"; sourceTree = "<group>"; };
-		BFDABBCE1A9B06E6001D921A /* UIColor+Mixing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+Mixing.m"; path = "../../Materials/UIColor-Mixing-master/UIColorMixExample/UIColor+Mixing.m"; sourceTree = "<group>"; };
+		BFC55F2A1AE0E246004D157E /* ColorPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorPanel.h; path = Source/ColorPanel.h; sourceTree = "<group>"; };
+		BFC55F2B1AE0E246004D157E /* ColorPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ColorPanel.m; path = Source/ColorPanel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +170,8 @@
 				BFB704DD1A79DE0100497817 /* Creature.m */,
 				BF42F7911AB8E42C001567D2 /* Target.h */,
 				BF42F7921AB8E42C001567D2 /* Target.m */,
+				BFC55F2A1AE0E246004D157E /* ColorPanel.h */,
+				BFC55F2B1AE0E246004D157E /* ColorPanel.m */,
 				BFB704D61A79DB1F00497817 /* Grid.h */,
 				BFB704D71A79DB1F00497817 /* Grid.m */,
 				B737893D1807617C0076A88C /* AppDelegate.h */,
@@ -183,6 +192,7 @@
 				B737894B180761A90076A88C /* libcocos2d.a */,
 				BC2B43981A7758E200F945C3 /* libcocos2dAndroid.a */,
 				BC2B439A1A7758E200F945C3 /* libcocos2d-mac.a */,
+				BFC55F291AE0E1F6004D157E /* cocos2dMacFramework.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -212,7 +222,6 @@
 			isa = PBXGroup;
 			children = (
 				BF42F7981AB90B6A001567D2 /* Levels */,
-				BFDABBCC1A9B06BE001D921A /* UIColorMixing */,
 				B737893C1807616C0076A88C /* Source */,
 				B77F1B4617B978D7009739AE /* Resources */,
 				9222E2B918734FF800A246C7 /* libs */,
@@ -273,15 +282,6 @@
 				BF42F7991AB915A2001567D2 /* Level_0.json */,
 			);
 			name = Levels;
-			sourceTree = "<group>";
-		};
-		BFDABBCC1A9B06BE001D921A /* UIColorMixing */ = {
-			isa = PBXGroup;
-			children = (
-				BFDABBCD1A9B06E6001D921A /* UIColor+Mixing.h */,
-				BFDABBCE1A9B06E6001D921A /* UIColor+Mixing.m */,
-			);
-			name = UIColorMixing;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -370,6 +370,13 @@
 			remoteRef = BC2B43991A7758E200F945C3 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		BFC55F291AE0E1F6004D157E /* cocos2dMacFramework.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = cocos2dMacFramework.framework;
+			remoteRef = BFC55F281AE0E1F6004D157E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -420,9 +427,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFC55F2C1AE0E246004D157E /* ColorPanel.m in Sources */,
 				B737893F1807617C0076A88C /* AppDelegate.m in Sources */,
 				BFA698831AD264EC00E05766 /* ColorHelper.m in Sources */,
-				BFDABBCF1A9B06E6001D921A /* UIColor+Mixing.m in Sources */,
 				BF42F7931AB8E42C001567D2 /* Target.m in Sources */,
 				B7378994180767190076A88C /* MainScene.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,

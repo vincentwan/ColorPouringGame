@@ -1,19 +1,19 @@
 //
-//  Target.m
+//  ColorPanel.m
 //  ColorPouringGame
 //
-//  Created by 万欣 on 15/3/17.
+//  Created by 万欣 on 15/4/16.
 //  Copyright (c) 2015年 Apportable. All rights reserved.
 //
 
-#import "Target.h"
+#import "ColorPanel.h"
 
-@implementation Target
+@implementation ColorPanel
 
-- (instancetype)initTargetwithX:(double) xlen andY:(double) ylen andImage:(int) serialnum{
+- (instancetype)initPanelwithX:(double) xlen Y:(double) ylen PosX:(double) xpos PosY:(double) ypos
+                          angle:(double) angle andImage:(int) serialnum{
     // since we made Creature inherit from CCSprite, 'super' below refers to CCSprite
-    self = [super initWithImageNamed:@"ColorPouringAssets/Assets/cut4.png"];
-
+    self = [super initWithImageNamed:@"ColorPouringAssets/Assets/color-wheel-part-white.png"];
     [super setScaleX:(xlen/self.contentSize.width)];
     [super setScaleY:(ylen/self.contentSize.height)];
     self.visible = true;
@@ -22,7 +22,11 @@
     CGFloat red = 0.0, green = 0.0, blue = 0.0, alpha = 0.0;
     [tempc getRed:&red green:&green blue:&blue alpha:&alpha];
     NSLog(@"Before setting target color red %f green %f blue %f\n", red, green, blue);
-
+    
+    self.anchorPoint = ccp(0.5,0.5);
+    self.position = ccp(xpos,ypos);
+    self.rotation = angle;
+    
     [self setCcolor:tempc];
     return self;
 }
@@ -42,8 +46,6 @@
     
     //self.colorRGBA = [CCColor colorWithCcColor3b:<#(ccColor3B)#>];
 }
-
-
 
 
 @end
