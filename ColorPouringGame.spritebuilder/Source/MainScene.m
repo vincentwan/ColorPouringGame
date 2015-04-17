@@ -39,8 +39,6 @@ static int currNum;
     
     ColorPanel * panel = [[ColorPanel alloc] initPanelwithX:77 Y:93 PosX:89 PosY:106
                                                       angle:0 andColor:0];
-    panel.visible = true;
-    
     [self addChild:panel];
     return self;
 }
