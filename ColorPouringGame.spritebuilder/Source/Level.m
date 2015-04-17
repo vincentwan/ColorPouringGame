@@ -54,9 +54,11 @@
             }
         }];
         
+        _targetGrid = [[NSMutableArray alloc] init];
         for(int i =0; i<_numRow; i++) {
             [_targetGrid addObject:[NSMutableArray array]];
             NSMutableArray *tempRow = [_targetGrid objectAtIndex: i];
+            [_targetGrid addObject:tempRow];
         }
         
         // Loop through the rows
