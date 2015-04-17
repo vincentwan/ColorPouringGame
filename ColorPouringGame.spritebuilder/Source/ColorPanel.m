@@ -17,7 +17,7 @@
     [super setScaleX:(xlen/self.contentSize.width)];
     [super setScaleY:(ylen/self.contentSize.height)];
     self.visible = true;
-    NSLog(@"Here! initTargetwithNum: %d\n", serialnum);
+    NSLog(@"Here! initPanelwith: %d\n", serialnum);
     UIColor * tempc = [ColorHelper setColorWithFile:serialnum];
     CGFloat red = 0.0, green = 0.0, blue = 0.0, alpha = 0.0;
     [tempc getRed:&red green:&green blue:&blue alpha:&alpha];
