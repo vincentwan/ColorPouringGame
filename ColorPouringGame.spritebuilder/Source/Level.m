@@ -57,7 +57,6 @@
         for(int i =0; i<_numRow; i++) {
             [_targetGrid addObject:[NSMutableArray array]];
             NSMutableArray *tempRow = [_targetGrid objectAtIndex: i];
-            tempRow = [[NSMutableArray alloc] initWithCapacity:_numCol];
         }
         
         // Loop through the rows
