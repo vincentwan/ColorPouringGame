@@ -18,7 +18,7 @@
 
 @property (nonatomic, assign) int accurate;
 @property (nonatomic, assign) int steps;
-@property (nonatomic, assign) CCLabelTTF * stepCount;
+@property (nonatomic, strong) CCLabelTTF * stepCount;
 @property (strong, nonatomic) Level *level;
 
 

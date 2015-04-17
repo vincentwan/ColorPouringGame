@@ -130,6 +130,8 @@ static const int GRID_COLUMNS = 10;
         creature.serialnum = tempnum;
         _steps++;
         
+        NSLog(@"Here is updating steps: %d\n",_steps);
+        
         _stepCount.string = [NSString stringWithFormat:@"%d", _steps];
     }
     else {
