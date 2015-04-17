@@ -41,8 +41,8 @@ static const int GRID_COLUMNS = 10;
     float x = 0;
     float y = 0;
     
-    _generation = 0;
-    _totalAlive = 0;
+    _steps = 0;
+    _accurate = 0;
     Level * tlevel = self.level;
     // initialize the array as a blank NSMutableArray
     _colorCell = [NSMutableArray array];
@@ -128,7 +128,8 @@ static const int GRID_COLUMNS = 10;
         NSLog(@"Here is creating creature: %d\n",tempnum);
 
         creature.serialnum = tempnum;
-
+        _steps++;
+        
     }
     else {
         return;
