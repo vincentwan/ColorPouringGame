@@ -53,6 +53,7 @@ static int currNum;
     }
     
     _grid.stepCount = _stepCount;
+    _stepCount.string = [NSString stringWithFormat:@"%d", 0];
     return self;
 }
 
