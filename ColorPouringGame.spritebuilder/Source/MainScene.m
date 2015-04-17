@@ -37,7 +37,7 @@ static int currNum;
 
     NSLog(@"This is MainScene!");
     
-    ColorPanel * panel = [[ColorPanel alloc] initPanelwithX:1000 Y:1000 PosX:0 PosY:0
+    ColorPanel * panel = [[ColorPanel alloc] initPanelwithX:77 Y:93 PosX:89 PosY:106
                                                       angle:0 andColor:0];
     panel.visible = true;
     
