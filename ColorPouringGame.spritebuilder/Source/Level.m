@@ -48,9 +48,11 @@
             // Loop through the columns in the current row
             if(row == 0) {
                 _numRow = [value intValue];
+                NSLog(@"Here Level numRow = %d", _numRow);
             }
             else if(row == 1) {
                 _numCol = [value intValue];
+                NSLog(@"Here Level numCol = %d", _numCol);
             }
         }];
         
@@ -65,6 +67,7 @@
                 // Note: In Sprite Kit (0,0) is at the bottom of the screen,
                 // so we need to read this file upside down.
                 // NSLog(@"Oh, value:%d\n",[value intValue]);
+                NSLog(@"Here initialization: row = %d, col = %d, value = %d", (unsigned)row, (unsigned)column, [value intValue]);
                 _targetGrid[(row*_numCol)+column] = [value intValue];
             }];
         }];
