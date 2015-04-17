@@ -15,7 +15,7 @@ extern const int GRID_COLUMNS;
 
 @implementation MainScene {
     Grid *_grid;
-
+    CCTimer *_timer;
     CCLabelTTF *_stepCount;
 
 }
@@ -31,6 +31,9 @@ static int currNum;
 {
     self = [super init];
     
+    if (self) {
+        _timer = [[CCTimer alloc] init];
+    }
 
     NSLog(@"This is MainScene!");
     double centralX = 90;
@@ -48,7 +51,8 @@ static int currNum;
         panel.zOrder = 1;
         [self addChild:panel];
     }
-    _stepCount.string = [NSString stringWithFormat:@"%d", _grid.steps];
+    
+    _grid.stepCount = _stepCount;
     return self;
 }
 
