@@ -72,7 +72,7 @@ static int currNum;
      */
     currNum = 0;
     NSLog(@"Here red!");
-    [self loadMyViewController];
+    //[self loadMyViewController];
 }
 
 - (void)selectyellow
@@ -106,10 +106,7 @@ static int currNum;
 }
 
 - (void)loadMyViewController {
-    self.popUpwin = [[PopUpWindow alloc] init];
-    AppController *app = (AppController *)[[UIApplication sharedApplication] delegate];
-    [app.navController pushViewController:self.popUpwin animated:YES];
-    [CCDirector sharedDirector].pause;
+
 }
 
 @end
