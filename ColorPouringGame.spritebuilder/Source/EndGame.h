@@ -1,5 +1,5 @@
 //
-//  PopUpWindow.h
+//  EndGame.h
 //  ColorPouringGame
 //
 //  Created by 万欣 on 15/4/17.
@@ -8,6 +8,8 @@
 
 #import "CCNode.h"
 
-@interface PopUpWindow : UIViewController
+@interface EndGame : CCNode
+
+- (void)setMessage:(NSString *)message score:(NSInteger)score
 
 @end

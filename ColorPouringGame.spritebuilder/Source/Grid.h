@@ -12,6 +12,7 @@
 #import "Target.h"
 #import "CCNode.h"
 #import "MainScene.h"
+#import "EndGame.h"
 #import "cocos2d.h"
 
 @interface Grid : CCSprite

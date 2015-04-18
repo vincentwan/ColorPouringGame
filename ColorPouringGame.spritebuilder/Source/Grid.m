@@ -41,7 +41,7 @@
     float y = 0;
     
     _steps = 0;
-    _accurate = 0;
+    _accurate = 75;
     Level * tlevel = self.level;
     // initialize the array as a blank NSMutableArray
     _colorCell = [NSMutableArray array];
@@ -107,6 +107,17 @@
     return ansnum;
 }
 
+- (void) win {
+    EndGame *EndGamePopover = (EndGame *)[CCBReader load:@"EndGame"];
+    EndGamePopover.positionType = CCPositionTypeNormalized;
+    EndGamePopover.position = ccp(0.5, 0.5);
+    EndGamePopover.zOrder = INT_MAX;
+    
+    [EndGamePopover setMessage:@"" score:self.accurate];
+    
+    [self addChild:EndGamePopover];
+}
+
 - (void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event
 {
     //get the x,y coordinates of the touch
@@ -132,6 +143,9 @@
         NSLog(@"Here is updating steps: %d\n",_steps);
         
         _stepCount.string = [NSString stringWithFormat:@"%d", _steps];
+        if(_steps == _numCol * _numRow) {
+            [self win];
+        }
     }
     else {
         return;

@@ -9,13 +9,11 @@
 #import "CCNode.h"
 #import "Level.h"
 #import "ColorPanel.h"
-#import "PopUpWindow.h"
 #import "AppDelegate.h"
 
 @interface MainScene : CCNode
 
 + (int) currNum;
 + (void) setCurrNum:(int)val;
-@property (strong, nonatomic) PopUpWindow * popUpwin;
 
 @end

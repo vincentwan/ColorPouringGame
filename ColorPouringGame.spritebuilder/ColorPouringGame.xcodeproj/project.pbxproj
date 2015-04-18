@@ -44,7 +44,7 @@
 		BFB704DE1A79DE0100497817 /* Creature.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB704DD1A79DE0100497817 /* Creature.m */; };
 		BFC55F2C1AE0E246004D157E /* ColorPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC55F2B1AE0E246004D157E /* ColorPanel.m */; };
 		BFC55F401AE19D35004D157E /* Level_1.json in Resources */ = {isa = PBXBuildFile; fileRef = BFC55F3F1AE19D35004D157E /* Level_1.json */; };
-		BFC55F491AE1D9E5004D157E /* PopUpWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC55F481AE1D9E5004D157E /* PopUpWindow.m */; };
+		BFC55F631AE204D9004D157E /* EndGame.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC55F621AE204D9004D157E /* EndGame.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,8 +134,8 @@
 		BFC55F2A1AE0E246004D157E /* ColorPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorPanel.h; path = Source/ColorPanel.h; sourceTree = "<group>"; };
 		BFC55F2B1AE0E246004D157E /* ColorPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ColorPanel.m; path = Source/ColorPanel.m; sourceTree = "<group>"; };
 		BFC55F3F1AE19D35004D157E /* Level_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_1.json; sourceTree = "<group>"; };
-		BFC55F471AE1D9E5004D157E /* PopUpWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PopUpWindow.h; path = Source/PopUpWindow.h; sourceTree = "<group>"; };
-		BFC55F481AE1D9E5004D157E /* PopUpWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PopUpWindow.m; path = Source/PopUpWindow.m; sourceTree = "<group>"; };
+		BFC55F611AE204D9004D157E /* EndGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EndGame.h; path = Source/EndGame.h; sourceTree = "<group>"; };
+		BFC55F621AE204D9004D157E /* EndGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EndGame.m; path = Source/EndGame.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,8 +183,8 @@
 				B737893E1807617C0076A88C /* AppDelegate.m */,
 				B7378992180767190076A88C /* MainScene.h */,
 				B7378993180767190076A88C /* MainScene.m */,
-				BFC55F471AE1D9E5004D157E /* PopUpWindow.h */,
-				BFC55F481AE1D9E5004D157E /* PopUpWindow.m */,
+				BFC55F611AE204D9004D157E /* EndGame.h */,
+				BFC55F621AE204D9004D157E /* EndGame.m */,
 				BF42F7851AB8AE15001567D2 /* Level.h */,
 				BF42F7861AB8AE15001567D2 /* Level.m */,
 				BFA698811AD264EC00E05766 /* ColorHelper.h */,
@@ -437,12 +437,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFC55F2C1AE0E246004D157E /* ColorPanel.m in Sources */,
+				BFC55F631AE204D9004D157E /* EndGame.m in Sources */,
 				B737893F1807617C0076A88C /* AppDelegate.m in Sources */,
 				BFA698831AD264EC00E05766 /* ColorHelper.m in Sources */,
 				BF42F7931AB8E42C001567D2 /* Target.m in Sources */,
 				B7378994180767190076A88C /* MainScene.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
-				BFC55F491AE1D9E5004D157E /* PopUpWindow.m in Sources */,
 				BFB704D81A79DB1F00497817 /* Grid.m in Sources */,
 				BF42F7871AB8AE15001567D2 /* Level.m in Sources */,
 				BFB704DE1A79DE0100497817 /* Creature.m in Sources */,
