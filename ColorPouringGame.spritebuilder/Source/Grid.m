@@ -21,7 +21,7 @@
 {
     [super onEnter];
     //self.visible = false;
-    _level = [[Level alloc] initWithFile:@"Level_1"];
+    _level = [[Level alloc] initWithFile:@"Level_0"];
     _numRow = [_level getNumRow];
     _numCol = [_level getNumCol];
     [self setupGrid];
