@@ -10,6 +10,7 @@
 #import "Grid.h"
 
 
+
 extern const int GRID_ROWS;
 extern const int GRID_COLUMNS;
 
@@ -71,6 +72,7 @@ static int currNum;
      */
     currNum = 0;
     NSLog(@"Here red!");
+    [self loadMyViewController];
 }
 
 - (void)selectyellow
@@ -103,6 +105,11 @@ static int currNum;
     NSLog(@"Restart!");
 }
 
-
+- (void)loadMyViewController {
+    self.popUpwin = [[PopUpWindow alloc] init];
+    AppController *app = (AppController *)[[UIApplication sharedApplication] delegate];
+    [app.navController pushViewController:self.popUpwin animated:YES];
+    [CCDirector sharedDirector].pause;
+}
 
 @end

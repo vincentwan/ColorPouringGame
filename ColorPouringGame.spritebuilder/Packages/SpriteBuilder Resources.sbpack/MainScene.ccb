@@ -148,6 +148,8 @@
 						<array/>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -181,8 +183,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>152</real>
-							<real>132</real>
+							<real>408</real>
+							<real>136</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -390,7 +392,7 @@
 						<array>
 							<real>10</real>
 							<real>0.5</real>
-							<integer>2</integer>
+							<integer>1</integer>
 							<integer>0</integer>
 							<integer>2</integer>
 						</array>
@@ -417,8 +419,6 @@
 						<string>Grid.ccb</string>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -2049,11 +2049,11 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>0.0</real>
-							<real>0.0</real>
+							<real>10</real>
+							<real>0.10000000149011612</real>
+							<integer>2</integer>
 							<integer>0</integer>
-							<integer>0</integer>
-							<integer>0</integer>
+							<integer>2</integer>
 						</array>
 					</dict>
 					<dict>
@@ -2076,8 +2076,8 @@
 						<string>Point</string>
 						<key>value</key>
 						<array>
-							<real>0.0</real>
-							<real>-0.89999997615814209</real>
+							<real>1</real>
+							<real>1</real>
 						</array>
 					</dict>
 					<dict>
