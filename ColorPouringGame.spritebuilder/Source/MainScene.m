@@ -41,7 +41,7 @@ static int currNum;
     double radius = 30;
     double sizeX = 23;
     double sizeY = 28;
-    
+    /*
     for(int i=0; i<12; i++) {
         double ang = (i*M_PI)/6;
         double x = centralX + radius * sin(ang);
@@ -51,6 +51,7 @@ static int currNum;
         panel.zOrder = 1;
         [self addChild:panel];
     }
+     */
     return self;
 }
 
