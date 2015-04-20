@@ -1,0 +1,28 @@
+For FlyingFeather Game
+
+This week
+
+Polished MainScreen
+Effects like transitionFadeWithDuration
+More interface functionality (Make levels continuously)
+New feather water drop sprite
+
+Next week
+Manage how to make the heavier effect last for certain while
+More levels
+Add more feathers if possible (like make the length of the layer longer)
+Start to documenting the assets information and copyrights
+
+For Color Pouring Game
+
+This week
+
+Added a color mixing panel to help clarify how two colors mixed and produce a new color
+Added the level design and the score calculation
+Added the panel showing the current steps made and current score of the user.
+Restructured the project and reduce the overhead of constructing new helper instances.
+
+Next week
+Adding new levels
+Tuning the visual effect of each color
+Slightly changing the game strategy to make it easier for players to win (in the former levels).

@@ -1,24 +1,18 @@
-For FlyingFeather Game
+For Xin:
+Tasks finished this week:
+1) Finish the level design and add the judging of scores functionality to the end of each level.
+2) Finish at least 5 levels and finish the level passing functionality.
 
+Task to be finish next week:
+1) Finish the level design and add the judging of scores functionality to the end of each level.
+2) Finish at least 5 levels and finish the level passing functionality.
+
+For Xuan:
 This week
-Add stars and corresponding counting
-Add obstacles (cloud)
-Fixed the camera bug
-Add level2
+1.Abandon the jump function because it is hard for the user to operate. 
+2.Fixed blackscreen bug
+3.Trying to figure out ways to play the game on computers (because it is just more convenient for phones).
 
 Next week
-More levels with other challenges
-Pretty MainScreen
-More interface functionality
-
-For Color Pouring Game
-
-This week
-Switched from continuous RGB values to thresholded 12 colors
-Designed Level 1, 2
-Added Accuracy calculation (for score calculation)
-
-Next week
-More levels (up to 5)
-Helper color panel for users to better understand how the color mixing works
-Add a frame to each cell showing the target color (instead of showing it on background with certain transparency)
+1.Use the beta version simulator of make school to test the game.
+2.Add obstacles and levels
