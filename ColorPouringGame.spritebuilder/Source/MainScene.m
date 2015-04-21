@@ -51,7 +51,7 @@ static int currNum;
         panel.zOrder = 1;
         [self addChild:panel];
     }
-     
+    
     return self;
 }
 
