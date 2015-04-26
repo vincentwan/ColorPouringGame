@@ -15,9 +15,9 @@
 
 @interface MainScene : CCNode
 
-@property (nonatomic) ColorButton * redBtn;
-@property (nonatomic) ColorButton * blueBtn;
-@property (nonatomic) ColorButton * yellowBtn;
+@property (nonatomic, retain) ColorButton * redBtn;
+@property (nonatomic, retain) ColorButton * blueBtn;
+@property (nonatomic, retain) ColorButton * yellowBtn;
 
 
 + (int) currNum;
