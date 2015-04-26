@@ -11,8 +11,6 @@
 
 @interface ColorButton : CCButton
 
-@property (nonatomic, retain) UIColor * ccolor;
-
 - (instancetype)initBtnwithX:(double) xlen andY:(double) ylen andNum:(int) serialnum;
 
 @end

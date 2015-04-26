@@ -29,9 +29,6 @@ static int btnSizeY = 35;
     [super setScaleX:(btnSizeX/self.contentSize.width)];
     [super setScaleY:(btnSizeY/self.contentSize.height)];
     UIColor * tempc = [ColorHelper setColorWithFile:serialnum];
-    CGFloat red = 0.0, green = 0.0, blue = 0.0, alpha = 0.0;
-    [tempc getRed:&red green:&green blue:&blue alpha:&alpha];
-    NSLog(@"Before setting Button color red %f green %f blue %f\n", red, green, blue);
     [self setCcolor:tempc];
     return self;
 }
@@ -39,16 +36,15 @@ static int btnSizeY = 35;
 
 - (void)setCcolor:(UIColor *)col {
     //when you create an @property as we did in the .h, an instance variable with a leading underscore is automatically created for you
-    _ccolor = [col copy];
     
     CGFloat red = 0.0, green = 0.0, blue = 0.0, alpha = 0.0;
-    [_ccolor getRed:&red green:&green blue:&blue alpha:&alpha];
+    [col getRed:&red green:&green blue:&blue alpha:&alpha];
     
     NSLog(@"Here's setting Button color red %f green %f blue %f\n", red, green, blue);
     
-    
-    
-    self.colorRGBA = [CCColor colorWithUIColor:_ccolor];
+    [self setBackgroundColor:[CCColor colorWithUIColor:col] forState:CCControlStateNormal];
+    [self setBackgroundColor:[CCColor colorWithUIColor:col] forState:CCControlStateHighlighted];
+
     //NSLog(@"Here! setCcolor");
     
     //self.colorRGBA = [CCColor colorWithCcColor3b:<#(ccColor3B)#>];
