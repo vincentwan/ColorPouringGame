@@ -56,8 +56,8 @@ static int currNum;
     double centralX = 524;
     double centralY = 192;
     double radius = 28;
-    double sizeX = 47;
-    double sizeY = 28;
+    double sizeX = 45;
+    double sizeY = 30;
     
     for(int i=0; i<2; i++) {
         double ang = (i*M_PI)/3;
