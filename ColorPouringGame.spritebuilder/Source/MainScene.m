@@ -65,18 +65,18 @@ static int totalLevel = 2;
         [self addChild:panel];
     }
     
-    ColorButton * redBtn = [[ColorButton alloc] initBtnwithX:430 andY:243.5 andNum:0];
-    redBtn.zOrder = 1;
-    [redBtn setTarget:self selector:@selector(selectred)];
-    [self addChild:redBtn];
-    ColorButton * blueBtn = [[ColorButton alloc] initBtnwithX:430 andY:200.5 andNum:4];
-    blueBtn.zOrder = 1;
-    [blueBtn setTarget:self selector:@selector(selectblue)];
-    [self addChild:blueBtn];
-    ColorButton * yellowBtn = [[ColorButton alloc] initBtnwithX:430 andY:157.5 andNum:8];
-    yellowBtn.zOrder = 1;
-    [yellowBtn setTarget:self selector:@selector(selectyellow)];
-    [self addChild:yellowBtn];
+    _redBtn = [[ColorButton alloc] initBtnwithX:430 andY:243.5 andNum:0];
+    _redBtn.zOrder = 1;
+    [_redBtn setTarget:self selector:@selector(selectred)];
+    [self addChild:_redBtn];
+    _blueBtn = [[ColorButton alloc] initBtnwithX:430 andY:200.5 andNum:4];
+    _blueBtn.zOrder = 1;
+    [_blueBtn setTarget:self selector:@selector(selectblue)];
+    [self addChild:_blueBtn];
+    _yellowBtn = [[ColorButton alloc] initBtnwithX:430 andY:157.5 andNum:8];
+    _yellowBtn.zOrder = 1;
+    [_yellowBtn setTarget:self selector:@selector(selectyellow)];
+    [self addChild:_yellowBtn];
     
     /*
     double centralX = 520;
@@ -102,8 +102,7 @@ static int totalLevel = 2;
 {
     [super onEnter];
     
-    currNum = 0;
-    
+    [self selectred];
     NSLog(@"This is MainScene onEnter");
     
     _stepCount.string = [NSString stringWithFormat:@"%d", 0];
@@ -122,6 +121,9 @@ static int totalLevel = 2;
                     alpha:1.0f];
      */
     currNum = 0;
+    _redBtn.highlighted = YES;
+    _blueBtn.highlighted = NO;
+    _yellowBtn.highlighted = NO;
     NSLog(@"Here red!");
     //[self loadMyViewController];
 }
@@ -135,6 +137,9 @@ static int totalLevel = 2;
      alpha:1.0f];
      */
     currNum = 4;
+    _blueBtn.highlighted = YES;
+    _redBtn.highlighted = NO;
+    _yellowBtn.highlighted = NO;
     NSLog(@"Here blue!");
 }
 
@@ -147,6 +152,9 @@ static int totalLevel = 2;
                     alpha:1.0f];
      */
     currNum = 8;
+    _yellowBtn.highlighted = YES;
+    _blueBtn.highlighted = NO;
+    _redBtn.highlighted = NO;
     NSLog(@"Here yellow!");
 }
 

@@ -15,6 +15,11 @@
 
 @interface MainScene : CCNode
 
+@property (nonatomic) ColorButton * redBtn;
+@property (nonatomic) ColorButton * blueBtn;
+@property (nonatomic) ColorButton * yellowBtn;
+
+
 + (int) currNum;
 + (void) setCurrNum:(int)val;
 + (int) levelNum;
