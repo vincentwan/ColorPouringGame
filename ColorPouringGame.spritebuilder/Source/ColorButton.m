@@ -32,7 +32,9 @@ static int btnSizeY = 35;
     [super setScaleX:(btnSizeX/self.contentSize.width)];
     [super setScaleY:(btnSizeY/self.contentSize.height)];
     UIColor * tempc = [ColorHelper setColorWithFile:serialnum];
-
+    CGFloat red = 0.0, green = 0.0, blue = 0.0, alpha = 0.0;
+    [tempc getRed:&red green:&green blue:&blue alpha:&alpha];
+    NSLog(@"Before setting Button color red %f green %f blue %f\n", red, green, blue);
     self.ccolor = tempc;
     return self;
 }
