@@ -121,7 +121,7 @@ static int totalLevel = 2;
                     alpha:1.0f];
      */
     currNum = 0;
-    _redBtn.highlighted = YES;
+    //_redBtn.highlighted = YES;
     _blueBtn.highlighted = NO;
     _yellowBtn.highlighted = NO;
     NSLog(@"Here red!");
@@ -137,7 +137,7 @@ static int totalLevel = 2;
      alpha:1.0f];
      */
     currNum = 4;
-    _blueBtn.highlighted = YES;
+    //_blueBtn.highlighted = YES;
     _redBtn.highlighted = NO;
     _yellowBtn.highlighted = NO;
     NSLog(@"Here blue!");
@@ -152,7 +152,7 @@ static int totalLevel = 2;
                     alpha:1.0f];
      */
     currNum = 8;
-    _yellowBtn.highlighted = YES;
+    //_yellowBtn.highlighted = YES;
     _blueBtn.highlighted = NO;
     _redBtn.highlighted = NO;
     NSLog(@"Here yellow!");
