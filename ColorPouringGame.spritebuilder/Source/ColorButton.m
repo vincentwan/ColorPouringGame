@@ -20,10 +20,7 @@ static int btnSizeY = 35;
 { @synchronized(self) { return btnSizeY; } }
 
 - (instancetype)initBtnwithX:(double) xlen andY:(double) ylen andNum:(int) serialnum{
-    self = [CCButton buttonWithTitle:@""
-                                      spriteFrame:[CCSpriteFrame frameWithImageNamed:@"ColorPouringAssets/Assets/cell.png"]
-                           highlightedSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"ColorPouringAssets/Assets/cell_highlighted.png"]
-                              disabledSpriteFrame:nil];
+    self = [super initWithTitle:@"" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"ColorPouringAssets/Assets/cell.png"] highlightedSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"ColorPouringAssets/Assets/cell_highlighted.png"] disabledSpriteFrame:nil];
     self.togglesSelectedState = YES;
     self.position = ccp(xlen,ylen);
     self.anchorPoint = ccp(0.5,0.5);
