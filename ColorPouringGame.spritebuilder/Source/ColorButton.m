@@ -43,7 +43,7 @@ static int btnSizeY = 35;
     NSLog(@"Here's setting Button color red %f green %f blue %f\n", red, green, blue);
     
     [self setBackgroundColor:[CCColor colorWithUIColor:col] forState:CCControlStateNormal];
-    [self setBackgroundColor:[CCColor colorWithUIColor:col] forState:CCControlStateHighlighted];
+    [self setBackgroundColor:[CCColor colorWithUIColor:col] forState:CCControlStateSelected];
 
     //NSLog(@"Here! setCcolor");
     
