@@ -19,7 +19,7 @@ static int btnSizeY = 35;
 + (int) btnSizeY
 { @synchronized(self) { return btnSizeY; } }
 
-- (instancetype)initBtnwithX:(double) xlen andY:(double) ylen andNum:(int) serialnum andSel:(SEL) select{
+- (instancetype)initBtnwithX:(double) xlen andY:(double) ylen andNum:(int) serialnum{
     self = [CCButton buttonWithTitle:@""
                                       spriteFrame:[CCSpriteFrame frameWithImageNamed:@"ColorPouringAssets/Assets/cell.png"]
                            highlightedSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"ColorPouringAssets/Assets/cell_highlighted.png"]
@@ -27,11 +27,16 @@ static int btnSizeY = 35;
     self.togglesSelectedState = YES;
     self.position = ccp(xlen,ylen);
     self.anchorPoint = ccp(0.5,0.5);
-    [super setTarget:self selector:select];
+    
 
     [super setScaleX:(btnSizeX/self.contentSize.width)];
     [super setScaleY:(btnSizeY/self.contentSize.height)];
-    super.colorRGBA = [CCColor colorWithUIColor:[[ColorHelper setColorWithFile:serialnum] copy]];
+    UIColor * tempc = [ColorHelper setColorWithFile:serialnum];
+    CGFloat red = 0.0, green = 0.0, blue = 0.0, alpha = 0.0;
+    [tempc getRed:&red green:&green blue:&blue alpha:&alpha];
+    NSLog(@"Before setting Button color red %f green %f blue %f\n", red, green, blue);
+
+    super.colorRGBA = [CCColor colorWithUIColor:[tempc copy]];
     return self;
 }
 

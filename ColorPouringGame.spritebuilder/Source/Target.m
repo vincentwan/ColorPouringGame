@@ -38,6 +38,8 @@
     
     NSLog(@"Here's setting target color red %f green %f blue %f\n", red, green, blue);
     
+    
+    
     self.colorRGBA = [CCColor colorWithUIColor:_ccolor];
     //NSLog(@"Here! setCcolor");
     

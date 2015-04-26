@@ -12,6 +12,6 @@
 @interface ColorButton : CCButton
 
 
-- (instancetype)initBtnwithX:(double) xlen andY:(double) ylen andNum:(int) serialnum andSel:(SEL) select;
+- (instancetype)initBtnwithX:(double) xlen andY:(double) ylen andNum:(int) serialnum;
 
 @end

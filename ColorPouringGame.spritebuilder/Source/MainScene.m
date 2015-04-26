@@ -65,14 +65,17 @@ static int totalLevel = 2;
         [self addChild:panel];
     }
     
-    ColorButton * redBtn = [[ColorButton alloc] initBtnwithX:430 andY:243.5 andNum:0 andSel:@selector(selectred)];
+    ColorButton * redBtn = [[ColorButton alloc] initBtnwithX:430 andY:243.5 andNum:0];
     redBtn.zOrder = 1;
+    [redBtn setTarget:self selector:@selector(selectred)];
     [self addChild:redBtn];
-    ColorButton * blueBtn = [[ColorButton alloc] initBtnwithX:430 andY:200.5 andNum:4 andSel:@selector(selectblue)];
+    ColorButton * blueBtn = [[ColorButton alloc] initBtnwithX:430 andY:200.5 andNum:4];
     blueBtn.zOrder = 1;
+    [blueBtn setTarget:self selector:@selector(selectblue)];
     [self addChild:blueBtn];
-    ColorButton * yellowBtn = [[ColorButton alloc] initBtnwithX:430 andY:157.5 andNum:8 andSel:@selector(selectyellow)];
+    ColorButton * yellowBtn = [[ColorButton alloc] initBtnwithX:430 andY:157.5 andNum:8];
     yellowBtn.zOrder = 1;
+    [yellowBtn setTarget:self selector:@selector(selectyellow)];
     [self addChild:yellowBtn];
     
     /*
