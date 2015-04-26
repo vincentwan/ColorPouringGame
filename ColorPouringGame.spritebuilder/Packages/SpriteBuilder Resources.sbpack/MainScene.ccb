@@ -148,6 +148,8 @@
 						<array/>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -1445,7 +1447,7 @@
 						<key>type</key>
 						<string>FontTTF</string>
 						<key>value</key>
-						<string>Helvetica</string>
+						<string>HelveticaNeue</string>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -1604,8 +1606,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>524</real>
-							<real>278.74050903320312</real>
+							<real>521</real>
+							<real>264.74050903320312</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -1652,7 +1654,7 @@
 						<key>type</key>
 						<string>FontTTF</string>
 						<key>value</key>
-						<string>Helvetica</string>
+						<string>HelveticaNeue</string>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -1778,8 +1780,6 @@
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>
