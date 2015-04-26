@@ -17,4 +17,12 @@
     _scoreMessage.string = [NSString stringWithFormat:@"%ld", (long)score];
 }
 
+- (void)newGame
+{
+    CCScene *mainScene = [CCBReader loadAsScene:@"MainScene"];
+    [[CCDirector sharedDirector]replaceScene:mainScene];
+    NSLog(@"Restart!");
+}
+
+
 @end
