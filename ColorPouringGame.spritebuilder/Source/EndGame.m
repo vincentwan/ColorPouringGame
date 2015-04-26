@@ -26,7 +26,8 @@
         restartBtn.anchorPoint = ccp(0.5,0.5);
         [restartBtn setTarget:self selector:@selector(restart)];
         restartBtn.zOrder = 1;
-        restartBtn.horizontalPadding = 10.0;
+        restartBtn.horizontalPadding = 15.0;
+        restartBtn.verticalPadding = 10.0;
         [self addChild:restartBtn];
         
         CCButton * nextBtn = [CCButton buttonWithTitle:@"Next Level"
@@ -39,6 +40,8 @@
         nextBtn.anchorPoint = ccp(0.5,0.5);
         [nextBtn setTarget:self selector:@selector(nextLevel)];
         nextBtn.zOrder = 1;
+        nextBtn.horizontalPadding = 15.0;
+        nextBtn.verticalPadding = 10.0;
         [self addChild:nextBtn];
     }
     return self;
