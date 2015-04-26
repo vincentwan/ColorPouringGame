@@ -26,7 +26,7 @@
 
 - (void)nextLevel
 {
-    MainScene.levelNum++;
+    [MainScene setLevelNum:(MainScene.levelNum+1)];
     CCScene *mainScene = [CCBReader loadAsScene:@"MainScene"];
     [[CCDirector sharedDirector]replaceScene:mainScene];
     NSLog(@"Next Level: %d!", MainScene.levelNum);
