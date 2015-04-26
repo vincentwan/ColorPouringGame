@@ -56,7 +56,7 @@ static int currNum;
     double centralX = 524;
     double centralY = 192;
     double radius = 28;
-    double sizeX = 50;
+    double sizeX = 47;
     double sizeY = 28;
     
     for(int i=0; i<2; i++) {
