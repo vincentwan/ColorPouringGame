@@ -53,7 +53,7 @@ static int currNum;
         [self addChild:panel];
     }
      */
-    double centralX = 524;
+    double centralX = 520;
     double centralY = 192;
     double radius = 28;
     double sizeX = 45;
