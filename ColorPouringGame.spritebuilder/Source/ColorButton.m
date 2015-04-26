@@ -31,7 +31,7 @@ static int btnSizeY = 35;
 
     [super setScaleX:(btnSizeX/self.contentSize.width)];
     [super setScaleY:(btnSizeY/self.contentSize.height)];
-    super.colorRGBA = [CCColor colorWithUIColor:[ColorHelper setColorWithFile:serialnum]];
+    super.colorRGBA = [CCColor colorWithUIColor:[[ColorHelper setColorWithFile:serialnum] copy]];
     return self;
 }
 
