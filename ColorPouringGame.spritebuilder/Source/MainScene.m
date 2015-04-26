@@ -37,7 +37,7 @@ static int currNum;
     
     NSLog(@"This is MainScene!");
     
-    double centralX = 526;
+    double centralX = 520;
     double centralY = 192;
     double radius = 30;
     double sizeX = 23;
