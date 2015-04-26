@@ -8,6 +8,8 @@
 
 #import "CCNode.h"
 #import "MainScene.h"
+#import "cocos2d.h"
+#import "CCSprite.h"
 
 @interface EndGame : CCNode
 
