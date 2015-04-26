@@ -27,7 +27,7 @@ static int currNum;
 + (void) setCurrNum:(int)val
 { @synchronized(self) { currNum = val; } }
 
-static int levelNum;
+static int levelNum = 0;
 + (int) levelNum
 { @synchronized(self) { return levelNum; } }
 + (void) setLevelNum:(int)val
@@ -43,8 +43,6 @@ static int levelNum;
     }
     
     NSLog(@"This is MainScene!");
-    
-    levelNum = 0;
     
     double centralX = 520;
     double centralY = 192;
