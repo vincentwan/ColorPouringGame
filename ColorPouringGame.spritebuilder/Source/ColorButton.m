@@ -35,11 +35,11 @@ static int btnSizeY = 35;
     CGFloat red = 0.0, green = 0.0, blue = 0.0, alpha = 0.0;
     [tempc getRed:&red green:&green blue:&blue alpha:&alpha];
     NSLog(@"Before setting Button color red %f green %f blue %f\n", red, green, blue);
-    self.ccolor = tempc;
+    [self setCcolor:tempc];
     return self;
 }
 
-/*
+
 - (void)setCcolor:(UIColor *)col {
     //when you create an @property as we did in the .h, an instance variable with a leading underscore is automatically created for you
     _ccolor = [col copy];
@@ -56,6 +56,6 @@ static int btnSizeY = 35;
     
     //self.colorRGBA = [CCColor colorWithCcColor3b:<#(ccColor3B)#>];
 }
- */
+
 
 @end
