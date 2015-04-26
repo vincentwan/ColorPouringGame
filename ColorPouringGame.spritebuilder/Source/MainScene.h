@@ -17,5 +17,6 @@
 + (void) setCurrNum:(int)val;
 + (int) levelNum;
 + (void) setLevelNum:(int)val;
++ (int) totalLevel;
 
 @end

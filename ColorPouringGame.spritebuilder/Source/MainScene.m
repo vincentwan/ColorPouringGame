@@ -33,6 +33,11 @@ static int levelNum = 0;
 + (void) setLevelNum:(int)val
 { @synchronized(self) { levelNum = val; } }
 
+// Read only static variable
+static int totalLevel = 2;
++ (int) totalLevel
+{ @synchronized(self) { return totalLevel; } }
+
 
 - (id)init
 {
