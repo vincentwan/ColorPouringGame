@@ -207,6 +207,7 @@
         }
          */
     }
+    NSLog(@"Accurate: %d\n", _accurate);
     _stepScore.string = [NSString stringWithFormat:@"%d", _accurate];
     if(_steps == _numCol * _numRow) {
         [self win];
