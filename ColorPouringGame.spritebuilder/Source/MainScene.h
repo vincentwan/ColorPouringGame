@@ -11,6 +11,7 @@
 #import "ColorPanel.h"
 #import "ColorHelper.h"
 #import "AppDelegate.h"
+#import "ColorButton.h"
 
 @interface MainScene : CCNode
 

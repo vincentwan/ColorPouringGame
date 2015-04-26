@@ -36,6 +36,7 @@
 		B77F1B3E17B978D7009739AE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B3D17B978D7009739AE /* Foundation.framework */; };
 		B77F1B4017B978D7009739AE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B3F17B978D7009739AE /* CoreGraphics.framework */; };
 		B77F1B4217B978D7009739AE /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B4117B978D7009739AE /* CoreText.framework */; };
+		BF3A6FE51AED930A00C37828 /* ColorButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BF3A6FE41AED930A00C37828 /* ColorButton.m */; };
 		BF42F7871AB8AE15001567D2 /* Level.m in Sources */ = {isa = PBXBuildFile; fileRef = BF42F7861AB8AE15001567D2 /* Level.m */; };
 		BF42F7931AB8E42C001567D2 /* Target.m in Sources */ = {isa = PBXBuildFile; fileRef = BF42F7921AB8E42C001567D2 /* Target.m */; };
 		BF42F79A1AB915A2001567D2 /* Level_0.json in Resources */ = {isa = PBXBuildFile; fileRef = BF42F7991AB915A2001567D2 /* Level_0.json */; };
@@ -120,6 +121,8 @@
 		B77F1B3F17B978D7009739AE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		B77F1B4117B978D7009739AE /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		B7B3713D180358F1007369CC /* libObjectiveChipmunk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libObjectiveChipmunk.a; path = "../libs/cocos2d-iphone/external/Chipmunk/xcode/build/Debug-iphoneos/libObjectiveChipmunk.a"; sourceTree = "<group>"; };
+		BF3A6FE31AED930A00C37828 /* ColorButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorButton.h; path = Source/ColorButton.h; sourceTree = "<group>"; };
+		BF3A6FE41AED930A00C37828 /* ColorButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ColorButton.m; path = Source/ColorButton.m; sourceTree = "<group>"; };
 		BF42F7851AB8AE15001567D2 /* Level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Level.h; path = Source/Level.h; sourceTree = "<group>"; };
 		BF42F7861AB8AE15001567D2 /* Level.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Level.m; path = Source/Level.m; sourceTree = "<group>"; };
 		BF42F7911AB8E42C001567D2 /* Target.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Target.h; path = Source/Target.h; sourceTree = "<group>"; };
@@ -189,6 +192,8 @@
 				BF42F7861AB8AE15001567D2 /* Level.m */,
 				BFA698811AD264EC00E05766 /* ColorHelper.h */,
 				BFA698821AD264EC00E05766 /* ColorHelper.m */,
+				BF3A6FE31AED930A00C37828 /* ColorButton.h */,
+				BF3A6FE41AED930A00C37828 /* ColorButton.m */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -439,6 +444,7 @@
 				BFC55F2C1AE0E246004D157E /* ColorPanel.m in Sources */,
 				BFC55F631AE204D9004D157E /* EndGame.m in Sources */,
 				B737893F1807617C0076A88C /* AppDelegate.m in Sources */,
+				BF3A6FE51AED930A00C37828 /* ColorButton.m in Sources */,
 				BFA698831AD264EC00E05766 /* ColorHelper.m in Sources */,
 				BF42F7931AB8E42C001567D2 /* Target.m in Sources */,
 				B7378994180767190076A88C /* MainScene.m in Sources */,

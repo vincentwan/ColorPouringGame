@@ -65,47 +65,15 @@ static int totalLevel = 2;
         [self addChild:panel];
     }
     
-
-    CCButton * redBtn = [CCButton buttonWithTitle:@""
-                                          spriteFrame:[CCSpriteFrame frameWithImageNamed:@"ColorPouringAssets/Assets/cell.png"]
-                               highlightedSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"ColorPouringAssets/Assets/cell_highlighted.png"]
-                                  disabledSpriteFrame:nil];
-    
-    redBtn.togglesSelectedState = YES;
-    redBtn.position = ccp(430,243.5);
-    redBtn.anchorPoint = ccp(0.5,0.5);
-    [redBtn setTarget:self selector:@selector(selectred)];
+    ColorButton * redBtn = [[ColorButton alloc] initBtnwithX:430 andY:243.5 andNum:0 andSel:@selector(selectred)];
     redBtn.zOrder = 1;
-    redBtn.colorRGBA = [CCColor colorWithUIColor:[ColorHelper setColorWithFile:0]];
     [self addChild:redBtn];
-    
-    CCButton * redBtn = [CCButton buttonWithTitle:@""
-                                      spriteFrame:[CCSpriteFrame frameWithImageNamed:@"ColorPouringAssets/Assets/cell.png"]
-                           highlightedSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"ColorPouringAssets/Assets/cell_highlighted.png"]
-                              disabledSpriteFrame:nil];
-    
-    redBtn.togglesSelectedState = YES;
-    redBtn.position = ccp(430,243.5);
-    redBtn.anchorPoint = ccp(0.5,0.5);
-    [redBtn setTarget:self selector:@selector(selectred)];
-    redBtn.zOrder = 1;
-    redBtn.colorRGBA = [CCColor colorWithUIColor:[ColorHelper setColorWithFile:0]];
-    [self addChild:redBtn];
-    
-    CCButton * redBtn = [CCButton buttonWithTitle:@""
-                                      spriteFrame:[CCSpriteFrame frameWithImageNamed:@"ColorPouringAssets/Assets/cell.png"]
-                           highlightedSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"ColorPouringAssets/Assets/cell_highlighted.png"]
-                              disabledSpriteFrame:nil];
-    
-    redBtn.togglesSelectedState = YES;
-    redBtn.position = ccp(430,243.5);
-    redBtn.anchorPoint = ccp(0.5,0.5);
-    [redBtn setTarget:self selector:@selector(selectred)];
-    redBtn.zOrder = 1;
-    redBtn.colorRGBA = [CCColor colorWithUIColor:[ColorHelper setColorWithFile:0]];
-    [self addChild:redBtn];
-
-    
+    ColorButton * blueBtn = [[ColorButton alloc] initBtnwithX:430 andY:200.5 andNum:4 andSel:@selector(selectblue)];
+    blueBtn.zOrder = 1;
+    [self addChild:blueBtn];
+    ColorButton * yellowBtn = [[ColorButton alloc] initBtnwithX:430 andY:157.5 andNum:8 andSel:@selector(selectyellow)];
+    yellowBtn.zOrder = 1;
+    [self addChild:yellowBtn];
     
     /*
     double centralX = 520;
@@ -155,6 +123,18 @@ static int totalLevel = 2;
     //[self loadMyViewController];
 }
 
+- (void)selectblue
+{
+    /*
+     currColor = [UIColor colorWithRed:18.0f/255.0f
+     green:83.0f/255.0f
+     blue:255.0f/255.0f
+     alpha:1.0f];
+     */
+    currNum = 4;
+    NSLog(@"Here blue!");
+}
+
 - (void)selectyellow
 {
     /*
@@ -165,18 +145,6 @@ static int totalLevel = 2;
      */
     currNum = 8;
     NSLog(@"Here yellow!");
-}
-
-- (void)selectblue
-{
-    /*
-    currColor = [UIColor colorWithRed:18.0f/255.0f
-                    green:83.0f/255.0f
-                    blue:255.0f/255.0f
-                    alpha:1.0f];
-     */
-    currNum = 4;
-    NSLog(@"Here blue!");
 }
 
 - (void)restart
