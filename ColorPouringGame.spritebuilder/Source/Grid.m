@@ -207,6 +207,7 @@
         }
          */
     }
+    _stepScore.string = [NSString stringWithFormat:@"%d", _accurate];
     if(_steps == _numCol * _numRow) {
         [self win];
     }
@@ -259,6 +260,7 @@
     _steps = 0;
     _accurate = 0;
     _stepCount.string = [NSString stringWithFormat:@"%d", _steps];
+    _stepScore.string = [NSString stringWithFormat:@"%d", _accurate];
 }
 
 @end
