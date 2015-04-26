@@ -121,9 +121,10 @@ static int totalLevel = 2;
                     alpha:1.0f];
      */
     currNum = 0;
-    [_redBtn setHighlighted:YES];
-    [_blueBtn setHighlighted:NO];
-    [_yellowBtn setHighlighted:NO];
+
+    [_redBtn setSelected:YES];
+    [_blueBtn setSelected:NO];
+    [_yellowBtn setSelected:NO];
     
     NSLog(@"Here red!");
     //[self loadMyViewController];
@@ -138,9 +139,9 @@ static int totalLevel = 2;
      alpha:1.0f];
      */
     currNum = 4;
-    [_blueBtn setHighlighted:YES];
-    [_redBtn setHighlighted:NO];
-    [_yellowBtn setHighlighted:NO];
+    [_blueBtn setSelected:YES];
+    [_redBtn setSelected:NO];
+    [_yellowBtn setSelected:NO];
     NSLog(@"Here blue!");
 }
 
@@ -153,9 +154,9 @@ static int totalLevel = 2;
                     alpha:1.0f];
      */
     currNum = 8;
-    [_yellowBtn setHighlighted:YES];
-    [_blueBtn setHighlighted:NO];
-    [_redBtn setHighlighted:NO];
+    [_yellowBtn setSelected:YES];
+    [_blueBtn setSelected:NO];
+    [_redBtn setSelected:NO];
     NSLog(@"Here yellow!");
 }
 
