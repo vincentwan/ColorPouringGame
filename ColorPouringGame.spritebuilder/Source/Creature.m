@@ -19,6 +19,7 @@
     
     if (self) {
         self.isAlive = NO;
+        self.isMutable = YES;
     }
     
     return self;

@@ -13,7 +13,7 @@
 
 // stores the current state of the creature
 @property (nonatomic, retain) UIColor * ccolor;
-@property (nonatomic) int * serialnum;
+@property (nonatomic) int serialnum;
 
 - (instancetype)initTargetwithX:(double) xlen andY:(double) ylen andImage:(int) serialnum;
 

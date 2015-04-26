@@ -41,7 +41,7 @@
     float y = 0;
     
     _steps = 0;
-    _accurate = 75;
+    _accurate = 0;
     Level * tlevel = self.level;
     // initialize the array as a blank NSMutableArray
     _colorCell = [NSMutableArray array];
@@ -135,16 +135,18 @@
     if(!creature.isAlive) {
         creature.isAlive = true;
         int tempnum = MainScene.currNum;
-        NSLog(@"Here is creating creature: %d\n",tempnum);
+        //NSLog(@"Here is creating creature: %d\n",tempnum);
 
         creature.serialnum = tempnum;
         _steps++;
         
-        NSLog(@"Here is updating steps: %d\n",_steps);
+        //NSLog(@"Here is updating steps: %d\n",_steps);
         
         _stepCount.string = [NSString stringWithFormat:@"%d", _steps];
-        if(_steps == _numCol * _numRow) {
-            [self win];
+        Target *tempTar = (_colorTarget[row][column]);
+        if(tempnum == tempTar.serialnum) {
+            _accurate++;
+            creature.isMutable = NO;
         }
     }
     else {
@@ -152,49 +154,76 @@
     }
 
     if(row>0) {
+        [self colorAffect:row-1 col:column num:creature.serialnum];
+        /*
         Creature * temp = _colorCell[row-1][column];
-        if(temp.isAlive) {
-            /*
-            [temp setCcolor:[UIColor rgbMixForColors:[NSArray arrayWithObjects:
-                            temp.ccolor,
-                            creature.ccolor,
-                            nil]]];
-             */
+        if(temp.isAlive && temp.isMutable) {
+
+            
             int num1 = temp.serialnum;
             int num2 = creature.serialnum;
             int ansnum = [self mixWithNum:num1 and:num2];
             NSLog(@"ansnum = %d\n", ansnum);
             [temp setSerialnum:ansnum];
         }
+         */
     }
     if(row<_numRow-1) {
+        [self colorAffect:row+1 col:column num:creature.serialnum];
+        /*
         Creature * temp = _colorCell[row+1][column];
-        if(temp.isAlive) {
+        if(temp.isAlive && temp.isMutable) {
             int num1 = temp.serialnum;
             int num2 = creature.serialnum;
             int ansnum = [self mixWithNum:num1 and:num2];
             NSLog(@"ansnum = %d\n", ansnum);
             [temp setSerialnum:ansnum];
         }
+         */
     }
     if(column>0) {
+        [self colorAffect:row col:column-1 num:creature.serialnum];
+        /*
         Creature * temp = _colorCell[row][column-1];
-        if(temp.isAlive) {
+        if(temp.isAlive && temp.isMutable) {
             int num1 = temp.serialnum;
             int num2 = creature.serialnum;
             int ansnum = [self mixWithNum:num1 and:num2];
             NSLog(@"ansnum = %d\n", ansnum);
             [temp setSerialnum:ansnum];
         }
+         */
     }
     if(column<_numCol-1) {
+        [self colorAffect:row col:column+1 num:creature.serialnum];
+        /*
         Creature * temp = _colorCell[row][column+1];
-        if(temp.isAlive) {
+        if(temp.isAlive && temp.isMutable) {
             int num1 = temp.serialnum;
             int num2 = creature.serialnum;
             int ansnum = [self mixWithNum:num1 and:num2];
             NSLog(@"ansnum = %d\n", ansnum);
             [temp setSerialnum:ansnum];
+        }
+         */
+    }
+    if(_steps == _numCol * _numRow) {
+        [self win];
+    }
+}
+
+- (void)colorAffect:(int)rowNum col:(int)colNum num:(int)serialNum
+{
+    Creature * temp = _colorCell[rowNum][colNum];
+    if(temp.isAlive && temp.isMutable) {
+        int num1 = temp.serialnum;
+        int ansnum = [self mixWithNum:num1 and:serialNum];
+        NSLog(@"ansnum = %d\n", ansnum);
+        [temp setSerialnum:ansnum];
+        Target *tempTar = (_colorTarget[rowNum][colNum]);
+        if(ansnum == tempTar.serialnum) {
+            _accurate++;
+            temp.isMutable = NO;
         }
     }
 }

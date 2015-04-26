@@ -15,6 +15,7 @@
 @property (nonatomic, assign) BOOL isAlive;
 @property (nonatomic, retain) UIColor * ccolor;
 @property (nonatomic) int serialnum;
+@property (nonatomic, assign) BOOL isMutable;
 
 - (instancetype)initCreaturewithX:(double) xlen andY:(double) ylen;
 - (void) setSerialnum:(int) num;
