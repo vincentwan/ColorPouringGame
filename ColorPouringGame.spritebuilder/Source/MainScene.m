@@ -18,6 +18,7 @@ extern const int GRID_COLUMNS;
     Grid *_grid;
     CCTimer *_timer;
     CCLabelTTF * _stepCount;
+    CCLabelTTF * _stepScore;
 }
 
 static int currNum;
@@ -77,8 +78,11 @@ static int currNum;
 {
     [super onEnter];
     
-    _grid.stepCount = _stepCount;
     _stepCount.string = [NSString stringWithFormat:@"%d", 0];
+    _grid.stepCount = _stepCount;
+    _stepScore.string = [NSString stringWithFormat:@"%d", 0];
+    _grid.stepScore = _stepScore;
+
 }
 
 - (void)selectred
