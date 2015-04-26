@@ -121,9 +121,10 @@ static int totalLevel = 2;
                     alpha:1.0f];
      */
     currNum = 0;
-    //_redBtn.highlighted = YES;
-    _blueBtn.highlighted = NO;
-    _yellowBtn.highlighted = NO;
+    [_redBtn setHighlighted:YES];
+    [_blueBtn setHighlighted:NO];
+    [_yellowBtn setHighlighted:NO];
+    
     NSLog(@"Here red!");
     //[self loadMyViewController];
 }
@@ -137,9 +138,9 @@ static int totalLevel = 2;
      alpha:1.0f];
      */
     currNum = 4;
-    //_blueBtn.highlighted = YES;
-    _redBtn.highlighted = NO;
-    _yellowBtn.highlighted = NO;
+    [_blueBtn setHighlighted:YES];
+    [_redBtn setHighlighted:NO];
+    [_yellowBtn setHighlighted:NO];
     NSLog(@"Here blue!");
 }
 
@@ -152,9 +153,9 @@ static int totalLevel = 2;
                     alpha:1.0f];
      */
     currNum = 8;
-    //_yellowBtn.highlighted = YES;
-    _blueBtn.highlighted = NO;
-    _redBtn.highlighted = NO;
+    [_yellowBtn setHighlighted:YES];
+    [_blueBtn setHighlighted:NO];
+    [_redBtn setHighlighted:NO];
     NSLog(@"Here yellow!");
 }
 
