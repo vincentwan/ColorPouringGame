@@ -13,7 +13,6 @@
 
 // stores the current state of the creature
 @property (nonatomic, assign) BOOL isAlive;
-@property (nonatomic, retain) UIColor * ccolor;
 @property (nonatomic) int serialnum;
 @property (nonatomic, assign) BOOL isMutable;
 
