@@ -17,6 +17,6 @@
 @property (nonatomic) int * serialnum;
 
 - (instancetype)initPanelwithX:(double) xlen Y:(double) ylen PosX:(double) xpos PosY:(double) ypos
-                         angle:(double) angle andColor:(int) serialnum;
+                         angle:(double) angle andColor:(int) serialnum andType:(int) type;
 
 @end

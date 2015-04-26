@@ -64,7 +64,7 @@ static int currNum;
         double x = centralX + radius * sin(ang);
         double y = centralY + radius * cos(ang);
         ColorPanel * panel = [[ColorPanel alloc] initPanelwithX:sizeX Y:sizeY PosX:x PosY:y
-                                                          angle:60*i andColor:0];
+                                                          angle:60*i andColor:0 andType:1];
         panel.zOrder = 1;
         [self addChild:panel];
     }
