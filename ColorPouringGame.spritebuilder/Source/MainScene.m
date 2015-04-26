@@ -36,6 +36,7 @@ static int currNum;
     }
     
     NSLog(@"This is MainScene!");
+    /*
     double centralX = 526;
     double centralY = 192;
     double radius = 30;
@@ -48,6 +49,22 @@ static int currNum;
         double y = centralY + radius * cos(ang);
         ColorPanel * panel = [[ColorPanel alloc] initPanelwithX:sizeX Y:sizeY PosX:x PosY:y
                                                       angle:30*i andColor:i];
+        panel.zOrder = 1;
+        [self addChild:panel];
+    }
+     */
+    double centralX = 526;
+    double centralY = 192;
+    double radius = 28;
+    double sizeX = 23;
+    double sizeY = 28;
+    
+    for(int i=0; i<2; i++) {
+        double ang = (i*M_PI)/6;
+        double x = centralX + radius * sin(ang);
+        double y = centralY + radius * cos(ang);
+        ColorPanel * panel = [[ColorPanel alloc] initPanelwithX:sizeX Y:sizeY PosX:x PosY:y
+                                                          angle:(30*i-15) andColor:0];
         panel.zOrder = 1;
         [self addChild:panel];
     }
