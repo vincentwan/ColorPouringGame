@@ -39,6 +39,7 @@ static int btnSizeY = 35;
     return self;
 }
 
+/*
 - (void)setCcolor:(UIColor *)col {
     //when you create an @property as we did in the .h, an instance variable with a leading underscore is automatically created for you
     _ccolor = [col copy];
@@ -55,5 +56,6 @@ static int btnSizeY = 35;
     
     //self.colorRGBA = [CCColor colorWithCcColor3b:<#(ccColor3B)#>];
 }
+ */
 
 @end
