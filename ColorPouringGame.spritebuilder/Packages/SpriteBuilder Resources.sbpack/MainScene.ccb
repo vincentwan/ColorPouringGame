@@ -98,7 +98,7 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>1.0980490446090698</real>
+							<real>1.2999999523162842</real>
 							<real>1.1104661226272583</real>
 							<false/>
 							<integer>0</integer>
@@ -112,7 +112,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ColorPouringAssets/BackgroundImage/background.png</string>
+							<string>ColorPouringAssets/BackgroundImage/background3.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -148,8 +148,6 @@
 						<array/>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
