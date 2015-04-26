@@ -44,7 +44,7 @@ static int btnSizeY = 35;
     CGFloat red = 0.0, green = 0.0, blue = 0.0, alpha = 0.0;
     [_ccolor getRed:&red green:&green blue:&blue alpha:&alpha];
     
-    NSLog(@"Here's setting target color red %f green %f blue %f\n", red, green, blue);
+    NSLog(@"Here's setting Button color red %f green %f blue %f\n", red, green, blue);
     
     
     
