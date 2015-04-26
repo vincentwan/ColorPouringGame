@@ -27,6 +27,12 @@ static int currNum;
 + (void) setCurrNum:(int)val
 { @synchronized(self) { currNum = val; } }
 
+static int levelNum;
++ (int) levelNum
+{ @synchronized(self) { return levelNum; } }
++ (void) setLevelNum:(int)val
+{ @synchronized(self) { levelNum = val; } }
+
 
 - (id)init
 {
@@ -37,6 +43,8 @@ static int currNum;
     }
     
     NSLog(@"This is MainScene!");
+    
+    levelNum = 0;
     
     double centralX = 520;
     double centralY = 192;
@@ -70,13 +78,15 @@ static int currNum;
         panel.zOrder = 1;
         [self addChild:panel];
     }
-    */
+     */
     return self;
 }
 
 - (void)onEnter
 {
     [super onEnter];
+    
+    currNum = 0;
     
     NSLog(@"This is MainScene onEnter");
     

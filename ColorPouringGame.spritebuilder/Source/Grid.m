@@ -21,7 +21,9 @@
 {
     [super onEnter];
     //self.visible = false;
-    _level = [[Level alloc] initWithFile:@"Level_0"];
+    //_level = [[Level alloc] initWithFile:@"Level_0"];
+    int levelN = MainScene.levelNum;
+    _level = [[Level alloc] initWithFile:[NSString stringWithFormat:@"Level_%d", levelN]];
     _numRow = [_level getNumRow];
     _numCol = [_level getNumCol];
     [self setupGrid];

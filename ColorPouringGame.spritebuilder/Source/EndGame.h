@@ -7,6 +7,7 @@
 //
 
 #import "CCNode.h"
+#import "MainScene.h"
 
 @interface EndGame : CCNode
 

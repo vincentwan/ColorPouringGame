@@ -39,6 +39,7 @@
 }
 
 - (instancetype)initWithFile:(NSString *)filename {
+    NSLog(@"Here is Level init: %@",filename);
     self = [super init];
     if (self != nil) {
         NSDictionary *dictionary = [self loadJSON:filename];
