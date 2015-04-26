@@ -25,6 +25,7 @@
         restartBtn.position = ccp(229,29);
         restartBtn.anchorPoint = ccp(0.5,0.5);
         [restartBtn setTarget:self selector:@selector(restart)];
+        restartBtn.zOrder = 1;
         [self addChild:restartBtn];
         
         CCButton * nextBtn = [CCButton buttonWithTitle:@"Next Level"
@@ -36,6 +37,7 @@
         nextBtn.position = ccp(95,29);
         nextBtn.anchorPoint = ccp(0.5,0.5);
         [nextBtn setTarget:self selector:@selector(nextLevel)];
+        nextBtn.zOrder = 1;
         [self addChild:nextBtn];
     }
     return self;
