@@ -33,7 +33,7 @@ static int btnSizeY = 35;
     [super setScaleY:(btnSizeY/self.contentSize.height)];
     UIColor * tempc = [ColorHelper setColorWithFile:serialnum];
 
-    [self setCcolor:tempc];
+    self.ccolor = tempc;
     return self;
 }
 
