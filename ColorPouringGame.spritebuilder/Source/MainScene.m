@@ -59,12 +59,12 @@ static int currNum;
     double sizeX = 45;
     double sizeY = 30;
     
-    for(int i=0; i<2; i++) {
+    for(int i=0; i<6; i++) {
         double ang = (i*M_PI)/3;
         double x = centralX + radius * sin(ang);
         double y = centralY + radius * cos(ang);
         ColorPanel * panel = [[ColorPanel alloc] initPanelwithX:sizeX Y:sizeY PosX:x PosY:y
-                                                          angle:60*i andColor:0 andType:1];
+                                                          angle:60*i andColor:(2*i) andType:1];
         panel.zOrder = 1;
         [self addChild:panel];
     }
