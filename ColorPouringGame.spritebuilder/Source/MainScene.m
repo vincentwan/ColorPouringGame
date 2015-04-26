@@ -78,6 +78,8 @@ static int currNum;
 {
     [super onEnter];
     
+    NSLog(@"This is MainScene onEnter");
+    
     _stepCount.string = [NSString stringWithFormat:@"%d", 0];
     _grid.stepCount = _stepCount;
     _stepScore.string = [NSString stringWithFormat:@"%d", 0];
