@@ -40,8 +40,8 @@ static int btnSizeY = 35;
     [self setBackgroundColor:[CCColor colorWithUIColor:col] forState:CCControlStateNormal];
     [self setBackgroundColor:[CCColor colorWithUIColor:col] forState:CCControlStateSelected];
     [self setBackgroundColor:[CCColor colorWithUIColor:col] forState:CCControlStateHighlighted];
-    //[self setBackgroundOpacity:0.7 forState:CCControlStateSelected];
-    [self setBackgroundOpacity:0.7 forState:CCControlStateHighlighted];
+    [self setBackgroundOpacity:0.7 forState:CCControlStateSelected];
+    //[self setBackgroundOpacity:0.7 forState:CCControlStateHighlighted];
     
     //NSLog(@"Here! setCcolor");
     
