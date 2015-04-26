@@ -9,6 +9,7 @@
 #import "CCNode.h"
 #import "Level.h"
 #import "ColorPanel.h"
+#import "ColorHelper.h"
 #import "AppDelegate.h"
 
 @interface MainScene : CCNode
