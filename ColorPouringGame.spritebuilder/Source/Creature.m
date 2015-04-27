@@ -30,6 +30,14 @@
                                                     offset:CGPointZero
                                               originalSize:CGSizeMake(70, 70)];
 
+    CCColor * tempc = self.colorRGBA;
+    
+    CGFloat red = 0.0, green = 0.0, blue = 0.0, alpha = 0.0;
+    [tempc getRed:&red green:&green blue:&blue alpha:&alpha];
+    
+    NSLog(@"INITIALC color red %f green %f blue %f\n", red, green, blue);
+
+    
     self = [super initWithSpriteFrame: frame];
     [super setScaleX:(xlen/self.contentSize.width)];
     [super setScaleY:(ylen/self.contentSize.height)];
