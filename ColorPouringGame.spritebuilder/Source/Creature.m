@@ -52,15 +52,17 @@
         [self setCcolor:[ColorHelper setColorWithFile:num]];
     }
     else {
+        double sX = [super scaleX];
+        double sY = [super scaleY];
         CCTexture *colTexture = [CCTexture textureWithFile:@"ColorPouringAssets/Assets/full_color_inner.png"];
-        
         CCSpriteFrame *frame = [CCSpriteFrame frameWithTexture:colTexture
                                                   rectInPixels:CGRectMake(0, 0, 614, 614)
                                                        rotated:NO
                                                         offset:CGPointZero
                                                   originalSize:CGSizeMake(614, 614)];
         [self setSpriteFrame: frame];
-        
+        [super setScaleX:sX];
+        [super setScaleY:sY];
         self.isMutable = NO;
     }
 }
