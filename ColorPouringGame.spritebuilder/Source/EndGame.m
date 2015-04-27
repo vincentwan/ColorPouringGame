@@ -72,9 +72,11 @@ static int threshold = 40;
     NSLog(@"Threshold: %d", threshold);
     if(score >= threshold) {
         _messageLabel.string = [NSString stringWithFormat:@"You Win!"];
+        [_messageLabel setFontSize:24.0];
     }
     else {
         _messageLabel.string = [NSString stringWithFormat:@"Try to reach an accuracy rate of %d", threshold];
+        [_messageLabel setFontSize:20.0];
     }
 }
 
