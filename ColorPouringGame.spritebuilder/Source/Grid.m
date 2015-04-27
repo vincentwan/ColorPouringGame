@@ -72,7 +72,6 @@
             [self addChild:targetcolor];
             [self addChild:creature];
             
-            
             // this is shorthand to access an array inside an array
             _colorTarget[i][j] = targetcolor;
             _colorCell[i][j] = creature;
