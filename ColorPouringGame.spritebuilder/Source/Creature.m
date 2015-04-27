@@ -12,11 +12,19 @@
 @implementation Creature
 
 - (instancetype)initCreaturewithX:(double) xlen andY:(double) ylen {
-    // since we made Creature inherit from CCSprite, 'super' below refers to CCSprite
+    //self = [super initWithImageNamed:@"ColorPouringAssets/Assets/cell.png"];
+    //[super setScaleX:(xlen/self.contentSize.width)];
+    //[super setScaleY:(ylen/self.contentSize.height)];
     
-    self = [super initWithImageNamed:@"ColorPouringAssets/Assets/cell.png"];
-    [super setScaleX:(xlen/self.contentSize.width)];
-    [super setScaleY:(ylen/self.contentSize.height)];
+    CCTexture *colTexture = [CCTexture textureWithFile:@"ColorPouringAssets/Assets/cell.png"];
+    
+    CCSpriteFrame *frame = [CCSpriteFrame frameWithTexture:colTexture
+                                              rectInPixels:CGRectMake(0, 0, xlen, ylen)
+                                                   rotated:NO
+                                                    offset:CGPointZero
+                                              originalSize:CGSizeMake(70, 70)];
+    
+    self = [super initWithSpriteFrame: frame];
     
     if (self) {
         self.isAlive = NO;
@@ -38,17 +46,7 @@
 
 - (void) setSerialnum:(int) num {
     _serialnum = num;
-    if(num >= 0) {
-        [self setCcolor:[ColorHelper setColorWithFile:num]];
-    }
-    else {
-        double sX = [super scaleX];
-        double sY = [super scaleY];
-        [self setSpriteFrame:[CCSpriteFrame frameWithImageNamed: @"ColorPouringAssets/Assets/full_color_inner.png"]];
-        [super setScaleX:sX];
-        [super setScaleY:sY];
-        self.isMutable = NO;
-    }
+    [self setCcolor:[ColorHelper setColorWithFile:num]];
 }
 
 
