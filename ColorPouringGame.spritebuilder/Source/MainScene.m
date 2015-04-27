@@ -19,6 +19,7 @@ extern const int GRID_COLUMNS;
     CCTimer *_timer;
     CCLabelTTF * _stepCount;
     CCLabelTTF * _stepScore;
+    CCButton * _restartBtn;
 }
 
 static int currNum;
@@ -109,6 +110,7 @@ static int totalLevel = 2;
     _grid.stepCount = _stepCount;
     _stepScore.string = [NSString stringWithFormat:@"%d", 0];
     _grid.stepScore = _stepScore;
+    _grid.restartBtn = _restartBtn;
 
 }
 

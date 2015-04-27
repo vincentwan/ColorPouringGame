@@ -21,6 +21,7 @@
 @property (nonatomic, assign) int steps;
 @property (nonatomic) CCLabelTTF * stepCount;
 @property (nonatomic) CCLabelTTF * stepScore;
+@property (nonatomic) CCButton * restartBtn;
 @property (strong, nonatomic) Level *level;
 @property (nonatomic, assign) int numRow;
 @property (nonatomic, assign) int numCol;

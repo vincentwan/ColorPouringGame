@@ -116,6 +116,8 @@
     
     [EndGamePopover setMessage:@"" score:self.accurate];
     
+    _restartBtn.enabled = NO;
+    
     [self addChild:EndGamePopover];
 }
 
