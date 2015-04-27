@@ -9,7 +9,10 @@
 #import "Creature.h"
 
 
-@implementation Creature
+@implementation Creature {
+    double _xlen;
+    double _ylen;
+}
 
 - (instancetype)initCreaturewithX:(double) xlen andY:(double) ylen {
     //self = [super initWithImageNamed:@"ColorPouringAssets/Assets/cell.png"];
@@ -17,6 +20,9 @@
     //[super setScaleY:(ylen/self.contentSize.height)];
     
     CCTexture *colTexture = [CCTexture textureWithFile:@"ColorPouringAssets/Assets/cell.png"];
+    
+    _xlen = xlen;
+    _ylen = ylen;
     
     CCSpriteFrame *frame = [CCSpriteFrame frameWithTexture:colTexture
                                               rectInPixels:CGRectMake(0, 0, 70, 70)
@@ -52,8 +58,6 @@
         [self setCcolor:[ColorHelper setColorWithFile:num]];
     }
     else {
-        double sX = [super scaleX];
-        double sY = [super scaleY];
         CCTexture *colTexture = [CCTexture textureWithFile:@"ColorPouringAssets/Assets/full_color_inner.png"];
         CCSpriteFrame *frame = [CCSpriteFrame frameWithTexture:colTexture
                                                   rectInPixels:CGRectMake(0, 0, 614, 614)
@@ -61,8 +65,8 @@
                                                         offset:CGPointZero
                                                   originalSize:CGSizeMake(614, 614)];
         [self setSpriteFrame: frame];
-        [super setScaleX:sX];
-        [super setScaleY:sY];
+        [super setScaleX:(_xlen/self.contentSize.width)];
+        [super setScaleY:(_ylen/self.contentSize.height)];
         self.isMutable = NO;
     }
 }
