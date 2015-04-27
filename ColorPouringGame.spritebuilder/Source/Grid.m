@@ -102,6 +102,9 @@
             ansnum = (num1+num2+12)/2;
         }
     }
+    else if (abs(num1-num2) == 6) {
+        ansnum = -1;
+    }
     else {
         ansnum = (num1+num2)/2;
     }

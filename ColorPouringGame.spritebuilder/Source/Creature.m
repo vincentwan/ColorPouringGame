@@ -8,6 +8,7 @@
 
 #import "Creature.h"
 
+
 @implementation Creature
 
 - (instancetype)initCreaturewithX:(double) xlen andY:(double) ylen {
@@ -37,7 +38,13 @@
 
 - (void) setSerialnum:(int) num {
     _serialnum = num;
-    [self setCcolor:[ColorHelper setColorWithFile:num]];
+    if(num >= 0) {
+        [self setCcolor:[ColorHelper setColorWithFile:num]];
+    }
+    else {
+        [self setSpriteFrame:[CCSpriteFrame frameWithImageNamed: @"ColorPouringAssets/Assets/full_color_inner.png"]];
+        self.isMutable = NO;
+    }
 }
 
 
