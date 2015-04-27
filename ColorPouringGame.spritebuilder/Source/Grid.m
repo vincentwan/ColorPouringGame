@@ -258,7 +258,8 @@
     for (int i = 0; i < _numRow; i++) {
         for (int j = 0; j < _numCol; j++) {
             Creature *currentCreature = _colorCell[i][j];
-            currentCreature.isAlive=false;
+            currentCreature.isAlive = NO;
+            currentCreature.isMutable = YES;
         }
     }
     _steps = 0;
