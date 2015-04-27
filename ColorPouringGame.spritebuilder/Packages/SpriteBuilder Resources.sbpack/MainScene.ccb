@@ -112,7 +112,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ColorPouringAssets/BackgroundImage/background3.png</string>
+							<string>ColorPouringAssets/BackgroundImage/background2.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -148,6 +148,8 @@
 						<array/>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
