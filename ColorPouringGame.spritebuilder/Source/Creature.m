@@ -22,7 +22,7 @@
                                               rectInPixels:CGRectMake(0, 0, xlen, ylen)
                                                    rotated:NO
                                                     offset:CGPointZero
-                                              originalSize:CGSizeMake(70, 70)];
+                                              originalSize:CGSizeMake(614, 614)];
     
     self = [super initWithSpriteFrame: frame];
     
