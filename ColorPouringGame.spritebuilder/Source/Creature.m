@@ -65,7 +65,7 @@
                                                         offset:CGPointZero
                                                   originalSize:CGSizeMake(614, 614)];
         [self setSpriteFrame: frame];
-        self.colorRGBA = [CCColor colorWithRed:0.0 green:0.0 blue:0.0];
+        self.colorRGBA = [CCColor colorWithRed:1.0 green:1.0 blue:1.0];
         [super setScaleX:(_xlen/self.contentSize.width)];
         [super setScaleY:(_ylen/self.contentSize.height)];
         self.isMutable = NO;
