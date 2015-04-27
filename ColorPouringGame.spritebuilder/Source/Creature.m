@@ -16,13 +16,13 @@
     //[super setScaleX:(xlen/self.contentSize.width)];
     //[super setScaleY:(ylen/self.contentSize.height)];
     
-    CCTexture *colTexture = [CCTexture textureWithFile:@"ColorPouringAssets/Assets/full_color_inner.png"];
+    CCTexture *colTexture = [CCTexture textureWithFile:@"ColorPouringAssets/Assets/cell.png"];
     
     CCSpriteFrame *frame = [CCSpriteFrame frameWithTexture:colTexture
-                                              rectInPixels:CGRectMake(0, 0, 614, 614)
+                                              rectInPixels:CGRectMake(0, 0, 70, 70)
                                                    rotated:NO
                                                     offset:CGPointZero
-                                              originalSize:CGSizeMake(614, 614)];
+                                              originalSize:CGSizeMake(70, 70)];
 
     self = [super initWithSpriteFrame: frame];
     [super setScaleX:(xlen/self.contentSize.width)];
@@ -48,7 +48,21 @@
 
 - (void) setSerialnum:(int) num {
     _serialnum = num;
-    //[self setCcolor:[ColorHelper setColorWithFile:num]];
+    if(num >=0 ) {
+        [self setCcolor:[ColorHelper setColorWithFile:num]];
+    }
+    else {
+        CCTexture *colTexture = [CCTexture textureWithFile:@"ColorPouringAssets/Assets/full_color_inner.png"];
+        
+        CCSpriteFrame *frame = [CCSpriteFrame frameWithTexture:colTexture
+                                                  rectInPixels:CGRectMake(0, 0, 614, 614)
+                                                       rotated:NO
+                                                        offset:CGPointZero
+                                                  originalSize:CGSizeMake(614, 614)];
+        [self setSpriteFrame: frame];
+        
+        self.isMutable = NO;
+    }
 }
 
 
