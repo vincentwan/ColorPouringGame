@@ -65,7 +65,7 @@
             targetcolor.position = ccp(x,y);
             // targetcolor.opacity = 0.3;
             
-            Creature *creature = [[Creature alloc] initCreaturewithX:(_cellWidth/1.2) andY:(_cellHeight/1.2)];
+            Creature *creature = [[Creature alloc] initCreaturewithX:(_cellWidth/1.17) andY:(_cellHeight/1.2)];
             creature.anchorPoint = ccp(0.5, 0.5);
             creature.position = ccp(x+(_cellWidth/2), y+(_cellHeight/2));
             
