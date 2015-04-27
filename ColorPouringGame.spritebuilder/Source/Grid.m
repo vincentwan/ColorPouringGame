@@ -117,7 +117,9 @@
     EndGamePopover.position = ccp(0.5, 0.5);
     EndGamePopover.zOrder = INT_MAX;
     
-    [EndGamePopover setMessage:@"" score:self.accurate];
+    int score = (_accurate*100)/(_numCol*_numRow);
+    
+    [EndGamePopover setMessage:score];
     
     _restartBtn.enabled = NO;
     
