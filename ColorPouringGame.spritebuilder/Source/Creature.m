@@ -29,14 +29,6 @@
                                                    rotated:NO
                                                     offset:CGPointZero
                                               originalSize:CGSizeMake(70, 70)];
-
-    CCColor * tempc = self.colorRGBA;
-    
-    CGFloat red = 0.0, green = 0.0, blue = 0.0, alpha = 0.0;
-    [tempc getRed:&red green:&green blue:&blue alpha:&alpha];
-    
-    NSLog(@"INITIALC color red %f green %f blue %f\n", red, green, blue);
-
     
     self = [super initWithSpriteFrame: frame];
     [super setScaleX:(xlen/self.contentSize.width)];
@@ -73,6 +65,7 @@
                                                         offset:CGPointZero
                                                   originalSize:CGSizeMake(614, 614)];
         [self setSpriteFrame: frame];
+        self.colorRGBA = [CCColor colorWithRed:0.0 green:0.0 blue:0.0];
         [super setScaleX:(_xlen/self.contentSize.width)];
         [super setScaleY:(_ylen/self.contentSize.height)];
         self.isMutable = NO;
