@@ -12,19 +12,28 @@
 
 - (instancetype)initTargetwithX:(double) xlen andY:(double) ylen andImage:(int) serialnum{
     // since we made Creature inherit from CCSprite, 'super' below refers to CCSprite
-    self = [super initWithImageNamed:@"ColorPouringAssets/Assets/cut4.png"];
-
+    if(serialnum >= 0) {
+        self = [super initWithImageNamed:@"ColorPouringAssets/Assets/cut4.png"];
+        self.serialnum = serialnum;
+        UIColor * tempc = [ColorHelper setColorWithFile:serialnum];
+        [self setCcolor:tempc];
+    }
+    else {
+        self = [super initWithImageNamed:@"ColorPouringAssets/Assets/full_color2.png"];
+        self.serialnum = serialnum;
+    }
+    
     [super setScaleX:(xlen/self.contentSize.width)];
     [super setScaleY:(ylen/self.contentSize.height)];
     self.visible = true;
     NSLog(@"Here! initTargetwithNum: %d\n", serialnum);
-    self.serialnum = serialnum;
-    UIColor * tempc = [ColorHelper setColorWithFile:serialnum];
+
+    /*
     CGFloat red = 0.0, green = 0.0, blue = 0.0, alpha = 0.0;
     [tempc getRed:&red green:&green blue:&blue alpha:&alpha];
     NSLog(@"Before setting target color red %f green %f blue %f\n", red, green, blue);
-
-    [self setCcolor:tempc];
+     */
+    
     return self;
 }
 
