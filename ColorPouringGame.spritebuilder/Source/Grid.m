@@ -123,6 +123,16 @@
     
     _restartBtn.enabled = NO;
     
+    printf("Here's the resultR\n");
+    
+    for (int i = 0; i < _numRow; i++) {
+        for (int j = 0; j < _numCol; j++) {
+            Creature * tempcreat = _colorCell[i][j];
+            printf("%d,", tempcreat.serialnum);
+        }
+        printf("\n");
+    }
+    
     [self addChild:EndGamePopover];
 }
 
