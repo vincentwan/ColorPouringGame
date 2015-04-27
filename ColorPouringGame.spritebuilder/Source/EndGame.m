@@ -11,7 +11,7 @@
 @implementation EndGame {
     CCLabelTTF *_scoreMessage;
     CCLabelTTF *_messageLabel;
-    int _threshold;
+    NSInteger _threshold;
 }
 
 - (id) init:(int) finalScore
@@ -68,11 +68,12 @@
         [self addChild:restartBtn];
     }
     _scoreMessage.string = [NSString stringWithFormat:@"%d", score];
+    NSLog(@"Threshold: %ld", _threshold);
     if(score >= _threshold) {
         _messageLabel.string = [NSString stringWithFormat:@"You Win!"];
     }
     else {
-        _messageLabel.string = [NSString stringWithFormat:@"Try to reach an accuracy rate of %d", _threshold];
+        _messageLabel.string = [NSString stringWithFormat:@"Try to reach an accuracy rate of %ld", _threshold];
     }
 }
 
