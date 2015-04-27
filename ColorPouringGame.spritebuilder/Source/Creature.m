@@ -42,7 +42,11 @@
         [self setCcolor:[ColorHelper setColorWithFile:num]];
     }
     else {
+        double sX = [super scaleX];
+        double sY = [super scaleY];
         [self setSpriteFrame:[CCSpriteFrame frameWithImageNamed: @"ColorPouringAssets/Assets/full_color_inner.png"]];
+        [super setScaleX:sX];
+        [super setScaleY:sY];
         self.isMutable = NO;
     }
 }
