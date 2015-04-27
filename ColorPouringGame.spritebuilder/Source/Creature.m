@@ -16,7 +16,7 @@
     //[super setScaleX:(xlen/self.contentSize.width)];
     //[super setScaleY:(ylen/self.contentSize.height)];
     
-    CCTexture *colTexture = [CCTexture textureWithFile:@"ColorPouringAssets/Assets/cell.png"];
+    CCTexture *colTexture = [CCTexture textureWithFile:@"ColorPouringAssets/Assets/full_color_inner.png"];
     
     CCSpriteFrame *frame = [CCSpriteFrame frameWithTexture:colTexture
                                               rectInPixels:CGRectMake(0, 0, xlen, ylen)
