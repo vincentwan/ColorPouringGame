@@ -221,7 +221,7 @@
 						<string>Text</string>
 						<key>value</key>
 						<array>
-							<string>You win!</string>
+							<string></string>
 							<false/>
 						</array>
 					</dict>
@@ -357,6 +357,8 @@
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>

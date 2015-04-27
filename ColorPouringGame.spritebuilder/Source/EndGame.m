@@ -10,17 +10,20 @@
 
 @implementation EndGame {
     CCLabelTTF *_scoreMessage;
+    CCLabelTTF *_messageLabel;
+    int _threshold;
 }
 
 - (id) init:(int) finalScore
 {
     self=[super init];
+    _threshold = 40;
     return self;
 }
 
 
 - (void)setMessage:(int)score {
-    if((MainScene.levelNum != MainScene.totalLevel - 1) && score >= 90) {
+    if((MainScene.levelNum != MainScene.totalLevel - 1) && score >= _threshold) {
         CCButton * restartBtn = [CCButton buttonWithTitle:@"Restart"
                                               spriteFrame:[CCSpriteFrame frameWithImageNamed:@"ColorPouringAssets/Assets/ccbButtonNormal.png"]
                                    highlightedSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"ColorPouringAssets/Assets/ccbButtonHighlighted.png"]
@@ -65,6 +68,12 @@
         [self addChild:restartBtn];
     }
     _scoreMessage.string = [NSString stringWithFormat:@"%d", score];
+    if(score >= _threshold) {
+        _messageLabel.string = [NSString stringWithFormat:@"You Win!"];
+    }
+    else {
+        _messageLabel.string = [NSString stringWithFormat:@"Try to reach an accuracy rate of %d", _threshold];
+    }
 }
 
 - (void)restart
