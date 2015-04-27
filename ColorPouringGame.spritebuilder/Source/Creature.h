@@ -8,7 +8,6 @@
 
 #import "CCSprite.h"
 #import "ColorHelper.h"
-#import "CCTexture2D.h"
 
 @interface Creature : CCSprite
 
