@@ -23,8 +23,10 @@
                                                    rotated:NO
                                                     offset:CGPointZero
                                               originalSize:CGSizeMake(614, 614)];
-    
+
     self = [super initWithSpriteFrame: frame];
+    [super setScaleX:(xlen/self.contentSize.width)];
+    [super setScaleY:(ylen/self.contentSize.height)];
     
     if (self) {
         self.isAlive = NO;
