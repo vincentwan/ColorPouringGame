@@ -25,6 +25,9 @@
 
 #import <UIKit/UIKit.h>
 #import "cocos2d.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKShareKit/FBSDKShareKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
 
 @interface AppController : CCAppDelegate
 {

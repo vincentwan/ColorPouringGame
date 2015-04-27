@@ -11,6 +11,7 @@
 
 
 
+
 extern const int GRID_ROWS;
 extern const int GRID_COLUMNS;
 
@@ -96,6 +97,7 @@ static int totalLevel = 2;
         [self addChild:panel];
     }
      */
+
     return self;
 }
 
@@ -168,8 +170,22 @@ static int totalLevel = 2;
     NSLog(@"Restart!");
 }
 
-- (void)loadMyViewController {
 
+-(void) shareToFacebook {
+    FBSDKShareLinkContent *content = [[FBSDKShareLinkContent alloc] init];
+    
+    // this should link to FB page for your app or AppStore link if published
+    content.contentURL = [NSURL URLWithString:@"https://www.facebook.com/makeschool"];
+    // URL of image to be displayed alongside post
+    content.imageURL = [NSURL URLWithString:@"https://git.makeschool.com/MakeSchool-Tutorials/News/f744d331484d043a373ee2a33d63626c352255d4//663032db-cf16-441b-9103-c518947c70e1/cover_photo.jpeg"];
+    // title of post
+    content.contentTitle = [NSString stringWithFormat:@"My lucky number is %@!", @"5"];
+    // description/body of post
+    content.contentDescription = @"Check out My Lucky Number to get your own.";
+    
+    [FBSDKShareDialog showFromViewController:[CCDirector sharedDirector]
+                                 withContent:content
+                                    delegate:nil];
 }
 
 @end

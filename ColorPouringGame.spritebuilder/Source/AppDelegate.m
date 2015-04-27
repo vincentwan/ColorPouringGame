@@ -55,7 +55,8 @@
     
     [self setupCocos2dWithOptions:cocos2dSetup];
     
-    return YES;
+    return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                    didFinishLaunchingWithOptions:launchOptions];
 }
 
 - (CCScene*) startScene
