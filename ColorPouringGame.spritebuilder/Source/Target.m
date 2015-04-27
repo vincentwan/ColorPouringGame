@@ -19,7 +19,7 @@
         [self setCcolor:tempc];
     }
     else {
-        self = [super initWithImageNamed:@"ColorPouringAssets/Assets/full_color2.png"];
+        self = [super initWithImageNamed:@"ColorPouringAssets/Assets/full_color_outer.png"];
         self.serialnum = serialnum;
     }
     
