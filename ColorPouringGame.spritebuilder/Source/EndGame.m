@@ -76,7 +76,7 @@ static int threshold = 40;
     }
     else {
         _messageLabel.string = [NSString stringWithFormat:@"Try to reach an accuracy rate of %d%%", threshold];
-        [_messageLabel setFontSize:20.0];
+        [_messageLabel setFontSize:18.0];
     }
 }
 
