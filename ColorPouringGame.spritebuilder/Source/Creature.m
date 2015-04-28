@@ -10,8 +10,7 @@
 
 
 @implementation Creature {
-    double _xlen;
-    double _ylen;
+
 }
 
 - (instancetype)initCreaturewithX:(double) xlen andY:(double) ylen {

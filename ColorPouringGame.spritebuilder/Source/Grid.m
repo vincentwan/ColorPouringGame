@@ -286,6 +286,18 @@
             Creature *currentCreature = _colorCell[i][j];
             currentCreature.isAlive = NO;
             currentCreature.isMutable = YES;
+            if(currentCreature.serialnum == -1) {
+                CCTexture *colTexture = [CCTexture textureWithFile:@"ColorPouringAssets/Assets/cell.png"];
+                CCSpriteFrame *frame = [CCSpriteFrame frameWithTexture:colTexture
+                                                          rectInPixels:CGRectMake(0, 0, 70, 70)
+                                                               rotated:NO
+                                                                offset:CGPointZero
+                                                          originalSize:CGSizeMake(70, 70)];
+                [currentCreature setSpriteFrame: frame];
+                currentCreature.colorRGBA = [CCColor colorWithRed:1.0 green:1.0 blue:1.0];
+                [currentCreature setScaleX:(currentCreature.xlen/self.contentSize.width)];
+                [currentCreature setScaleY:(currentCreature.ylen/self.contentSize.height)];
+            }
         }
     }
     _steps = 0;
