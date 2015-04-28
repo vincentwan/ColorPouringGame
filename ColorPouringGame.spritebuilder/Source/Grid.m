@@ -106,7 +106,18 @@
         ansnum = -1;
     }
     else {
-        ansnum = (num1+num2)/2;
+        if((num1+num2)%2==1) {
+            if(num2>num1) {
+                ansnum = (num1+num2+1)/2;
+            }
+            else {
+                ansnum = (num1+num2-1)/2;
+            }
+        }
+        else {
+            ansnum = (num1+num2)/2;
+        }
+        
     }
     return ansnum;
 }
