@@ -148,8 +148,6 @@
 						<array/>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -1932,7 +1930,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ColorPouringAssets/Buttons/button-pressed.png</string>
+							<string>ColorPouringAssets/Assets/Share-on-Facebook.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -1956,7 +1954,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/ccbButtonNormal.png</string>
+							<string>ColorPouringAssets/Assets/Share-on-Facebook.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -1975,7 +1973,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/ccbButtonNormal.png</string>
+							<string>ColorPouringAssets/Assets/Share-on-Facebook.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -2119,6 +2117,8 @@
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>
