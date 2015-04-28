@@ -36,7 +36,7 @@ static int levelNum = 0;
 { @synchronized(self) { levelNum = val; } }
 
 // Read only static variable
-static int totalLevel = 2;
+static int totalLevel = 10;
 + (int) totalLevel
 { @synchronized(self) { return totalLevel; } }
 
