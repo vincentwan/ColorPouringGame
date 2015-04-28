@@ -13,7 +13,8 @@
 + (UIColor *)setColorWithFile:(int)serialnum {
     UIColor * tempc;
     if(serialnum==0) {
-        tempc=[UIColor colorWithRed:0xFF/255.0f green:0x51/255.0f blue:0x57/255.0f alpha:1.0f];
+        //tempc=[UIColor colorWithRed:0xFF/255.0f green:0x51/255.0f blue:0x57/255.0f alpha:1.0f];
+        tempc=[UIColor colorWithRed:0xFF/255.0f green:0x0/255.0f blue:0x0/255.0f alpha:1.0f];
     }
     else if(serialnum==1) {
         tempc=[UIColor colorWithRed:0xFF/255.0f green:0x79/255.0f blue:0xB7/255.0f alpha:1.0f];
