@@ -92,14 +92,14 @@
     if(abs(num1-num2)>6) {
         if((num1+num2)%2==1) {
             if(num2>num1) {
-                ansnum = (num1+num2+11)/2;
+                ansnum = ((num1+num2+11)/2)%12;
             }
             else {
-                ansnum = (num1+num2+13)/2;
+                ansnum = ((num1+num2+13)/2)%12;
             }
         }
         else {
-            ansnum = (num1+num2+12)/2;
+            ansnum = ((num1+num2+12)/2)%12;
         }
     }
     else if (abs(num1-num2) == 6) {
