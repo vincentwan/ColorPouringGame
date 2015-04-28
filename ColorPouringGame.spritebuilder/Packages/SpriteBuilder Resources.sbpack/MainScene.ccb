@@ -148,6 +148,8 @@
 						<array/>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -1824,8 +1826,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>531</real>
-							<real>102</real>
+							<real>517.02203369140625</real>
+							<real>299.97970581054688</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -1849,8 +1851,8 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>1</real>
-							<real>1</real>
+							<real>0.21196651458740234</real>
+							<real>0.2647840678691864</real>
 							<false/>
 							<integer>0</integer>
 						</array>
@@ -1873,8 +1875,8 @@
 						<string>Size</string>
 						<key>value</key>
 						<array>
-							<real>40</real>
-							<real>40</real>
+							<real>481</real>
+							<real>100</real>
 							<integer>0</integer>
 							<integer>0</integer>
 						</array>
@@ -1907,7 +1909,7 @@
 						<string>String</string>
 						<key>value</key>
 						<array>
-							<string>share</string>
+							<string></string>
 							<false/>
 						</array>
 					</dict>
@@ -1919,7 +1921,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ColorPouringAssets/Buttons/button.png</string>
+							<string>ColorPouringAssets/Assets/Share-on-Facebook.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -2117,8 +2119,6 @@
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>
