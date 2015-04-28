@@ -1454,7 +1454,7 @@
 						<string>FloatScale</string>
 						<key>value</key>
 						<array>
-							<real>14</real>
+							<real>13</real>
 							<integer>0</integer>
 						</array>
 					</dict>
@@ -1604,8 +1604,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>521</real>
-							<real>264.74050903320312</real>
+							<real>519</real>
+							<real>258.74050903320312</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -1642,7 +1642,7 @@
 						<string>Text</string>
 						<key>value</key>
 						<array>
-							<string>Color Panel</string>
+							<string>Reference Panel</string>
 							<false/>
 						</array>
 					</dict>
@@ -1661,7 +1661,7 @@
 						<string>FloatScale</string>
 						<key>value</key>
 						<array>
-							<real>15</real>
+							<real>13</real>
 							<integer>0</integer>
 						</array>
 					</dict>
