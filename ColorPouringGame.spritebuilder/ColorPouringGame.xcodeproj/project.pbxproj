@@ -39,7 +39,6 @@
 		BF08E0CC1AEEE3D200B7F6F2 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF08E0CB1AEEE3D200B7F6F2 /* FBSDKCoreKit.framework */; };
 		BF08E0D21AEEE3F300B7F6F2 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF08E0D11AEEE3F300B7F6F2 /* FBSDKLoginKit.framework */; };
 		BF08E0D41AEEE3FB00B7F6F2 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF08E0D31AEEE3FB00B7F6F2 /* FBSDKShareKit.framework */; };
-		BF08E0DC1AEEE64200B7F6F2 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BF08E0DB1AEEE64200B7F6F2 /* Info.plist */; };
 		BF08E0DE1AEEF1D600B7F6F2 /* Level_2.json in Resources */ = {isa = PBXBuildFile; fileRef = BF08E0DD1AEEF1D600B7F6F2 /* Level_2.json */; };
 		BF08E0E01AEEF1E500B7F6F2 /* Level_3.json in Resources */ = {isa = PBXBuildFile; fileRef = BF08E0DF1AEEF1E500B7F6F2 /* Level_3.json */; };
 		BF08E0E21AEEF1F000B7F6F2 /* Level_4.json in Resources */ = {isa = PBXBuildFile; fileRef = BF08E0E11AEEF1F000B7F6F2 /* Level_4.json */; };
@@ -136,7 +135,6 @@
 		BF08E0CB1AEEE3D200B7F6F2 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../../../../Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		BF08E0D11AEEE3F300B7F6F2 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../../../../Documents/FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		BF08E0D31AEEE3FB00B7F6F2 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../../../../Documents/FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
-		BF08E0DB1AEEE64200B7F6F2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF08E0DD1AEEF1D600B7F6F2 /* Level_2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_2.json; sourceTree = "<group>"; };
 		BF08E0DF1AEEF1E500B7F6F2 /* Level_3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_3.json; sourceTree = "<group>"; };
 		BF08E0E11AEEF1F000B7F6F2 /* Level_4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_4.json; sourceTree = "<group>"; };
@@ -314,7 +312,6 @@
 			children = (
 				B73789851807631A0076A88C /* main.m */,
 				B73789861807631A0076A88C /* Prefix.pch */,
-				BF08E0DB1AEEE64200B7F6F2 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -440,7 +437,6 @@
 				BF08E0EA1AEEF21D00B7F6F2 /* Level_8.json in Resources */,
 				BF08E0DE1AEEF1D600B7F6F2 /* Level_2.json in Resources */,
 				B7378978180762440076A88C /* Default@2x.png in Resources */,
-				BF08E0DC1AEEE64200B7F6F2 /* Info.plist in Resources */,
 				B71F5914188484E7003F4D28 /* iPad@2x.png in Resources */,
 				B71F5913188484E7003F4D28 /* iPad.png in Resources */,
 				BF08E0E01AEEF1E500B7F6F2 /* Level_3.json in Resources */,
