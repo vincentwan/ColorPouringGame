@@ -23,7 +23,7 @@
         tempc=[UIColor colorWithRed:0xC9/255.0f green:0x22/255.0f blue:0xDC/255.0f alpha:1.0f];
     }
     else if(serialnum==3) {
-        tempc=[UIColor colorWithRed:0x9A/255.0f green:0x50/255.0f blue:0xDC/255.0f alpha:1.0f];
+        tempc=[UIColor colorWithRed:0x8A/255.0f green:0x31/255.0f blue:0xDC/255.0f alpha:1.0f];
     }
     else if(serialnum==4) {
         tempc=[UIColor colorWithRed:0x0/255.0f green:0x0/255.0f blue:0xFF/255.0f alpha:1.0f];
@@ -41,13 +41,13 @@
         tempc=[UIColor colorWithRed:0xFF/255.0f green:0xFF/255.0f blue:0x0/255.0f alpha:1.0f];
     }
     else if(serialnum==9) {
-        tempc=[UIColor colorWithRed:0xFF/255.0f green:0xBF/255.0f blue:0x0/255.0f alpha:1.0f];
+        tempc=[UIColor colorWithRed:0xFF/255.0f green:0xC5/255.0f blue:0x6D/255.0f alpha:1.0f];
     }
     else if(serialnum==10) {
-        tempc=[UIColor colorWithRed:0xFF/255.0f green:0x80/255.0f blue:0x0/255.0f alpha:1.0f];
+        tempc=[UIColor colorWithRed:0xFF/255.0f green:0x6F/255.0f blue:0x04/255.0f alpha:1.0f];
     }
     else {
-        tempc=[UIColor colorWithRed:0xFF/255.0f green:0x65/255.0f blue:0x40/255.0f alpha:1.0f];
+        tempc=[UIColor colorWithRed:0xFF/255.0f green:0x80/255.0f blue:0x6F/255.0f alpha:1.0f];
     }
     /* Color Past
     if(serialnum==0) {
