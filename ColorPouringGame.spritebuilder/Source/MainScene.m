@@ -179,9 +179,9 @@ static int totalLevel = 2;
     // URL of image to be displayed alongside post
     content.imageURL = [NSURL URLWithString:@"https://git.makeschool.com/MakeSchool-Tutorials/News/f744d331484d043a373ee2a33d63626c352255d4//663032db-cf16-441b-9103-c518947c70e1/cover_photo.jpeg"];
     // title of post
-    content.contentTitle = [NSString stringWithFormat:@"My lucky number is %@!", @"5"];
+    content.contentTitle = [NSString stringWithFormat:@"Try Playing Color Pouring Game!"];
     // description/body of post
-    content.contentDescription = @"Check out My Lucky Number to get your own.";
+    content.contentDescription = @"Check out this Color Pouring Game!";
     
     [FBSDKShareDialog showFromViewController:[CCDirector sharedDirector]
                                  withContent:content
