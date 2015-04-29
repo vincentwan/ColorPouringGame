@@ -365,10 +365,9 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0610;
-				ORGANIZATIONNAME = Apportable;
+				ORGANIZATIONNAME = vincent;
 				TargetAttributes = {
 					B77F1B2D17B978D7009739AE = {
-						DevelopmentTeam = SBVP8ED765;
 						SystemCapabilities = {
 							com.apple.GameCenter = {
 								enabled = 0;
