@@ -69,17 +69,6 @@ static int totalLevel = 10;
         [self addChild:panel];
     }
      */
-    
-    if(_grid == NULL) {
-        NSLog(@"grid is null!");
-    }
-    
-    _stepCount.string = [NSString stringWithFormat:@"%d", 0];
-    _grid.stepCount = _stepCount;
-    _stepScore.string = [NSString stringWithFormat:@"%d", 0];
-    _grid.stepScore = _stepScore;
-    _grid.restartBtn = _restartBtn;
-    
     return self;
 }
 
@@ -129,6 +118,17 @@ static int totalLevel = 10;
     
     _background.scaleX = width_total/(_background.contentSizeInPoints.width);
     _background.scaleY = height_total/(_background.contentSizeInPoints.height);
+    
+    if(_grid == NULL) {
+        NSLog(@"grid is null!");
+    }
+    
+    _stepCount.string = [NSString stringWithFormat:@"%d", 0];
+    _grid.stepCount = _stepCount;
+    _stepScore.string = [NSString stringWithFormat:@"%d", 0];
+    _grid.stepScore = _stepScore;
+    _grid.restartBtn = _restartBtn;
+    
     
     [self selectred];
     NSLog(@"This is MainScene onEnter");
