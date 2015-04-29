@@ -70,6 +70,10 @@ static int totalLevel = 10;
     }
      */
     
+    if(_grid == NULL) {
+        NSLog(@"grid is null!");
+    }
+    
     _stepCount.string = [NSString stringWithFormat:@"%d", 0];
     _grid.stepCount = _stepCount;
     _stepScore.string = [NSString stringWithFormat:@"%d", 0];
