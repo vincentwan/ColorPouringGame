@@ -123,9 +123,9 @@ static int totalLevel = 10;
     _background.scaleX = width_total/(_background.contentSizeInPoints.width);
     _background.scaleY = height_total/(_background.contentSizeInPoints.height);
     
-    _stepCount.string = [NSString stringWithFormat:@"%d", 0];
+    _stepCount.string = [NSString stringWithFormat:@"%d", 1];
     _grid.stepCount = _stepCount;
-    _stepScore.string = [NSString stringWithFormat:@"%d", 0];
+    _stepScore.string = [NSString stringWithFormat:@"%d", 1];
     _grid.stepScore = _stepScore;
     _grid.restartBtn = _restartBtn;
 
