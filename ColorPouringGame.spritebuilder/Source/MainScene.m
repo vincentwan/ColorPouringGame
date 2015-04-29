@@ -75,12 +75,14 @@ static int totalLevel = 10;
 - (void)onEnter
 {
     [super onEnter];
+    double height_total = self.contentSizeInPoints.height;
+    double width_total = self.contentSizeInPoints.width;
     
-    NSLog(@"self.contentSize.width: %f", self.contentSize.width);
-    NSLog(@"self.contentSize.height: %f", self.contentSize.height);
+    NSLog(@"self.contentSize.width: %f", width_total);
+    NSLog(@"self.contentSize.height: %f", height_total);
     
-    double centralX = ((double)(self.contentSize.width))*0.915;//520;
-    double centralY = ((double)(self.contentSize.height))*0.6;//192;
+    double centralX = width_total*0.915;//520;
+    double centralY = height_total*0.6;//192;
     double radius = 30;
     double sizeX = 23;
     double sizeY = 28;
@@ -95,10 +97,10 @@ static int totalLevel = 10;
         [self addChild:panel];
     }
     
-    double buttonX = ((double)(self.contentSize.width))*0.724;
-    double buttonY1 = ((double)(self.contentSize.height))*0.76;
-    double buttonY2 = ((double)(self.contentSize.height))*0.625;
-    double buttonY3 = ((double)(self.contentSize.height))*0.49;
+    double buttonX = width_total*0.724;
+    double buttonY1 = height_total*0.76;
+    double buttonY2 = height_total*0.625;
+    double buttonY3 = height_total*0.49;
     
     _redBtn = [[ColorButton alloc] initBtnwithX:buttonX andY:buttonY1 andNum:0];
     _redBtn.zOrder = 1;
