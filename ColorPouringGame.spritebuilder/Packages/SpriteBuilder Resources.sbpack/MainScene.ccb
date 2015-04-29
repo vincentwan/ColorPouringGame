@@ -10,7 +10,7 @@
 		<false/>
 	</dict>
 	<key>UUID</key>
-	<integer>84</integer>
+	<integer>85</integer>
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
@@ -2182,15 +2182,15 @@
 			</dict>
 			<dict>
 				<key>UUID</key>
-				<integer>83</integer>
+				<integer>84</integer>
 				<key>baseClass</key>
-				<string>CCSprite</string>
+				<string>CCBFile</string>
 				<key>children</key>
 				<array/>
 				<key>customClass</key>
-				<string>Grid</string>
+				<string></string>
 				<key>displayName</key>
-				<string>grid</string>
+				<string>CCBFile</string>
 				<key>memberVarAssignmentName</key>
 				<string>_grid</string>
 				<key>memberVarAssignmentType</key>
@@ -2212,22 +2212,11 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>0.32834506034851074</real>
+							<real>0.036971829831600189</real>
 							<real>0.5</real>
 							<integer>0</integer>
 							<integer>2</integer>
 							<integer>2</integer>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>anchorPoint</string>
-						<key>type</key>
-						<string>Point</string>
-						<key>value</key>
-						<array>
-							<real>0.5</real>
-							<real>0.5</real>
 						</array>
 					</dict>
 					<dict>
@@ -2237,54 +2226,19 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>0.80287110805511475</real>
-							<real>0.88231325149536133</real>
+							<real>0.85000002384185791</real>
+							<real>0.85000002384185791</real>
 							<false/>
 							<integer>0</integer>
 						</array>
 					</dict>
 					<dict>
 						<key>name</key>
-						<string>spriteFrame</string>
+						<string>ccbFile</string>
 						<key>type</key>
-						<string>SpriteFrame</string>
+						<string>CCBFile</string>
 						<key>value</key>
-						<array>
-							<string></string>
-							<string>ColorPouringAssets/Assets/grid.png</string>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>normalMapSpriteFrame</string>
-						<key>type</key>
-						<string>SpriteFrame</string>
-						<key>value</key>
-						<array>
-							<string></string>
-							<string></string>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>color</string>
-						<key>type</key>
-						<string>Color3</string>
-						<key>value</key>
-						<array>
-							<real>1</real>
-							<real>1</real>
-							<real>1</real>
-							<real>1</real>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>effects</string>
-						<key>type</key>
-						<string>EffectControl</string>
-						<key>value</key>
-						<array/>
+						<string>Grid.ccb</string>
 					</dict>
 				</array>
 				<key>selected</key>
