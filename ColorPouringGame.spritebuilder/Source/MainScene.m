@@ -181,7 +181,8 @@ static int totalLevel = 10;
 
 - (void)restart
 {
-    [_grid clearCreatures];
+    CCScene *mainScene = [CCBReader loadAsScene:@"MainScene"];
+    [[CCDirector sharedDirector]replaceScene:mainScene];
     NSLog(@"Restart!");
 }
 

@@ -26,7 +26,7 @@
 @property (nonatomic, assign) int numRow;
 @property (nonatomic, assign) int numCol;
 
-- (void)clearCreatures;
+// - (void)clearCreatures;
 - (void)colorAffect:(int) rowNum col:(int)colNum num:(int)serialNum;
 
 @end

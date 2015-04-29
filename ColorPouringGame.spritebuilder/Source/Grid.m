@@ -279,6 +279,7 @@
     return isIndexValid;
 }
 
+/*
 - (void)clearCreatures
 {
     for (int i = 0; i < _numRow; i++) {
@@ -305,5 +306,6 @@
     _stepCount.string = [NSString stringWithFormat:@"%d", _steps];
     _stepScore.string = [NSString stringWithFormat:@"%d", _accurate];
 }
+ */
 
 @end
