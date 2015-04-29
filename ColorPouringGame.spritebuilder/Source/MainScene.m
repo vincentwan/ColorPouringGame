@@ -76,6 +76,9 @@ static int totalLevel = 10;
 {
     [super onEnter];
     
+    NSLog(@"self.contentSize.width: %f", self.contentSize.width);
+    NSLog(@"self.contentSize.height: %f", self.contentSize.height);
+    
     double centralX = ((double)(self.contentSize.width))*0.915;//520;
     double centralY = ((double)(self.contentSize.height))*0.6;//192;
     double radius = 30;
