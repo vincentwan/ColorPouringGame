@@ -51,40 +51,6 @@ static int totalLevel = 10;
     
     NSLog(@"This is MainScene!");
     
-    double centralX = ((double)(self.contentSize.width))*0.915;//520;
-    double centralY = ((double)(self.contentSize.height))*0.6;//192;
-    double radius = 30;
-    double sizeX = 23;
-    double sizeY = 28;
-    
-    for(int i=0; i<12; i++) {
-        double ang = (i*M_PI)/6;
-        double x = centralX + radius * sin(ang);
-        double y = centralY + radius * cos(ang);
-        ColorPanel * panel = [[ColorPanel alloc] initPanelwithX:sizeX Y:sizeY PosX:x PosY:y
-                                                      angle:(30*i) andColor:i andType:0];
-        panel.zOrder = 1;
-        [self addChild:panel];
-    }
-    
-    double buttonX = ((double)(self.contentSize.width))*0.724;
-    double buttonY1 = ((double)(self.contentSize.height))*0.76;
-    double buttonY2 = ((double)(self.contentSize.height))*0.625;
-    double buttonY3 = ((double)(self.contentSize.height))*0.49;
-    
-    _redBtn = [[ColorButton alloc] initBtnwithX:buttonX andY:buttonY1 andNum:0];
-    _redBtn.zOrder = 1;
-    [_redBtn setTarget:self selector:@selector(selectred)];
-    [self addChild:_redBtn];
-    _blueBtn = [[ColorButton alloc] initBtnwithX:buttonX andY:buttonY2 andNum:4];
-    _blueBtn.zOrder = 1;
-    [_blueBtn setTarget:self selector:@selector(selectblue)];
-    [self addChild:_blueBtn];
-    _yellowBtn = [[ColorButton alloc] initBtnwithX:buttonX andY:buttonY3 andNum:8];
-    _yellowBtn.zOrder = 1;
-    [_yellowBtn setTarget:self selector:@selector(selectyellow)];
-    [self addChild:_yellowBtn];
-    
     /*
     double centralX = 520;
     double centralY = 192;
@@ -109,6 +75,41 @@ static int totalLevel = 10;
 - (void)onEnter
 {
     [super onEnter];
+    
+    double centralX = ((double)(self.contentSize.width))*0.915;//520;
+    double centralY = ((double)(self.contentSize.height))*0.6;//192;
+    double radius = 30;
+    double sizeX = 23;
+    double sizeY = 28;
+    
+    for(int i=0; i<12; i++) {
+        double ang = (i*M_PI)/6;
+        double x = centralX + radius * sin(ang);
+        double y = centralY + radius * cos(ang);
+        ColorPanel * panel = [[ColorPanel alloc] initPanelwithX:sizeX Y:sizeY PosX:x PosY:y
+                                                          angle:(30*i) andColor:i andType:0];
+        panel.zOrder = 1;
+        [self addChild:panel];
+    }
+    
+    double buttonX = ((double)(self.contentSize.width))*0.724;
+    double buttonY1 = ((double)(self.contentSize.height))*0.76;
+    double buttonY2 = ((double)(self.contentSize.height))*0.625;
+    double buttonY3 = ((double)(self.contentSize.height))*0.49;
+    
+    _redBtn = [[ColorButton alloc] initBtnwithX:buttonX andY:buttonY1 andNum:0];
+    _redBtn.zOrder = 1;
+    [_redBtn setTarget:self selector:@selector(selectred)];
+    [self addChild:_redBtn];
+    _blueBtn = [[ColorButton alloc] initBtnwithX:buttonX andY:buttonY2 andNum:4];
+    _blueBtn.zOrder = 1;
+    [_blueBtn setTarget:self selector:@selector(selectblue)];
+    [self addChild:_blueBtn];
+    _yellowBtn = [[ColorButton alloc] initBtnwithX:buttonX andY:buttonY3 andNum:8];
+    _yellowBtn.zOrder = 1;
+    [_yellowBtn setTarget:self selector:@selector(selectyellow)];
+    [self addChild:_yellowBtn];
+    
     
     [self selectred];
     NSLog(@"This is MainScene onEnter");
