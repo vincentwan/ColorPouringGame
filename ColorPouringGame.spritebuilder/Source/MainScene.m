@@ -21,6 +21,7 @@ extern const int GRID_COLUMNS;
     CCLabelTTF * _stepCount;
     CCLabelTTF * _stepScore;
     CCButton * _restartBtn;
+    CCNode * _background;
 }
 
 static int currNum;
@@ -118,6 +119,9 @@ static int totalLevel = 10;
     
     [self selectred];
     NSLog(@"This is MainScene onEnter");
+    
+    _background.scaleX = width_total/(_background.contentSizeInPoints.width);
+    _background.scaleY = height_total/(_background.contentSizeInPoints.height);
     
     _stepCount.string = [NSString stringWithFormat:@"%d", 0];
     _grid.stepCount = _stepCount;
