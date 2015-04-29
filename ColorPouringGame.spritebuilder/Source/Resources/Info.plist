@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleDisplayName</key>
-	<string>ColorPouringGame</string>
+	<string>${ColorPouringGame}</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFile</key>
@@ -41,7 +41,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>ColorPouringGame</string>
+	<string>${PRODUCT_NAME}</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleSignature</key>
@@ -59,8 +59,6 @@
 	<string>1.0</string>
 	<key>FacebookAppID</key>
 	<string>1799725006919942</string>
-	<key>LSApplicationCategoryType</key>
-	<string>currentCreature</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIPrerenderedIcon</key>
