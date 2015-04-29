@@ -115,6 +115,16 @@ static int totalLevel = 10;
     [_yellowBtn setTarget:self selector:@selector(selectyellow)];
     [self addChild:_yellowBtn];
     
+    NSString *resetString = @"ColorPouringAssets/Buttons/reset_button.png";
+    
+    _restartBtn = [CCButton buttonWithTitle:@"" spriteFrame:[CCSpriteFrame frameWithImageNamed:resetString] highlightedSpriteFrame:[CCSpriteFrame frameWithImageNamed:resetString] disabledSpriteFrame:[CCSpriteFrame frameWithImageNamed:resetString]];
+
+    _restartBtn.zOrder = 1;
+    _restartBtn.position = ccp(buttonX, height_total*0.358);
+    _restartBtn.anchorPoint = ccp(0.5,0.5);
+    [_restartBtn setTarget:self selector:@selector(restart)];
+    [self addChild:_restartBtn];
+    
     
     _background.scaleX = width_total/(_background.contentSizeInPoints.width);
     _background.scaleY = height_total/(_background.contentSizeInPoints.height);
