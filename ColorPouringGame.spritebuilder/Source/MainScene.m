@@ -127,6 +127,7 @@ static int totalLevel = 10;
     _grid.stepCount = _stepCount;
     _stepScore.string = [NSString stringWithFormat:@"%d", 0];
     _grid.stepScore = _stepScore;
+    _restartBtn.enabled = YES;
     _grid.restartBtn = _restartBtn;
     
     
