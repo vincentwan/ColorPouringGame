@@ -69,7 +69,6 @@ static int totalLevel = 10;
         [self addChild:panel];
     }
      */
-    _grid.zOrder = 1;
     
     _stepCount.string = [NSString stringWithFormat:@"%d", 0];
     _grid.stepCount = _stepCount;
