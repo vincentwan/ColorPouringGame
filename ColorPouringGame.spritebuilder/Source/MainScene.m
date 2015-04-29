@@ -51,8 +51,8 @@ static int totalLevel = 10;
     
     NSLog(@"This is MainScene!");
     
-    double centralX = 520;
-    double centralY = 192;
+    double centralX = ((double)(self.contentSize.width))*0.915;//520;
+    double centralY = ((double)(self.contentSize.height))*0.6;//192;
     double radius = 30;
     double sizeX = 23;
     double sizeY = 28;
@@ -67,15 +67,20 @@ static int totalLevel = 10;
         [self addChild:panel];
     }
     
-    _redBtn = [[ColorButton alloc] initBtnwithX:430 andY:243.5 andNum:0];
+    double buttonX = ((double)(self.contentSize.width))*0.724;
+    double buttonY1 = ((double)(self.contentSize.height))*0.76;
+    double buttonY2 = ((double)(self.contentSize.height))*0.625;
+    double buttonY3 = ((double)(self.contentSize.height))*0.49;
+    
+    _redBtn = [[ColorButton alloc] initBtnwithX:buttonX andY:buttonY1 andNum:0];
     _redBtn.zOrder = 1;
     [_redBtn setTarget:self selector:@selector(selectred)];
     [self addChild:_redBtn];
-    _blueBtn = [[ColorButton alloc] initBtnwithX:430 andY:200.5 andNum:4];
+    _blueBtn = [[ColorButton alloc] initBtnwithX:buttonX andY:buttonY2 andNum:4];
     _blueBtn.zOrder = 1;
     [_blueBtn setTarget:self selector:@selector(selectblue)];
     [self addChild:_blueBtn];
-    _yellowBtn = [[ColorButton alloc] initBtnwithX:430 andY:157.5 andNum:8];
+    _yellowBtn = [[ColorButton alloc] initBtnwithX:buttonX andY:buttonY3 andNum:8];
     _yellowBtn.zOrder = 1;
     [_yellowBtn setTarget:self selector:@selector(selectyellow)];
     [self addChild:_yellowBtn];
