@@ -91,10 +91,12 @@ static int totalLevel = 12;
         [self addChild:panel];
     }
      */
-    [[NSNotificationCenter defaultCenter] addObserver:self
+    if(tutorialLevel) {
+        [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(onNotify:)
                                                  name:@"TestNotification"
                                                object:nil];
+    }
     return self;
 }
 
@@ -111,9 +113,39 @@ static int totalLevel = 12;
                 [self disableAll:0];
                 [_grid disableAll:-1];
                 break;
+            case 1:
+                [self disableAll:-1];
+                [_grid disableAll:0];
+                break;
+            case 2:
+                [self disableAll:1];
+                [_grid disableAll:-1];
+                break;
+            case 3:
+                [self disableAll:-1];
+                [_grid disableAll:1];
+                break;
+            case 4:
+                [self disableAll:0];
+                [_grid disableAll:-1];
+                break;
+            case 5:
+                [self disableAll:-1];
+                [_grid disableAll:2];
+                break;
+            case 6:
+                [self disableAll:2];
+                [_grid disableAll:-1];
+                break;
+            case 7:
+                [self disableAll:-1];
+                [_grid disableAll:3];
+                break;
             default:
+                NSLog(@"Here is notification default: %d\n", stepTutorial);
                 break;
         }
+        stepTutorial++;
     }
 }
 
@@ -199,6 +231,12 @@ static int totalLevel = 12;
 - (void)disableAll:(int) pos
 {
     switch (pos) {
+        case -1:
+            _redBtn.enabled = false;
+            _blueBtn.enabled = false;
+            _yellowBtn.enabled = false;
+            _restartBtn.enabled = false;
+            break;
         case 0:
             _redBtn.enabled = true;
             _blueBtn.enabled = false;
