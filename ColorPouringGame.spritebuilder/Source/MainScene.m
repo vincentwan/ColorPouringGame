@@ -108,6 +108,7 @@ static int totalLevel = 12;
     
     if ([[notification name] isEqualToString:@"TestNotification"]) {
         NSLog (@"Successfully received the test notification!");
+        NSLog(@"Here is notification default: %d\n", stepTutorial);
         switch (stepTutorial) {
             case 0:
                 [self disableAll:0];
@@ -142,7 +143,6 @@ static int totalLevel = 12;
                 [_grid disableAll:3];
                 break;
             default:
-                NSLog(@"Here is notification default: %d\n", stepTutorial);
                 break;
         }
         stepTutorial++;
@@ -221,9 +221,6 @@ static int totalLevel = 12;
     _grid.restartBtn = _restartBtn;
 
     [self selectblue];
-    [[NSNotificationCenter defaultCenter]
-     postNotificationName:@"TestNotification"
-     object:self];
     NSLog(@"This is MainScene onEnter");
 
 }
