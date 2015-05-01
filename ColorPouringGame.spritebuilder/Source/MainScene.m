@@ -228,7 +228,6 @@ static int totalLevel = 12;
     // will continue to try and send notification objects to the deallocated
     // object.
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [super dealloc];
 }
 
 - (void)selectred
