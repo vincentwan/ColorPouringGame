@@ -42,7 +42,7 @@ static int stepTutorial=0;
 + (void) setStepTutorial:(int)val
 { @synchronized(self) { stepTutorial = val; } }
 
-static int totalTutorial = 2;
+static int totalTutorial = 0;
 
 static int levelNum = 0;
 + (int) levelNum
@@ -92,6 +92,7 @@ static int totalLevel = 12;
     }
      */
     if(tutorialLevel) {
+        stepTutorial = 0;
         [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(onNotify:)
                                                  name:@"TestNotification"
