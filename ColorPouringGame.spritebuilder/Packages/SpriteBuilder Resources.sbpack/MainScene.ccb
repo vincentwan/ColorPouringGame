@@ -148,6 +148,8 @@
 						<array/>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -1217,7 +1219,7 @@
 						<key>value</key>
 						<array>
 							<real>0.086267605423927307</real>
-							<real>0.85148441791534424</real>
+							<real>0.77960938215255737</real>
 							<integer>0</integer>
 							<integer>2</integer>
 							<integer>2</integer>
@@ -1254,7 +1256,8 @@
 						<string>Text</string>
 						<key>value</key>
 						<array>
-							<string>Reference Panel</string>
+							<string>Reference
+Panel</string>
 							<false/>
 						</array>
 					</dict>
@@ -1273,7 +1276,7 @@
 						<string>FloatScale</string>
 						<key>value</key>
 						<array>
-							<real>12</real>
+							<real>16</real>
 							<integer>0</integer>
 						</array>
 					</dict>
@@ -1317,7 +1320,7 @@
 						<key>type</key>
 						<string>IntegerLabeled</string>
 						<key>value</key>
-						<integer>0</integer>
+						<integer>1</integer>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -1853,8 +1856,6 @@
 						<array/>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
