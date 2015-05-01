@@ -133,6 +133,9 @@ static int totalLevel = 10;
         NSLog(@"grid is null!");
     }
     
+    _grid.scaleX = (width_total*0.54)/_grid.contentSizeInPoints.width;
+    _grid.scaleY = (height_total*0.78)/_grid.contentSizeInPoints.height;
+    
     _stepCount.string = [NSString stringWithFormat:@"%d", 0];
     _grid.stepCount = _stepCount;
     _stepScore.string = [NSString stringWithFormat:@"%d", 0];
