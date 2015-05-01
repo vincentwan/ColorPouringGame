@@ -209,6 +209,11 @@
             _accurate++;
             creature.isMutable = NO;
         }
+        
+        [[NSNotificationCenter defaultCenter]
+         postNotificationName:@"TestNotification"
+         object:self];
+
     }
     else {
         return;

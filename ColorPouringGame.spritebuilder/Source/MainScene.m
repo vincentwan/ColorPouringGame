@@ -24,7 +24,7 @@ extern const int GRID_COLUMNS;
     CCNode * _background;
 }
 
-static BOOL tutorialLevel;
+static BOOL tutorialLevel = YES;
 + (BOOL) tutorialLevel
 { @synchronized(self) { return tutorialLevel; } }
 + (void) setTutorialLevel:(BOOL)val
@@ -282,6 +282,10 @@ static int totalLevel = 12;
     [_blueBtn setSelected:NO];
     [_yellowBtn setSelected:NO];
     
+    [[NSNotificationCenter defaultCenter]
+     postNotificationName:@"TestNotification"
+     object:self];
+    
     NSLog(@"Here red!");
     //[self loadMyViewController];
 }
@@ -298,6 +302,11 @@ static int totalLevel = 12;
     [_blueBtn setSelected:YES];
     [_redBtn setSelected:NO];
     [_yellowBtn setSelected:NO];
+    
+    [[NSNotificationCenter defaultCenter]
+     postNotificationName:@"TestNotification"
+     object:self];
+    
     NSLog(@"Here blue!");
 }
 
@@ -313,6 +322,11 @@ static int totalLevel = 12;
     [_yellowBtn setSelected:YES];
     [_blueBtn setSelected:NO];
     [_redBtn setSelected:NO];
+    
+    [[NSNotificationCenter defaultCenter]
+     postNotificationName:@"TestNotification"
+     object:self];
+    
     NSLog(@"Here yellow!");
 }
 
