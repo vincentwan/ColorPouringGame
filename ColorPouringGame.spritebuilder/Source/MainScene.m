@@ -24,7 +24,7 @@ extern const int GRID_COLUMNS;
     CCNode * _background;
 }
 
-static BOOL tutorialLevel = YES;
+static BOOL tutorialLevel = NO;
 + (BOOL) tutorialLevel
 { @synchronized(self) { return tutorialLevel; } }
 + (void) setTutorialLevel:(BOOL)val
