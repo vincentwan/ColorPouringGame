@@ -20,5 +20,7 @@
 
 - (instancetype)initCreaturewithX:(double) xlen andY:(double) ylen;
 - (void) setSerialnum:(int) num;
+- (void)disable;
+- (void)enable;
 
 @end

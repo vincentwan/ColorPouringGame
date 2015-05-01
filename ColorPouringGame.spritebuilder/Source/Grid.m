@@ -92,25 +92,25 @@
     for(int i=0; i<2; i++) {
         for(int j=0; j<2; j++) {
             tempCreat = _colorCell[i][j];
-            tempCreat.isAlive = true;
+            [tempCreat disable];
         }
     }
     switch (pos) {
         case 0:
             tempCreat = _colorCell[0][0];
-            tempCreat.isAlive = false;
+            [tempCreat enable];
             break;
         case 1:
             tempCreat = _colorCell[0][1];
-            tempCreat.isAlive = false;
+            [tempCreat enable];
             break;
         case 2:
             tempCreat = _colorCell[1][0];
-            tempCreat = false;
+            [tempCreat enable];
             break;
         case 3:
             tempCreat = _colorCell[1][1];
-            tempCreat = false;
+            [tempCreat enable];
             break;
         default:
             break;
