@@ -20,10 +20,14 @@
 @property (nonatomic, retain) ColorButton * yellowBtn;
 
 
++ (BOOL) tutorialLevel;
++ (void) setTutorialLevel:(BOOL)val;
 + (int) currNum;
 + (void) setCurrNum:(int)val;
 + (int) levelNum;
 + (void) setLevelNum:(int)val;
 + (int) totalLevel;
++ (int) stepTutorial;
++ (void) setStepTutorial:(int)val;
 
 @end

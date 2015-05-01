@@ -86,6 +86,38 @@
     }
 }
 
+- (void) disableAll:(int) pos
+{
+    Creature * tempCreat;
+    for(int i=0; i<2; i++) {
+        for(int j=0; j<2; j++) {
+            tempCreat = _colorCell[i][j];
+            tempCreat.isAlive = true;
+        }
+    }
+    switch (pos) {
+        case 0:
+            tempCreat = _colorCell[0][0];
+            tempCreat.isAlive = false;
+            break;
+        case 1:
+            tempCreat = _colorCell[0][1];
+            tempCreat.isAlive = false;
+            break;
+        case 2:
+            tempCreat = _colorCell[1][0];
+            tempCreat = false;
+            break;
+        case 3:
+            tempCreat = _colorCell[1][1];
+            tempCreat = false;
+            break;
+        default:
+            break;
+    }
+}
+
+
 - (int)mixWithNum:(int) num1 and:(int)num2
 {
     int ansnum=0;

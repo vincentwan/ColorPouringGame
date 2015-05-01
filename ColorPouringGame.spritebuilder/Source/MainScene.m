@@ -24,20 +24,42 @@ extern const int GRID_COLUMNS;
     CCNode * _background;
 }
 
+static BOOL tutorialLevel;
++ (BOOL) tutorialLevel
+{ @synchronized(self) { return tutorialLevel; } }
++ (void) setTutorialLevel:(BOOL)val
+{ @synchronized(self) { tutorialLevel = val; } }
+
 static int currNum;
 + (int) currNum
 { @synchronized(self) { return currNum; } }
 + (void) setCurrNum:(int)val
 { @synchronized(self) { currNum = val; } }
 
+static int stepTutorial=0;
++ (int) stepTutorial
+{ @synchronized(self) { return stepTutorial; } }
++ (void) setStepTutorial:(int)val
+{ @synchronized(self) { stepTutorial = val; } }
+
+static int totalTutorial = 2;
+
 static int levelNum = 0;
 + (int) levelNum
 { @synchronized(self) { return levelNum; } }
 + (void) setLevelNum:(int)val
-{ @synchronized(self) { levelNum = val; } }
+{ @synchronized(self) {
+    levelNum = val;
+    if(levelNum < totalTutorial) {
+        tutorialLevel = YES;
+    }
+    else {
+        tutorialLevel = NO;
+    }
+} }
 
 // Read only static variable
-static int totalLevel = 10;
+static int totalLevel = 12;
 + (int) totalLevel
 { @synchronized(self) { return totalLevel; } }
 
@@ -69,7 +91,30 @@ static int totalLevel = 10;
         [self addChild:panel];
     }
      */
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onNotify:)
+                                                 name:@"TestNotification"
+                                               object:nil];
     return self;
+}
+
+- (void) onNotify:(NSNotification *) notification
+{
+    // [notification name] should always be @"TestNotification"
+    // unless you use this method for observation of other notifications
+    // as well.
+    
+    if ([[notification name] isEqualToString:@"TestNotification"]) {
+        NSLog (@"Successfully received the test notification!");
+        switch (stepTutorial) {
+            case 0:
+                [self disableAll:0];
+                [_grid disableAll:-1];
+                break;
+            default:
+                break;
+        }
+    }
 }
 
 - (void)onEnter
@@ -142,11 +187,48 @@ static int totalLevel = 10;
     _grid.stepScore = _stepScore;
     _restartBtn.enabled = YES;
     _grid.restartBtn = _restartBtn;
-    
-    
-    [self selectred];
+
+    [self selectblue];
+    [[NSNotificationCenter defaultCenter]
+     postNotificationName:@"TestNotification"
+     object:self];
     NSLog(@"This is MainScene onEnter");
 
+}
+
+- (void)disableAll:(int) pos
+{
+    switch (pos) {
+        case 0:
+            _redBtn.enabled = true;
+            _blueBtn.enabled = false;
+            _yellowBtn.enabled = false;
+            _restartBtn.enabled = false;
+            break;
+        case 1:
+            _blueBtn.enabled = true;
+            _redBtn.enabled = false;
+            _yellowBtn.enabled = false;
+            _restartBtn.enabled = false;
+            break;
+        case 2:
+            _yellowBtn.enabled = true;
+            _blueBtn.enabled = false;
+            _redBtn.enabled = false;
+            _restartBtn.enabled = false;
+            break;
+        default:
+            break;
+    }
+}
+
+- (void) dealloc
+{
+    // If you don't remove yourself as an observer, the Notification Center
+    // will continue to try and send notification objects to the deallocated
+    // object.
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [super dealloc];
 }
 
 - (void)selectred

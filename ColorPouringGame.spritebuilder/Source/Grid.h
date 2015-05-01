@@ -28,5 +28,6 @@
 
 // - (void)clearCreatures;
 - (void)colorAffect:(int) rowNum col:(int)colNum num:(int)serialNum;
+- (void) disableAll:(int) pos;
 
 @end
