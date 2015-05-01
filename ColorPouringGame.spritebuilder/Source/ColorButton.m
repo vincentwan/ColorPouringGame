@@ -23,7 +23,6 @@ static int btnSizeY = 35;
     self = [super initWithTitle:@"" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"ColorPouringAssets/Assets/cell.png"] highlightedSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"ColorPouringAssets/Assets/cell_highlighted.png"] disabledSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"ColorPouringAssets/Assets/cell.png"]];
     self.position = ccp(xlen,ylen);
     self.anchorPoint = ccp(0.5,0.5);
-    
 
     [super setScaleX:(btnSizeX/self.contentSize.width)];
     [super setScaleY:(btnSizeY/self.contentSize.height)];
@@ -39,6 +38,7 @@ static int btnSizeY = 35;
     [self setBackgroundColor:[CCColor colorWithUIColor:col] forState:CCControlStateNormal];
     [self setBackgroundColor:[CCColor colorWithUIColor:col] forState:CCControlStateSelected];
     [self setBackgroundColor:[CCColor colorWithUIColor:col] forState:CCControlStateHighlighted];
+    [self setBackgroundColor:[CCColor colorWithUIColor:col] forState:CCControlStateDisabled];
     [self setBackgroundOpacity:0.6 forState:CCControlStateSelected];
     //[self setBackgroundOpacity:0.7 forState:CCControlStateHighlighted];
     
