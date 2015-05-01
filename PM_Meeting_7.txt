@@ -1,0 +1,8 @@
+For Color Pouring Game
+Tasks finished this week:
+
+1) Add a Facebook sharing button
+2) Polish the game scene
+3) Add a tutorial to improve the on boarding experience
+
+
