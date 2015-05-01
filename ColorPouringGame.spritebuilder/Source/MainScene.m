@@ -116,7 +116,7 @@ static int totalLevel = 12;
                 break;
             case 1:
                 [self disableAll:-1];
-                [_grid disableAll:0];
+                [_grid disableAll:2];
                 break;
             case 2:
                 [self disableAll:1];
@@ -124,7 +124,7 @@ static int totalLevel = 12;
                 break;
             case 3:
                 [self disableAll:-1];
-                [_grid disableAll:1];
+                [_grid disableAll:3];
                 break;
             case 4:
                 [self disableAll:0];
@@ -132,7 +132,7 @@ static int totalLevel = 12;
                 break;
             case 5:
                 [self disableAll:-1];
-                [_grid disableAll:2];
+                [_grid disableAll:0];
                 break;
             case 6:
                 [self disableAll:2];
@@ -140,7 +140,7 @@ static int totalLevel = 12;
                 break;
             case 7:
                 [self disableAll:-1];
-                [_grid disableAll:3];
+                [_grid disableAll:1];
                 break;
             default:
                 break;
