@@ -81,8 +81,8 @@ static int totalLevel = 10;
     NSLog(@"self.contentSize.width: %f", width_total);
     NSLog(@"self.contentSize.height: %f", height_total);
     
-    double centralX = width_total*0.915;//520;
-    double centralY = height_total*0.6;//192;
+    double centralX = width_total*0.086;//width_total*0.915;//520;
+    double centralY = height_total*0.541;//height_total*0.6;//192;
     double radius = 30;
     double sizeX = 23;
     double sizeY = 28;
@@ -97,7 +97,7 @@ static int totalLevel = 10;
         [self addChild:panel];
     }
     
-    double buttonX = width_total*0.724;
+    double buttonX = width_total*0.893;//width_total*0.724;
     double buttonY1 = height_total*0.76;
     double buttonY2 = height_total*0.625;
     double buttonY3 = height_total*0.49;

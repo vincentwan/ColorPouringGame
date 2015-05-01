@@ -181,7 +181,7 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>0.67781692743301392</real>
+							<real>0.81866198778152466</real>
 							<real>0.140625</real>
 							<integer>0</integer>
 							<integer>2</integer>
@@ -388,7 +388,7 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>0.80633801221847534</real>
+							<real>0.94084513187408447</real>
 							<real>0.140625</real>
 							<integer>0</integer>
 							<integer>2</integer>
@@ -595,7 +595,7 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>0.80633801221847534</real>
+							<real>0.94084513187408447</real>
 							<real>0.21875</real>
 							<integer>0</integer>
 							<integer>2</integer>
@@ -802,7 +802,7 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>0.67781692743301392</real>
+							<real>0.81866198778152466</real>
 							<real>0.21875</real>
 							<integer>0</integer>
 							<integer>2</integer>
@@ -1009,8 +1009,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>0.72359156608581543</real>
-							<real>0.85856407880783081</real>
+							<real>0.89268326759338379</real>
+							<real>0.85148441791534424</real>
 							<integer>0</integer>
 							<integer>2</integer>
 							<integer>2</integer>
@@ -1216,8 +1216,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>0.91373240947723389</real>
-							<real>0.80856406688690186</real>
+							<real>0.086267605423927307</real>
+							<real>0.85148441791534424</real>
 							<integer>0</integer>
 							<integer>2</integer>
 							<integer>2</integer>
@@ -1778,8 +1778,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>0.9154929518699646</real>
-							<real>0.60000002384185791</real>
+							<real>0.086267605423927307</real>
+							<real>0.54062497615814209</real>
 							<integer>0</integer>
 							<integer>2</integer>
 							<integer>2</integer>
@@ -1853,6 +1853,8 @@
 						<array/>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -1886,7 +1888,7 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>0.036971829831600189</real>
+							<real>0.18485915660858154</real>
 							<real>0.5</real>
 							<integer>0</integer>
 							<integer>2</integer>
