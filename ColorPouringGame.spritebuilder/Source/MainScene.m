@@ -321,9 +321,10 @@ static int totalLevel = 12;
 {
     double height_total = self.contentSizeInPoints.height;
     double width_total = self.contentSizeInPoints.width;
-    UIView *myview=[[UIView alloc] initWithFrame: CGRectMake(height_total*0.1, width_total*0.8,80,40)];
+    UIView *myview=[[UIView alloc] initWithFrame: CGRectMake(0, 0, 200, 40)];
+    myview.center = CGPointMake(width_total/2, height_total/2);
     UIView *parentView = [[CCDirector sharedDirector] view];
-    myview.backgroundColor = [UIColor colorWithWhite:0.5 alpha:1.0];
+    myview.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.0];
     [parentView addSubview:myview];
 
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:myview animated:YES];
