@@ -128,7 +128,7 @@
 				<key>type</key>
 				<string>Float</string>
 				<key>value</key>
-				<real>-1</real>
+				<real>100</real>
 			</dict>
 			<dict>
 				<key>name</key>
@@ -201,7 +201,7 @@
 				<key>value</key>
 				<array>
 					<real>0.0</real>
-					<real>90</real>
+					<real>180</real>
 				</array>
 			</dict>
 			<dict>
@@ -306,7 +306,7 @@
 				<key>value</key>
 				<array>
 					<real>0.0</real>
-					<real>20</real>
+					<real>0.0</real>
 				</array>
 			</dict>
 			<dict>
