@@ -95,7 +95,9 @@
             tempCreat = _colorCell[i][j];
             if(tempPos == pos) {
                 [tempCreat enable];
-                [MainScene setParticlePos:tempCreat.position];
+                CGFloat pos_X = tempCreat.position.x + self.position.x;
+                CGFloat pos_Y = tempCreat.position.y + self.position.y;
+                [MainScene setParticlePos:ccp(pos_X, pos_Y)];
             }
             else {
                 [tempCreat disable];

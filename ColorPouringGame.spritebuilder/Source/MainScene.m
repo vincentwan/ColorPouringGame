@@ -360,11 +360,10 @@ static int totalLevel = 12;
     [_blueBtn setSelected:NO];
     [_yellowBtn setSelected:NO];
     if(tutorialLevel) {
+        _redBtn.highlighted = NO;
         [[NSNotificationCenter defaultCenter]
          postNotificationName:@"TestNotification"
          object:self];
-        _redBtn.highlighted = NO;
-        
     }
     
     
@@ -386,10 +385,10 @@ static int totalLevel = 12;
     [_yellowBtn setSelected:NO];
     
     if(tutorialLevel) {
+        _blueBtn.highlighted = NO;
         [[NSNotificationCenter defaultCenter]
          postNotificationName:@"TestNotification"
          object:self];
-        _blueBtn.highlighted = NO;
     }
     
     
@@ -410,10 +409,10 @@ static int totalLevel = 12;
     [_redBtn setSelected:NO];
     
     if(tutorialLevel) {
+        _yellowBtn.highlighted = NO;
         [[NSNotificationCenter defaultCenter]
          postNotificationName:@"TestNotification"
          object:self];
-        _yellowBtn.highlighted = NO;
     }
     
     NSLog(@"Here yellow!");
