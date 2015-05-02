@@ -226,7 +226,6 @@ static int totalLevel = 12;
         _backBtn.zOrder = 1;
         [_backBtn setTarget:self selector:@selector(backLevel)];
         _backBtn.enabled = true;
-        [self addChild:_backBtn];
     }
 }
 
