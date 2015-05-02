@@ -50,6 +50,7 @@ static int levelNum = 0;
 + (void) setLevelNum:(int)val
 { @synchronized(self) {
     levelNum = val;
+    NSLog(@"Here is set level %d\n", val);
     if(levelNum < totalTutorial) {
         tutorialLevel = YES;
     }
@@ -99,6 +100,90 @@ static int totalLevel = 12;
                                                object:nil];
     }
     return self;
+}
+
+- (void)onEnter
+{
+    [super onEnter];
+    double height_total = self.contentSizeInPoints.height;
+    double width_total = self.contentSizeInPoints.width;
+    
+    NSLog(@"self.contentSize.width: %f", width_total);
+    NSLog(@"self.contentSize.height: %f", height_total);
+    
+    double centralX = width_total*0.086;//width_total*0.915;//520;
+    double centralY = height_total*0.541;//height_total*0.6;//192;
+    double radius = 30;
+    double sizeX = 23;
+    double sizeY = 28;
+    
+    for(int i=0; i<12; i++) {
+        double ang = (i*M_PI)/6;
+        double x = centralX + radius * sin(ang);
+        double y = centralY + radius * cos(ang);
+        ColorPanel * panel = [[ColorPanel alloc] initPanelwithX:sizeX Y:sizeY PosX:x PosY:y
+                                                          angle:(30*i) andColor:i andType:0];
+        panel.zOrder = 1;
+        [self addChild:panel];
+    }
+    
+    double buttonX = width_total*0.893;//width_total*0.724;
+    double buttonY1 = height_total*0.76;
+    double buttonY2 = height_total*0.625;
+    double buttonY3 = height_total*0.49;
+    
+    _redBtn = [[ColorButton alloc] initBtnwithX:buttonX andY:buttonY1 andNum:0];
+    _redBtn.zOrder = 1;
+    [_redBtn setTarget:self selector:@selector(selectred)];
+    [self addChild:_redBtn];
+    _blueBtn = [[ColorButton alloc] initBtnwithX:buttonX andY:buttonY2 andNum:4];
+    _blueBtn.zOrder = 1;
+    [_blueBtn setTarget:self selector:@selector(selectblue)];
+    [self addChild:_blueBtn];
+    _yellowBtn = [[ColorButton alloc] initBtnwithX:buttonX andY:buttonY3 andNum:8];
+    _yellowBtn.zOrder = 1;
+    [_yellowBtn setTarget:self selector:@selector(selectyellow)];
+    [self addChild:_yellowBtn];
+    
+    NSString *resetString = @"ColorPouringAssets/Buttons/reset_button.png";
+    
+    _restartBtn = [CCButton buttonWithTitle:@"" spriteFrame:[CCSpriteFrame frameWithImageNamed:resetString] highlightedSpriteFrame:[CCSpriteFrame frameWithImageNamed:resetString] disabledSpriteFrame:[CCSpriteFrame frameWithImageNamed:resetString]];
+
+    _restartBtn.zOrder = 1;
+    _restartBtn.position = ccp(buttonX, height_total*0.358);
+    _restartBtn.anchorPoint = ccp(0.5,0.5);
+    [_restartBtn setTarget:self selector:@selector(restart)];
+    [self addChild:_restartBtn];
+    
+    
+    _background.scaleX = width_total/(_background.contentSizeInPoints.width);
+    _background.scaleY = height_total/(_background.contentSizeInPoints.height);
+    
+    if(_grid == NULL) {
+        NSLog(@"grid is null!");
+    }
+    
+    _grid.scaleX = (width_total*0.54)/_grid.contentSizeInPoints.width;
+    _grid.scaleY = (height_total*0.78)/_grid.contentSizeInPoints.height;
+    
+    _stepCount.string = [NSString stringWithFormat:@"%d", 0];
+    _grid.stepCount = _stepCount;
+    _stepScore.string = [NSString stringWithFormat:@"%d", 0];
+    _grid.stepScore = _stepScore;
+    _restartBtn.enabled = YES;
+    _grid.restartBtn = _restartBtn;
+
+    if(tutorialLevel) {
+        [[NSNotificationCenter defaultCenter]
+         postNotificationName:@"TestNotification"
+         object:self];
+        NSLog(@"This is MainScene tutorial onEnter");
+    }
+    else {
+        [self selectred];
+        NSLog(@"This is MainScene onEnter");
+    }
+
 }
 
 - (void) onNotify:(NSNotification *) notification
@@ -201,90 +286,6 @@ static int totalLevel = 12;
             stepTutorial++;
         }
     }
-}
-
-- (void)onEnter
-{
-    [super onEnter];
-    double height_total = self.contentSizeInPoints.height;
-    double width_total = self.contentSizeInPoints.width;
-    
-    NSLog(@"self.contentSize.width: %f", width_total);
-    NSLog(@"self.contentSize.height: %f", height_total);
-    
-    double centralX = width_total*0.086;//width_total*0.915;//520;
-    double centralY = height_total*0.541;//height_total*0.6;//192;
-    double radius = 30;
-    double sizeX = 23;
-    double sizeY = 28;
-    
-    for(int i=0; i<12; i++) {
-        double ang = (i*M_PI)/6;
-        double x = centralX + radius * sin(ang);
-        double y = centralY + radius * cos(ang);
-        ColorPanel * panel = [[ColorPanel alloc] initPanelwithX:sizeX Y:sizeY PosX:x PosY:y
-                                                          angle:(30*i) andColor:i andType:0];
-        panel.zOrder = 1;
-        [self addChild:panel];
-    }
-    
-    double buttonX = width_total*0.893;//width_total*0.724;
-    double buttonY1 = height_total*0.76;
-    double buttonY2 = height_total*0.625;
-    double buttonY3 = height_total*0.49;
-    
-    _redBtn = [[ColorButton alloc] initBtnwithX:buttonX andY:buttonY1 andNum:0];
-    _redBtn.zOrder = 1;
-    [_redBtn setTarget:self selector:@selector(selectred)];
-    [self addChild:_redBtn];
-    _blueBtn = [[ColorButton alloc] initBtnwithX:buttonX andY:buttonY2 andNum:4];
-    _blueBtn.zOrder = 1;
-    [_blueBtn setTarget:self selector:@selector(selectblue)];
-    [self addChild:_blueBtn];
-    _yellowBtn = [[ColorButton alloc] initBtnwithX:buttonX andY:buttonY3 andNum:8];
-    _yellowBtn.zOrder = 1;
-    [_yellowBtn setTarget:self selector:@selector(selectyellow)];
-    [self addChild:_yellowBtn];
-    
-    NSString *resetString = @"ColorPouringAssets/Buttons/reset_button.png";
-    
-    _restartBtn = [CCButton buttonWithTitle:@"" spriteFrame:[CCSpriteFrame frameWithImageNamed:resetString] highlightedSpriteFrame:[CCSpriteFrame frameWithImageNamed:resetString] disabledSpriteFrame:[CCSpriteFrame frameWithImageNamed:resetString]];
-
-    _restartBtn.zOrder = 1;
-    _restartBtn.position = ccp(buttonX, height_total*0.358);
-    _restartBtn.anchorPoint = ccp(0.5,0.5);
-    [_restartBtn setTarget:self selector:@selector(restart)];
-    [self addChild:_restartBtn];
-    
-    
-    _background.scaleX = width_total/(_background.contentSizeInPoints.width);
-    _background.scaleY = height_total/(_background.contentSizeInPoints.height);
-    
-    if(_grid == NULL) {
-        NSLog(@"grid is null!");
-    }
-    
-    _grid.scaleX = (width_total*0.54)/_grid.contentSizeInPoints.width;
-    _grid.scaleY = (height_total*0.78)/_grid.contentSizeInPoints.height;
-    
-    _stepCount.string = [NSString stringWithFormat:@"%d", 0];
-    _grid.stepCount = _stepCount;
-    _stepScore.string = [NSString stringWithFormat:@"%d", 0];
-    _grid.stepScore = _stepScore;
-    _restartBtn.enabled = YES;
-    _grid.restartBtn = _restartBtn;
-
-    if(tutorialLevel) {
-        [[NSNotificationCenter defaultCenter]
-         postNotificationName:@"TestNotification"
-         object:self];
-        NSLog(@"This is MainScene tutorial onEnter");
-    }
-    else {
-        [self selectred];
-        NSLog(@"This is MainScene onEnter");
-    }
-
 }
 
 - (void)disableAll:(int) pos
