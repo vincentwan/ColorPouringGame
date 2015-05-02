@@ -89,31 +89,18 @@
 - (void) disableAll:(int) pos
 {
     Creature * tempCreat;
-    for(int i=0; i<2; i++) {
-        for(int j=0; j<2; j++) {
+    int tempPos = 0;
+    for(int i=0; i<_numRow; i++) {
+        for(int j=0; j<_numCol; j++) {
             tempCreat = _colorCell[i][j];
-            [tempCreat disable];
+            if(tempPos == pos) {
+                [tempCreat enable];
+            }
+            else {
+                [tempCreat disable];
+            }
+            tempPos++;
         }
-    }
-    switch (pos) {
-        case 0:
-            tempCreat = _colorCell[0][0];
-            [tempCreat enable];
-            break;
-        case 1:
-            tempCreat = _colorCell[0][1];
-            [tempCreat enable];
-            break;
-        case 2:
-            tempCreat = _colorCell[1][0];
-            [tempCreat enable];
-            break;
-        case 3:
-            tempCreat = _colorCell[1][1];
-            [tempCreat enable];
-            break;
-        default:
-            break;
     }
 }
 
