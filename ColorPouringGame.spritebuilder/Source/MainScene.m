@@ -22,6 +22,7 @@ extern const int GRID_COLUMNS;
     CCLabelTTF * _stepScore;
     CCButton * _restartBtn;
     CCNode * _background;
+    CCParticleSystem *particle;
 }
 
 static BOOL tutorialLevel = YES;
@@ -183,7 +184,7 @@ static int totalLevel = 12;
         [self selectred];
         NSLog(@"This is MainScene onEnter");
     }
-
+    
 }
 
 - (void) onNotify:(NSNotification *) notification
@@ -192,7 +193,8 @@ static int totalLevel = 12;
     // unless you use this method for observation of other notifications
     // as well.
     
-    CCParticleSystem *particle = (CCParticleSystem *)[CCBReader load:@"Shining"];
+    
+    particle = (CCParticleSystem *)[CCBReader load:@"Shining"];
     particle.position = ccp(100,40);
     particle.autoRemoveOnFinish = TRUE;
     [self addChild:particle];
@@ -209,6 +211,7 @@ static int totalLevel = 12;
                 case 1:
                     [self disableAll:-1];
                     [_grid disableAll:2];
+                    particle.position = ccp(200,40);
                     break;
                 case 2:
                     [self disableAll:1];
