@@ -272,47 +272,58 @@ static int totalLevel = 12;
         else {
             switch (stepTutorial) {
                 case 0:
+                    [self displayMessage:@"Tutorial 2 begins! Please select the highlighted color"];
                     [self addParticle];
                     [self disableAll:2];
                     [_grid disableAll:-1];
                     break;
                 case 1:
+                    [self displayMessage:@"Put into the cell"];
                     [self disableAll:-1];
                     [_grid disableAll:3];
                     break;
                 case 2:
+                    [self displayMessage:@"Select the color"];
                     [self disableAll:0];
                     [_grid disableAll:-1];
                     break;
                 case 3:
+                    [self displayMessage:@"Tutorial begins! Please select the highlighted color"];
                     [self disableAll:-1];
                     [_grid disableAll:0];
                     break;
                 case 4:
+                    [self displayMessage:@"Tutorial begins! Please select the highlighted color"];
                     [self disableAll:-1];
                     [_grid disableAll:4];
                     break;
                 case 5:
+                    [self displayMessage:@"Tutorial begins! Please select the highlighted color"];
                     [self disableAll:1];
                     [_grid disableAll:-1];
                     break;
                 case 6:
+                    [self displayMessage:@"Tutorial begins! Please select the highlighted color"];
                     [self disableAll:-1];
                     [_grid disableAll:2];
                     break;
                 case 7:
+                    [self displayMessage:@"Tutorial begins! Please select the highlighted color"];
                     [self disableAll:2];
                     [_grid disableAll:-1];
                     break;
                 case 8:
+                    [self displayMessage:@"Tutorial begins! Please select the highlighted color"];
                     [self disableAll:-1];
                     [_grid disableAll:1];
                     break;
                 case 9:
+                    [self displayMessage:@"Tutorial begins! Please select the highlighted color"];
                     [self disableAll:1];
                     [_grid disableAll:-1];
                     break;
                 case 10:
+                    [self displayMessage:@"Tutorial begins! Please select the highlighted color"];
                     [self disableAll:-1];
                     [_grid disableAll:5];
                     break;
