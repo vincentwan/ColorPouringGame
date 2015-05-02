@@ -330,7 +330,7 @@ static int totalLevel = 12;
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:myview animated:YES];
     // Configure for text only and offset down
     hud.mode = MBProgressHUDModeText;
-    hud.color = [UIColor colorWithRed:(251.0/255.0) green:0.0 blue:(64.0/255.0) alpha:1.0];
+    hud.color = [UIColor colorWithRed:(251.0/255.0) green:0.0 blue:(64.0/255.0) alpha:0.6];
     hud.labelText = message;
     hud.removeFromSuperViewOnHide = YES;
     [hud hide:YES afterDelay:3];
