@@ -13,6 +13,9 @@
 #import "AppDelegate.h"
 #import "ColorButton.h"
 #import "MBProgressHUD.h"
+#import "cocos2d.h"
+#import <UIKit/UIKit.h>
+#import "CCUIViewWrapper.h"
 
 
 @interface MainScene : CCNode

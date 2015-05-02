@@ -325,7 +325,12 @@ static int totalLevel = 12;
 
 - (void)displayMessage
 {
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self animated:YES];
+    UIView *myview=[[UIView alloc] initWithFrame: CGRectMake(0, 0,320,480)];
+    myview.backgroundColor=[UIColor redColor];
+    UIView *parentView = [[CCDirector sharedDirector] view];
+    [parentView addSubview:myview];
+
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:myview animated:YES];
     
     // Configure for text only and offset down
     hud.mode = MBProgressHUDModeText;
