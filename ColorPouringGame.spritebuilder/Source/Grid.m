@@ -96,8 +96,8 @@
             if(tempPos == pos) {
                 [tempCreat enable];
                 
-                NSLog(@"Grid position x %f\n",tempCreat.position.x);
-                NSLog(@"Grid position y %f\n",tempCreat.position.y);
+                NSLog(@"Grid position x %f\n",self.position.x);
+                NSLog(@"Grid position y %f\n",self.position.y);
                 
                 CGFloat pos_X = tempCreat.position.x + self.position.x;
                 CGFloat pos_Y = tempCreat.position.y + self.position.y;
