@@ -216,8 +216,7 @@ static int totalLevel = 12;
     
     if(levelNum>0) {
         NSLog(@"Back Button");
-        _backBtn = [BackButton initBtnwithX:@"Back" Width:width_total*0.097 Height:height_total*0.908];
-        [_backBtn setTarget:self selector:@selector(backLevel)];
+        _backBtn = [[BackButton alloc] initBtnwithX:@"Back" Width:width_total*0.097 Height:height_total*0.908];
         [_backBtn setTarget:self selector:@selector(backLevel)];
         _backBtn.enabled = true;
         [self addChild:_backBtn];
