@@ -211,7 +211,9 @@ static int totalLevel = 12;
                 case 1:
                     [self disableAll:-1];
                     [_grid disableAll:2];
+                    [self removeChild:particle];
                     particle.position = ccp(200,40);
+                    [self addChild:particle];
                     break;
                 case 2:
                     [self disableAll:1];
