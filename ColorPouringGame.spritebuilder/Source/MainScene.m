@@ -240,7 +240,7 @@ static int totalLevel = 12;
                     [_grid disableAll:-1];
                     break;
                 case 3:
-                    [self displayMessage:@"Put into the second cell and you will see the color of its neighbor is mixed with the newly added color"];
+                    [self displayMessage:@"Put into the second cell and you will see the color of its neighbor changes"];
                     [self disableAll:-1];
                     [_grid disableAll:3];
                     break;
@@ -255,12 +255,12 @@ static int totalLevel = 12;
                     [_grid disableAll:0];
                     break;
                 case 6:
-                    [self displayMessage:@"Select the final color"];
+                    [self displayMessage:@"Towards full score!"];
                     [self disableAll:2];
                     [_grid disableAll:-1];
                     break;
                 case 7:
-                    [self displayMessage:@"Put into the cell and you get full score!"];
+                    [self displayMessage:@"In next tutorial level you will be taught how colors are mixed"];
                     [self disableAll:-1];
                     [_grid disableAll:1];
                     break;
@@ -283,46 +283,44 @@ static int totalLevel = 12;
                     [_grid disableAll:3];
                     break;
                 case 2:
+                    [self displayMessage:@"You can see the reference panel on the left hand side"];
                     [self disableAll:0];
                     [_grid disableAll:-1];
                     break;
                 case 3:
-                    [self displayMessage:@"Tutorial begins! Please select the highlighted color"];
+                    [self displayMessage:@"Two colors are mixed to the middle color on the inferior arc between them"];
                     [self disableAll:-1];
                     [_grid disableAll:0];
                     break;
                 case 4:
-                    [self displayMessage:@"Tutorial begins! Please select the highlighted color"];
+                    [self displayMessage:@"Put the same color again and observe the changes"];
                     [self disableAll:-1];
                     [_grid disableAll:4];
                     break;
                 case 5:
-                    [self displayMessage:@"Tutorial begins! Please select the highlighted color"];
+                    [self displayMessage:@"Observe and try to think your solution"];
                     [self disableAll:1];
                     [_grid disableAll:-1];
                     break;
                 case 6:
-                    [self displayMessage:@"Tutorial begins! Please select the highlighted color"];
                     [self disableAll:-1];
                     [_grid disableAll:2];
                     break;
                 case 7:
-                    [self displayMessage:@"Tutorial begins! Please select the highlighted color"];
                     [self disableAll:2];
                     [_grid disableAll:-1];
                     break;
                 case 8:
-                    [self displayMessage:@"Tutorial begins! Please select the highlighted color"];
                     [self disableAll:-1];
                     [_grid disableAll:1];
                     break;
                 case 9:
-                    [self displayMessage:@"Tutorial begins! Please select the highlighted color"];
+                    [self displayMessage:@"Mix opposite colors and produce the rainbow cell!"];
                     [self disableAll:1];
                     [_grid disableAll:-1];
                     break;
                 case 10:
-                    [self displayMessage:@"Tutorial begins! Please select the highlighted color"];
+                    [self displayMessage:@"Tutorial ends! You can restart to learn again or start playing on your own"];
                     [self disableAll:-1];
                     [_grid disableAll:5];
                     break;
