@@ -95,6 +95,10 @@
             tempCreat = _colorCell[i][j];
             if(tempPos == pos) {
                 [tempCreat enable];
+                
+                NSLog(@"Grid position x %f\n",tempCreat.position.x);
+                NSLog(@"Grid position y %f\n",tempCreat.position.y);
+                
                 CGFloat pos_X = tempCreat.position.x + self.position.x;
                 CGFloat pos_Y = tempCreat.position.y + self.position.y;
                 [MainScene setParticlePos:ccp(pos_X, pos_Y)];
