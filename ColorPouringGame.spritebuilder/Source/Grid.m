@@ -27,7 +27,6 @@
     _numRow = [_level getNumRow];
     _numCol = [_level getNumCol];
     [self setupGrid];
-    
     // accept touches on the grid
     self.userInteractionEnabled = YES;
 }
@@ -95,10 +94,10 @@
             tempCreat = _colorCell[i][j];
             if(tempPos == pos) {
                 [tempCreat enable];
-                CGPoint temppp = ccp(tempCreat.positionInPoints.x + _posX, tempCreat.positionInPoints.y + _posY);
+                CGPoint temppp = ccp(tempCreat.positionInPoints.x*[self scaleX] + _posX, tempCreat.positionInPoints.y*[self scaleY] + _posY);
                 NSLog(@"temppp x = %f\n",temppp.x);
                 NSLog(@"temppp y = %f\n",temppp.y);
-                [MainScene setParticlePos:temppp];
+                [MainScene setParticlePos:tempCreat.positionInPoints];
             }
             else {
                 [tempCreat disable];

@@ -117,7 +117,9 @@ static int totalLevel = 12;
     [super onEnter];
     
     _grid.posX = _grid.positionInPoints.x;
-    _grid.posY = _grid.positionInPoints.y - (_grid.contentSizeInPoints.height/2);
+    _grid.posY = _grid.positionInPoints.y - (_grid.boundingBox.size.height/2);
+    _grid.scaleX = _grid.scaleX;
+    
     
     double height_total = self.contentSizeInPoints.height;
     double width_total = self.contentSizeInPoints.width;
@@ -200,6 +202,14 @@ static int totalLevel = 12;
     
 }
 
+- (void) addParticle {
+    particle = (CCParticleSystem *)[CCBReader load:@"Shining"];
+    particle.autoRemoveOnFinish = NO;
+    particle.position = ccp(-20,-20);
+    particle.zOrder = 2;
+    [self addChild:particle];
+}
+
 - (void) onNotify:(NSNotification *) notification
 {
     // [notification name] should always be @"TestNotification"
@@ -212,11 +222,7 @@ static int totalLevel = 12;
         if(levelNum == 0) {
             switch (stepTutorial) {
                 case 0:
-                    particle = (CCParticleSystem *)[CCBReader load:@"Shining"];
-                    particle.autoRemoveOnFinish = NO;
-                    particle.position = ccp(-20,-20);
-                    particle.zOrder = 2;
-                    [self addChild:particle];
+                    [self addParticle];
                     [self disableAll:0];
                     [_grid disableAll:-1];
                     break;
@@ -262,6 +268,7 @@ static int totalLevel = 12;
         else {
             switch (stepTutorial) {
                 case 0:
+                    [self addParticle];
                     [self disableAll:2];
                     [_grid disableAll:-1];
                     break;
