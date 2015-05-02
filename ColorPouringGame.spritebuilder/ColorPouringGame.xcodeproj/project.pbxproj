@@ -60,6 +60,7 @@
 		BFC55F2C1AE0E246004D157E /* ColorPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC55F2B1AE0E246004D157E /* ColorPanel.m */; };
 		BFC55F401AE19D35004D157E /* Level_3.json in Resources */ = {isa = PBXBuildFile; fileRef = BFC55F3F1AE19D35004D157E /* Level_3.json */; };
 		BFC55F631AE204D9004D157E /* EndGame.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC55F621AE204D9004D157E /* EndGame.m */; };
+		BFD252151AF4A42100B2D6CA /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD252141AF4A42100B2D6CA /* MBProgressHUD.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -167,6 +168,8 @@
 		BFC55F3F1AE19D35004D157E /* Level_3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_3.json; sourceTree = "<group>"; };
 		BFC55F611AE204D9004D157E /* EndGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EndGame.h; path = Source/EndGame.h; sourceTree = "<group>"; };
 		BFC55F621AE204D9004D157E /* EndGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EndGame.m; path = Source/EndGame.m; sourceTree = "<group>"; };
+		BFD252131AF4A42100B2D6CA /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = "../../../../../Downloads/MBProgressHUD-master/MBProgressHUD.h"; sourceTree = "<group>"; };
+		BFD252141AF4A42100B2D6CA /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBProgressHUD.m; path = "../../../../../Downloads/MBProgressHUD-master/MBProgressHUD.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +208,8 @@
 		B737893C1807616C0076A88C /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				BFD252131AF4A42100B2D6CA /* MBProgressHUD.h */,
+				BFD252141AF4A42100B2D6CA /* MBProgressHUD.m */,
 				BFB704DC1A79DE0100497817 /* Creature.h */,
 				BFB704DD1A79DE0100497817 /* Creature.m */,
 				BF42F7911AB8E42C001567D2 /* Target.h */,
@@ -503,6 +508,7 @@
 				BFA698831AD264EC00E05766 /* ColorHelper.m in Sources */,
 				BF42F7931AB8E42C001567D2 /* Target.m in Sources */,
 				B7378994180767190076A88C /* MainScene.m in Sources */,
+				BFD252151AF4A42100B2D6CA /* MBProgressHUD.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
 				BFB704D81A79DB1F00497817 /* Grid.m in Sources */,
 				BF42F7871AB8AE15001567D2 /* Level.m in Sources */,

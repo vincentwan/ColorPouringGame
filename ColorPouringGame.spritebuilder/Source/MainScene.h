@@ -12,6 +12,7 @@
 #import "ColorHelper.h"
 #import "AppDelegate.h"
 #import "ColorButton.h"
+#import "MBProgressHUD.h"
 
 
 @interface MainScene : CCNode

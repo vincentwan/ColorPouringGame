@@ -224,6 +224,7 @@ static int totalLevel = 12;
         if(levelNum == 0) {
             switch (stepTutorial) {
                 case 0:
+                    [self displayMessage];
                     [self addParticle];
                     [self disableAll:0];
                     [_grid disableAll:-1];
@@ -320,6 +321,20 @@ static int totalLevel = 12;
             stepTutorial++;
         }
     }
+}
+
+- (void)displayMessage
+{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self animated:YES];
+    
+    // Configure for text only and offset down
+    hud.mode = MBProgressHUDModeText;
+    hud.labelText = @"Some message...";
+    hud.margin = 10.f;
+    hud.yOffset = 150.f;
+    hud.removeFromSuperViewOnHide = YES;
+    
+    [hud hide:YES afterDelay:3];
 }
 
 - (void)disableAll:(int) pos
