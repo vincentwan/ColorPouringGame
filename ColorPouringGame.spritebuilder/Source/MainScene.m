@@ -21,6 +21,7 @@ extern const int GRID_COLUMNS;
     CCLabelTTF * _stepCount;
     CCLabelTTF * _stepScore;
     CCButton * _restartBtn;
+    CCButton * _backBtn;
     CCNode * _background;
 }
 
@@ -213,6 +214,25 @@ static int totalLevel = 12;
         NSLog(@"This is MainScene onEnter");
     }
     
+    if(levelNum>0) {
+        _backBtn = [CCButton buttonWithTitle:@"Previous Level"
+                      spriteFrame:[CCSpriteFrame frameWithImageNamed:@"ColorPouringAssets/Buttons/back.png"]
+           highlightedSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"ColorPouringAssets/Buttons/back.png"]
+              disabledSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"ColorPouringAssets/Buttons/back.png"]];
+    
+        _backBtn.position = ccp(width_total*0.097,height_total*0.908);
+        _backBtn.anchorPoint = ccp(0.5,0.5);
+        _backBtn.zOrder = 1;
+        [_backBtn setTarget:self selector:@selector(backLevel)];
+        [self addChild:_backBtn];
+    }
+}
+
+- (void) backLevel {
+    [MainScene setLevelNum:(levelNum-1)];
+    NSLog(@"Previous Level: %d!", MainScene.levelNum);
+    CCScene *mainScene = [CCBReader loadAsScene:@"MainScene"];
+    [[CCDirector sharedDirector]replaceScene:mainScene];
 }
 
 - (void) addParticle {
