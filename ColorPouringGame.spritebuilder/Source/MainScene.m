@@ -224,7 +224,7 @@ static int totalLevel = 12;
         if(levelNum == 0) {
             switch (stepTutorial) {
                 case 0:
-                    [self displayMessage];
+                    [self displayMessage:@"Here it is"];
                     [self addParticle];
                     [self disableAll:0];
                     [_grid disableAll:-1];
@@ -317,7 +317,7 @@ static int totalLevel = 12;
     }
 }
 
-- (void)displayMessage
+- (void)displayMessage:(NSString *) message
 {
     double height_total = self.contentSizeInPoints.height;
     double width_total = self.contentSizeInPoints.width;
@@ -328,15 +328,11 @@ static int totalLevel = 12;
     [parentView addSubview:myview];
 
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:myview animated:YES];
-    
     // Configure for text only and offset down
     hud.mode = MBProgressHUDModeText;
     hud.color = [UIColor colorWithWhite:1.0 alpha:0.0];
-    hud.labelText = @"Some message...";
-    //hud.margin = 10.f;
-    //hud.yOffset = 150.f;
+    hud.labelText = message;
     hud.removeFromSuperViewOnHide = YES;
-    
     [hud hide:YES afterDelay:3];
 }
 
