@@ -19,7 +19,7 @@
     return self;
 }
 
-static int threshold = 40;
+static int threshold = 60;
 + (int) threshold
 { @synchronized(self) { return threshold; } }
 

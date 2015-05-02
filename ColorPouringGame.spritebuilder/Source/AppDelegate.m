@@ -66,6 +66,7 @@
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
+    [super applicationDidBecomeActive:application];
     [FBSDKAppEvents activateApp];
 }
 
