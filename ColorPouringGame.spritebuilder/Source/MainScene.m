@@ -110,43 +110,96 @@ static int totalLevel = 12;
     if ([[notification name] isEqualToString:@"TestNotification"]) {
         NSLog (@"Successfully received the test notification!");
         NSLog(@"Here is notification at step: %d\n", stepTutorial);
-        switch (stepTutorial) {
-            case 0:
-                [self disableAll:0];
-                [_grid disableAll:-1];
-                break;
-            case 1:
-                [self disableAll:-1];
-                [_grid disableAll:2];
-                break;
-            case 2:
-                [self disableAll:1];
-                [_grid disableAll:-1];
-                break;
-            case 3:
-                [self disableAll:-1];
-                [_grid disableAll:3];
-                break;
-            case 4:
-                [self disableAll:0];
-                [_grid disableAll:-1];
-                break;
-            case 5:
-                [self disableAll:-1];
-                [_grid disableAll:0];
-                break;
-            case 6:
-                [self disableAll:2];
-                [_grid disableAll:-1];
-                break;
-            case 7:
-                [self disableAll:-1];
-                [_grid disableAll:1];
-                break;
-            default:
-                break;
+        if(levelNum == 0) {
+            switch (stepTutorial) {
+                case 0:
+                    [self disableAll:0];
+                    [_grid disableAll:-1];
+                    break;
+                case 1:
+                    [self disableAll:-1];
+                    [_grid disableAll:2];
+                    break;
+                case 2:
+                    [self disableAll:1];
+                    [_grid disableAll:-1];
+                    break;
+                case 3:
+                    [self disableAll:-1];
+                    [_grid disableAll:3];
+                    break;
+                case 4:
+                    [self disableAll:0];
+                    [_grid disableAll:-1];
+                    break;
+                case 5:
+                    [self disableAll:-1];
+                    [_grid disableAll:0];
+                    break;
+                case 6:
+                    [self disableAll:2];
+                    [_grid disableAll:-1];
+                    break;
+                case 7:
+                    [self disableAll:-1];
+                    [_grid disableAll:1];
+                    break;
+                default:
+                    break;
+            }
+            stepTutorial++;
         }
-        stepTutorial++;
+        else {
+            switch (stepTutorial) {
+                case 0:
+                    [self disableAll:2];
+                    [_grid disableAll:-1];
+                    break;
+                case 1:
+                    [self disableAll:-1];
+                    [_grid disableAll:3];
+                    break;
+                case 2:
+                    [self disableAll:0];
+                    [_grid disableAll:-1];
+                    break;
+                case 3:
+                    [self disableAll:-1];
+                    [_grid disableAll:0];
+                    break;
+                case 4:
+                    [self disableAll:-1];
+                    [_grid disableAll:4];
+                    break;
+                case 5:
+                    [self disableAll:1];
+                    [_grid disableAll:-1];
+                    break;
+                case 6:
+                    [self disableAll:-1];
+                    [_grid disableAll:2];
+                    break;
+                case 7:
+                    [self disableAll:2];
+                    [_grid disableAll:-1];
+                    break;
+                case 8:
+                    [self disableAll:-1];
+                    [_grid disableAll:1];
+                    break;
+                case 9:
+                    [self disableAll:1];
+                    [_grid disableAll:-1];
+                    break;
+                case 10:
+                    [self disableAll:-1];
+                    [_grid disableAll:5];
+                    break;
+                default:
+                    break;
+            }
+            stepTutorial++;
+        }
     }
 }
 
