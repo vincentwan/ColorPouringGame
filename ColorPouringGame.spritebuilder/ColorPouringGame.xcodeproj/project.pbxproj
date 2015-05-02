@@ -61,6 +61,7 @@
 		BFC55F401AE19D35004D157E /* Level_3.json in Resources */ = {isa = PBXBuildFile; fileRef = BFC55F3F1AE19D35004D157E /* Level_3.json */; };
 		BFC55F631AE204D9004D157E /* EndGame.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC55F621AE204D9004D157E /* EndGame.m */; };
 		BFD252151AF4A42100B2D6CA /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD252141AF4A42100B2D6CA /* MBProgressHUD.m */; };
+		BFD252281AF4D04F00B2D6CA /* BackButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD252271AF4D04F00B2D6CA /* BackButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -170,6 +171,8 @@
 		BFC55F621AE204D9004D157E /* EndGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EndGame.m; path = Source/EndGame.m; sourceTree = "<group>"; };
 		BFD252131AF4A42100B2D6CA /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = "../../../../../Downloads/MBProgressHUD-master/MBProgressHUD.h"; sourceTree = "<group>"; };
 		BFD252141AF4A42100B2D6CA /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBProgressHUD.m; path = "../../../../../Downloads/MBProgressHUD-master/MBProgressHUD.m"; sourceTree = "<group>"; };
+		BFD252261AF4D04F00B2D6CA /* BackButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BackButton.h; path = Source/BackButton.h; sourceTree = "<group>"; };
+		BFD252271AF4D04F00B2D6CA /* BackButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BackButton.m; path = Source/BackButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +233,8 @@
 				BFA698821AD264EC00E05766 /* ColorHelper.m */,
 				BF3A6FE31AED930A00C37828 /* ColorButton.h */,
 				BF3A6FE41AED930A00C37828 /* ColorButton.m */,
+				BFD252261AF4D04F00B2D6CA /* BackButton.h */,
+				BFD252271AF4D04F00B2D6CA /* BackButton.m */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -513,6 +518,7 @@
 				BFB704D81A79DB1F00497817 /* Grid.m in Sources */,
 				BF42F7871AB8AE15001567D2 /* Level.m in Sources */,
 				BFB704DE1A79DE0100497817 /* Creature.m in Sources */,
+				BFD252281AF4D04F00B2D6CA /* BackButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

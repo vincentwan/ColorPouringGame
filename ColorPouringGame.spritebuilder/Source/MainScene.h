@@ -15,6 +15,7 @@
 #import "MBProgressHUD.h"
 #import "cocos2d.h"
 #import <UIKit/UIKit.h>
+#import "BackButton.h"
 
 @interface MainScene : CCNode
 
