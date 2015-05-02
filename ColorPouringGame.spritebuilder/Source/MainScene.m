@@ -215,6 +215,7 @@ static int totalLevel = 12;
     }
     
     if(levelNum>0) {
+        NSLog(@"Back Button");
         _backBtn = [CCButton buttonWithTitle:@"Back"
                       spriteFrame:[CCSpriteFrame frameWithImageNamed:@"ColorPouringAssets/Buttons/back.png"]
            highlightedSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"ColorPouringAssets/Buttons/back.png"]
@@ -224,6 +225,7 @@ static int totalLevel = 12;
         _backBtn.anchorPoint = ccp(0.5,0.5);
         _backBtn.zOrder = 1;
         [_backBtn setTarget:self selector:@selector(backLevel)];
+        _backBtn.enabled = true;
         [self addChild:_backBtn];
     }
 }
