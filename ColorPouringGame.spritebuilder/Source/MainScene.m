@@ -211,12 +211,13 @@ static int totalLevel = 12;
                 case 1:
                     [self disableAll:-1];
                     [_grid disableAll:2];
-                    [particle resetSystem];
                     particle.visible = NO;
+                    [particle stopSystem];
                     [self removeChild:particle cleanup:YES];
                     particle.position = ccp(200,40);
                     [self addChild:particle];
                     particle.visible = YES;
+                    [particle resetSystem];
                     break;
                 case 2:
                     [self disableAll:1];
