@@ -240,27 +240,27 @@ static int totalLevel = 12;
                     [_grid disableAll:-1];
                     break;
                 case 3:
-                    [self displayMessage:@"Put into the second cell and you will see the color of its neighbour changes"];
+                    [self displayMessage:@"Put into the second cell and you will see the color of its neighbor changes"];
                     [self disableAll:-1];
                     [_grid disableAll:3];
                     break;
                 case 4:
-                    [self displayMessage:@"Put this color into the first cell"];
+                    [self displayMessage:@"If one cell has already meet the target color, it will not be changed again"];
                     [self disableAll:0];
                     [_grid disableAll:-1];
                     break;
                 case 5:
-                    [self displayMessage:@"Put this color into the first cell"];
+                    [self displayMessage:@"Put into the cell and the neighbor won't change"];
                     [self disableAll:-1];
                     [_grid disableAll:0];
                     break;
                 case 6:
-                    [self displayMessage:@"Put this color into the first cell"];
+                    [self displayMessage:@"Select the final color"];
                     [self disableAll:2];
                     [_grid disableAll:-1];
                     break;
                 case 7:
-                    [self displayMessage:@"Put this color into the first cell"];
+                    [self displayMessage:@"Put into the cell and you get full score!"];
                     [self disableAll:-1];
                     [_grid disableAll:1];
                     break;
