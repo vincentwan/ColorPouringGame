@@ -192,13 +192,7 @@ static int totalLevel = 12;
     // [notification name] should always be @"TestNotification"
     // unless you use this method for observation of other notifications
     // as well.
-    
-    /*
-    particle = (CCParticleSystem *)[CCBReader load:@"Shining"];
-    particle.autoRemoveOnFinish = NO;
-    particle.position = ccp(100,40);
-    [self addChild:particle];
-     */
+
     if ([[notification name] isEqualToString:@"TestNotification"]) {
         NSLog (@"Successfully received the test notification!");
         NSLog(@"Here is notification at step: %d\n", stepTutorial);
@@ -207,11 +201,15 @@ static int totalLevel = 12;
                 case 0:
                     [self disableAll:0];
                     [_grid disableAll:-1];
+                    particle = (CCParticleSystem *)[CCBReader load:@"Shining"];
+                    particle.autoRemoveOnFinish = NO;
+                    particle.position = ccp(100,40);
+                    [self addChild:particle];
                     break;
                 case 1:
                     [self disableAll:-1];
                     [_grid disableAll:2];
-                    /*
+                    
                     particle.visible = NO;
                     [particle stopSystem];
                     [self removeChild:particle cleanup:YES];
@@ -219,7 +217,7 @@ static int totalLevel = 12;
                     [self addChild:particle];
                     particle.visible = YES;
                     [particle resetSystem];
-                     */
+                    
                     break;
                 case 2:
                     [self disableAll:1];
@@ -360,10 +358,14 @@ static int totalLevel = 12;
     [_redBtn setSelected:YES];
     [_blueBtn setSelected:NO];
     [_yellowBtn setSelected:NO];
+    if(tutorialLevel) {
+        [[NSNotificationCenter defaultCenter]
+         postNotificationName:@"TestNotification"
+         object:self];
+        _redBtn.highlighted = NO;
+        
+    }
     
-    [[NSNotificationCenter defaultCenter]
-     postNotificationName:@"TestNotification"
-     object:self];
     
     NSLog(@"Here red!");
     //[self loadMyViewController];
@@ -382,9 +384,13 @@ static int totalLevel = 12;
     [_redBtn setSelected:NO];
     [_yellowBtn setSelected:NO];
     
-    [[NSNotificationCenter defaultCenter]
-     postNotificationName:@"TestNotification"
-     object:self];
+    if(tutorialLevel) {
+        [[NSNotificationCenter defaultCenter]
+         postNotificationName:@"TestNotification"
+         object:self];
+        _blueBtn.highlighted = NO;
+    }
+    
     
     NSLog(@"Here blue!");
 }
@@ -402,9 +408,12 @@ static int totalLevel = 12;
     [_blueBtn setSelected:NO];
     [_redBtn setSelected:NO];
     
-    [[NSNotificationCenter defaultCenter]
-     postNotificationName:@"TestNotification"
-     object:self];
+    if(tutorialLevel) {
+        [[NSNotificationCenter defaultCenter]
+         postNotificationName:@"TestNotification"
+         object:self];
+        _yellowBtn.highlighted = NO;
+    }
     
     NSLog(@"Here yellow!");
 }
@@ -415,7 +424,6 @@ static int totalLevel = 12;
     [[CCDirector sharedDirector]replaceScene:mainScene];
     NSLog(@"Restart!");
 }
-
 
 -(void) shareToFacebook {
     FBSDKShareLinkContent *content = [[FBSDKShareLinkContent alloc] init];

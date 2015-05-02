@@ -46,6 +46,7 @@ static int btnSizeY = 35;
     [self setBackgroundColor:[CCColor colorWithUIColor:col] forState:CCControlStateDisabled];
     [self setBackgroundOpacity:0.6 forState:CCControlStateSelected];
     [self setZoomWhenHighlighted:YES];
+    
     //[self setBackgroundOpacity:0.7 forState:CCControlStateHighlighted];
     
     //NSLog(@"Here! setCcolor");
