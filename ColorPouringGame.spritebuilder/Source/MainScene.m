@@ -253,7 +253,7 @@ static int totalLevel = 12;
                     [_grid disableAll:-1];
                     break;
                 case 1:
-                    [self displayMessage:@"Put this color into the first cell"];
+                    [self displayMessage:@"Put this color into the cell, the target color is the color of its frame"];
                     [self disableAll:-1];
                     [_grid disableAll:2];
                     break;
