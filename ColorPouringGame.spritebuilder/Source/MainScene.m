@@ -22,8 +22,17 @@ extern const int GRID_COLUMNS;
     CCLabelTTF * _stepScore;
     CCButton * _restartBtn;
     CCNode * _background;
-    CCParticleSystem *particle;
 }
+
+static CCParticleSystem *particle;
++ (CCParticleSystem *) particle
+{ @synchronized(self) { return particle; } }
++ (void) setParticle:(CCParticleSystem *)val
+{ @synchronized(self) { particle = val; } }
+
++ (void) setParticlePos:(CGPoint)val
+{ @synchronized(self) { particle.position = val; } }
+
 
 static BOOL tutorialLevel = YES;
 + (BOOL) tutorialLevel
@@ -199,25 +208,22 @@ static int totalLevel = 12;
         if(levelNum == 0) {
             switch (stepTutorial) {
                 case 0:
-                    [self disableAll:0];
-                    [_grid disableAll:-1];
                     particle = (CCParticleSystem *)[CCBReader load:@"Shining"];
                     particle.autoRemoveOnFinish = NO;
-                    particle.position = ccp(100,40);
+                    particle.position = ccp(-20,-20);
                     [self addChild:particle];
+                    [self disableAll:0];
+                    [_grid disableAll:-1];
                     break;
                 case 1:
                     [self disableAll:-1];
                     [_grid disableAll:2];
-                    
                     //particle.visible = NO;
                     //[particle stopSystem];
                     //[self removeChild:particle cleanup:YES];
-                    particle.position = ccp(200,40);
                     //[self addChild:particle];
                     //particle.visible = YES;
                     //[particle resetSystem];
-                    
                     break;
                 case 2:
                     [self disableAll:1];
@@ -304,33 +310,27 @@ static int totalLevel = 12;
 
 - (void)disableAll:(int) pos
 {
+    _redBtn.enabled = false;
+    _blueBtn.enabled = false;
+    _yellowBtn.enabled = false;
+    _restartBtn.enabled = false;
     switch (pos) {
         case -1:
-            _redBtn.enabled = false;
-            _blueBtn.enabled = false;
-            _yellowBtn.enabled = false;
-            _restartBtn.enabled = false;
             break;
         case 0:
             _redBtn.enabled = true;
+            particle.position = _redBtn.position;
             _redBtn.highlighted = true;
-            _blueBtn.enabled = false;
-            _yellowBtn.enabled = false;
-            _restartBtn.enabled = false;
             break;
         case 1:
             _blueBtn.enabled = true;
+            particle.position = _blueBtn.position;
             _blueBtn.highlighted = true;
-            _redBtn.enabled = false;
-            _yellowBtn.enabled = false;
-            _restartBtn.enabled = false;
             break;
         case 2:
             _yellowBtn.enabled = true;
+            particle.position = _yellowBtn.position;
             _yellowBtn.highlighted = true;
-            _blueBtn.enabled = false;
-            _redBtn.enabled = false;
-            _restartBtn.enabled = false;
             break;
         default:
             break;

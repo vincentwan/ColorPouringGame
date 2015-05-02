@@ -95,6 +95,7 @@
             tempCreat = _colorCell[i][j];
             if(tempPos == pos) {
                 [tempCreat enable];
+                [MainScene setParticlePos:tempCreat.position];
             }
             else {
                 [tempCreat disable];

@@ -30,5 +30,8 @@
 + (int) totalLevel;
 + (int) stepTutorial;
 + (void) setStepTutorial:(int)val;
++ (CCParticleSystem *) particle;
++ (void) setParticle:(CCParticleSystem *)val;
++ (void) setParticlePos:(CGPoint)val;
 
 @end
