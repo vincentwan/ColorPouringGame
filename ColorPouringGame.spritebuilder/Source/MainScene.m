@@ -321,8 +321,8 @@ static int totalLevel = 12;
 {
     double height_total = self.contentSizeInPoints.height;
     double width_total = self.contentSizeInPoints.width;
-    UIView *myview=[[UIView alloc] initWithFrame: CGRectMake(0, 0, 200, 40)];
-    myview.center = CGPointMake(width_total/2, height_total*0.1);
+    UIView *myview=[[UIView alloc] initWithFrame: CGRectMake(0, 0, 500, 40)];
+    myview.center = CGPointMake(width_total/2, height_total*0.9);
     UIView *parentView = [[CCDirector sharedDirector] view];
     myview.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.0];
     [parentView addSubview:myview];
