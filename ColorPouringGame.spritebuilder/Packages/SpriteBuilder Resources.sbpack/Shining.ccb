@@ -120,7 +120,7 @@
 				<key>type</key>
 				<string>Float</string>
 				<key>value</key>
-				<real>1000</real>
+				<real>100</real>
 			</dict>
 			<dict>
 				<key>name</key>
@@ -156,7 +156,7 @@
 				<string>FloatVar</string>
 				<key>value</key>
 				<array>
-					<real>40</real>
+					<real>20</real>
 					<real>5</real>
 				</array>
 			</dict>
@@ -167,7 +167,7 @@
 				<string>FloatVar</string>
 				<key>value</key>
 				<array>
-					<real>40</real>
+					<real>10</real>
 					<real>0.0</real>
 				</array>
 			</dict>
@@ -212,16 +212,16 @@
 				<key>value</key>
 				<array>
 					<array>
-						<real>0.054070275276899338</real>
-						<real>0.061097972095012665</real>
-						<real>0.061653945595026016</real>
-						<real>0.070000000298023224</real>
+						<real>0.0034373125527054071</real>
+						<real>0.0038532703183591366</real>
+						<real>0.0039242510683834553</real>
+						<real>0.85000002384185791</real>
 					</array>
 					<array>
-						<real>0.79728645086288452</real>
-						<real>0.81359821557998657</real>
-						<real>0.53402787446975708</real>
-						<real>0.61000001430511475</real>
+						<real>0.053260069340467453</real>
+						<real>0.054309476166963577</real>
+						<real>0.035978958010673523</real>
+						<real>0.0</real>
 					</array>
 				</array>
 			</dict>
@@ -283,8 +283,8 @@
 				<string>FloatVar</string>
 				<key>value</key>
 				<array>
-					<real>50</real>
-					<real>50</real>
+					<real>30</real>
+					<real>30</real>
 				</array>
 			</dict>
 			<dict>
@@ -304,7 +304,7 @@
 				<key>type</key>
 				<string>Texture</string>
 				<key>value</key>
-				<string>ColorPouringAssets/Particles/ccbParticleStars.png</string>
+				<string>ColorPouringAssets/Particles/ccbParticleMagic.png</string>
 			</dict>
 		</array>
 		<key>selected</key>
