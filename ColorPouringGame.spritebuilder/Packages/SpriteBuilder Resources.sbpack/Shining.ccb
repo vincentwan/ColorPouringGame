@@ -101,7 +101,7 @@
 				<key>type</key>
 				<string>IntegerLabeled</string>
 				<key>value</key>
-				<integer>0</integer>
+				<integer>1</integer>
 			</dict>
 			<dict>
 				<key>name</key>
@@ -120,7 +120,7 @@
 				<key>type</key>
 				<string>Float</string>
 				<key>value</key>
-				<real>2000</real>
+				<real>1000</real>
 			</dict>
 			<dict>
 				<key>name</key>
@@ -128,7 +128,7 @@
 				<key>type</key>
 				<string>Float</string>
 				<key>value</key>
-				<real>100</real>
+				<real>-1</real>
 			</dict>
 			<dict>
 				<key>name</key>
@@ -167,7 +167,7 @@
 				<string>FloatVar</string>
 				<key>value</key>
 				<array>
-					<real>0.0</real>
+					<real>40</real>
 					<real>0.0</real>
 				</array>
 			</dict>
@@ -218,10 +218,10 @@
 						<real>0.070000000298023224</real>
 					</array>
 					<array>
-						<real>0.62852370738983154</real>
-						<real>0.70458287000656128</real>
-						<real>0.71756190061569214</real>
-						<real>0.070000000298023224</real>
+						<real>0.79728645086288452</real>
+						<real>0.81359821557998657</real>
+						<real>0.53402787446975708</real>
+						<real>0.61000001430511475</real>
 					</array>
 				</array>
 			</dict>
@@ -233,15 +233,15 @@
 				<key>value</key>
 				<array>
 					<array>
-						<real>0.79728645086288452</real>
-						<real>0.81359821557998657</real>
-						<real>0.53402787446975708</real>
-						<real>0.61000001430511475</real>
-					</array>
-					<array>
 						<real>0.63242906332015991</real>
 						<real>0.63713228702545166</real>
 						<real>0.69887208938598633</real>
+						<real>0.43000000715255737</real>
+					</array>
+					<array>
+						<real>0.11138780415058136</real>
+						<real>0.11216629296541214</real>
+						<real>0.12404593825340271</real>
 						<real>0.43000000715255737</real>
 					</array>
 				</array>
@@ -267,29 +267,29 @@
 			</dict>
 			<dict>
 				<key>name</key>
-				<string>gravity</string>
+				<string>startRadius</string>
 				<key>type</key>
-				<string>Point</string>
+				<string>FloatVar</string>
 				<key>value</key>
 				<array>
-					<real>0.0</real>
-					<real>-40</real>
+					<real>20</real>
+					<real>20</real>
 				</array>
 			</dict>
 			<dict>
 				<key>name</key>
-				<string>speed</string>
+				<string>endRadius</string>
 				<key>type</key>
 				<string>FloatVar</string>
 				<key>value</key>
 				<array>
 					<real>50</real>
-					<real>0.0</real>
+					<real>50</real>
 				</array>
 			</dict>
 			<dict>
 				<key>name</key>
-				<string>tangentialAccel</string>
+				<string>rotatePerSecond</string>
 				<key>type</key>
 				<string>FloatVar</string>
 				<key>value</key>
@@ -300,22 +300,11 @@
 			</dict>
 			<dict>
 				<key>name</key>
-				<string>radialAccel</string>
-				<key>type</key>
-				<string>FloatVar</string>
-				<key>value</key>
-				<array>
-					<real>0.0</real>
-					<real>0.0</real>
-				</array>
-			</dict>
-			<dict>
-				<key>name</key>
 				<string>texture</string>
 				<key>type</key>
 				<string>Texture</string>
 				<key>value</key>
-				<string>ColorPouringAssets/Particles/ccbParticleMagic.png</string>
+				<string>ColorPouringAssets/Particles/ccbParticleStars.png</string>
 			</dict>
 		</array>
 		<key>selected</key>
