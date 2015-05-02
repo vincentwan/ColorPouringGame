@@ -324,13 +324,13 @@ static int totalLevel = 12;
     UIView *myview=[[UIView alloc] initWithFrame: CGRectMake(0, 0, 500, 40)];
     myview.center = CGPointMake(width_total/2, height_total*0.9);
     UIView *parentView = [[CCDirector sharedDirector] view];
-    myview.backgroundColor = [UIColor colorWithRed:(251.0/255.0) green:0.0 blue:(64.0/255.0) alpha:1.0];
+    myview.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.0];
     [parentView addSubview:myview];
 
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:myview animated:YES];
     // Configure for text only and offset down
     hud.mode = MBProgressHUDModeText;
-    hud.color = [UIColor colorWithWhite:1.0 alpha:0.0];
+    hud.color = [UIColor colorWithRed:(251.0/255.0) green:0.0 blue:(64.0/255.0) alpha:1.0];
     hud.labelText = message;
     hud.removeFromSuperViewOnHide = YES;
     [hud hide:YES afterDelay:3];
