@@ -240,7 +240,7 @@ static int totalLevel = 12;
                     [_grid disableAll:-1];
                     break;
                 case 3:
-                    [self displayMessage:@"Put into the second cell and you will see the color of its neighbor changes"];
+                    [self displayMessage:@"Put into the second cell and you will see the color of its neighbor is mixed with the newly added color"];
                     [self disableAll:-1];
                     [_grid disableAll:3];
                     break;
@@ -278,12 +278,11 @@ static int totalLevel = 12;
                     [_grid disableAll:-1];
                     break;
                 case 1:
-                    [self displayMessage:@"Put into the cell"];
+                    [self displayMessage:@"Follow the instructions along the way"];
                     [self disableAll:-1];
                     [_grid disableAll:3];
                     break;
                 case 2:
-                    [self displayMessage:@"Select the color"];
                     [self disableAll:0];
                     [_grid disableAll:-1];
                     break;
