@@ -96,7 +96,7 @@ static int totalLevel = 12;
     
     
     NSNumber *highLevel = [[NSUserDefaults standardUserDefaults]objectForKey:@"highLevel"];
-    levelNum = [highLevel intValue];
+    [MainScene setLevelNum:[highLevel intValue]];
     
     NSLog(@"This is MainScene Level %d\n", levelNum);
     /*
@@ -215,7 +215,7 @@ static int totalLevel = 12;
     }
     
     if(levelNum>0) {
-        _backBtn = [CCButton buttonWithTitle:@"Previous Level"
+        _backBtn = [CCButton buttonWithTitle:@"Back"
                       spriteFrame:[CCSpriteFrame frameWithImageNamed:@"ColorPouringAssets/Buttons/back.png"]
            highlightedSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"ColorPouringAssets/Buttons/back.png"]
               disabledSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"ColorPouringAssets/Buttons/back.png"]];
