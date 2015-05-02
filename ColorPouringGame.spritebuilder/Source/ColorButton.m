@@ -23,7 +23,7 @@ static int btnSizeY = 35;
     self = [super initWithTitle:@""
                     spriteFrame:[CCSpriteFrame frameWithImageNamed:@"ColorPouringAssets/Assets/cell.png"]
                     highlightedSpriteFrame:[CCSpriteFrame frameWithImageNamed:
-                                            @"ColorPouringAssets/Buttons/button.png"]
+                                            @"ColorPouringAssets/Buttons/highlight_button.png"]
             //@"ColorPouringAssets/Assets/cell_highlighted.png"]
                     disabledSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"ColorPouringAssets/Assets/cell.png"]];
     self.position = ccp(xlen,ylen);
