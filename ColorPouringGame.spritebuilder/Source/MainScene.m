@@ -322,7 +322,7 @@ static int totalLevel = 12;
     double height_total = self.contentSizeInPoints.height;
     double width_total = self.contentSizeInPoints.width;
     UIView *myview=[[UIView alloc] initWithFrame: CGRectMake(0, 0, 200, 40)];
-    myview.center = CGPointMake(width_total/2, height_total/2);
+    myview.center = CGPointMake(width_total/2, height_total*0.1);
     UIView *parentView = [[CCDirector sharedDirector] view];
     myview.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.0];
     [parentView addSubview:myview];
@@ -331,6 +331,7 @@ static int totalLevel = 12;
     
     // Configure for text only and offset down
     hud.mode = MBProgressHUDModeText;
+    hud.color = [UIColor colorWithWhite:1.0 alpha:0.0];
     hud.labelText = @"Some message...";
     //hud.margin = 10.f;
     //hud.yOffset = 150.f;
