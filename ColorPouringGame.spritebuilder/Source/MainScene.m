@@ -63,12 +63,17 @@ static int levelNum = 0;
 + (void) setLevelNum:(int)val
 { @synchronized(self) {
     NSNumber *highLevel = [[NSUserDefaults standardUserDefaults]objectForKey:@"highLevel"];
+    /*
     if (val > [highLevel intValue]) {
         // new level!
         highLevel = [NSNumber numberWithInt:val];
         [[NSUserDefaults standardUserDefaults]setObject:highLevel forKey:@"highLevel"];
         [[NSUserDefaults standardUserDefaults]synchronize];
     }
+     */
+    highLevel = [NSNumber numberWithInt:val];
+    [[NSUserDefaults standardUserDefaults]setObject:highLevel forKey:@"highLevel"];
+    [[NSUserDefaults standardUserDefaults]synchronize];
     levelNum = val;
     NSLog(@"Here is set level %d\n", val);
     if(levelNum < totalTutorial) {
