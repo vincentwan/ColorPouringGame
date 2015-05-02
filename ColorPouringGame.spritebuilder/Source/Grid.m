@@ -95,7 +95,7 @@
             tempCreat = _colorCell[i][j];
             if(tempPos == pos) {
                 [tempCreat enable];
-                CGPoint temppp = [tempCreat convertToWorldSpace:tempCreat.position];
+                CGPoint temppp = ccp(tempCreat.positionInPoints.x + _posX, tempCreat.positionInPoints.y + _posY);
                 NSLog(@"temppp x = %f\n",temppp.x);
                 NSLog(@"temppp y = %f\n",temppp.y);
                 [MainScene setParticlePos:temppp];

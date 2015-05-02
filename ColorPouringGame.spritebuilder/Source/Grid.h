@@ -25,6 +25,8 @@
 @property (strong, nonatomic) Level *level;
 @property (nonatomic, assign) int numRow;
 @property (nonatomic, assign) int numCol;
+@property (nonatomic, assign) CGFloat posX;
+@property (nonatomic, assign) CGFloat posY;
 
 // - (void)clearCreatures;
 - (void)colorAffect:(int) rowNum col:(int)colNum num:(int)serialNum;

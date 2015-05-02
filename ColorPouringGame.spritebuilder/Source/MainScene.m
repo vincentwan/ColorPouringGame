@@ -115,6 +115,10 @@ static int totalLevel = 12;
 - (void)onEnter
 {
     [super onEnter];
+    
+    _grid.posX = _grid.positionInPoints.x;
+    _grid.posY = _grid.positionInPoints.y - (_grid.contentSizeInPoints.height/2);
+    
     double height_total = self.contentSizeInPoints.height;
     double width_total = self.contentSizeInPoints.width;
     
