@@ -232,12 +232,6 @@ static int totalLevel = 12;
                 case 1:
                     [self disableAll:-1];
                     [_grid disableAll:2];
-                    //particle.visible = NO;
-                    //[particle stopSystem];
-                    //[self removeChild:particle cleanup:YES];
-                    //[self addChild:particle];
-                    //particle.visible = YES;
-                    //[particle resetSystem];
                     break;
                 case 2:
                     [self disableAll:1];
@@ -325,9 +319,10 @@ static int totalLevel = 12;
 
 - (void)displayMessage
 {
-    UIView *myview=[[UIView alloc] initWithFrame: CGRectMake(0, 0,320,480)];
+    UIView *myview=[[UIView alloc] initWithFrame: CGRectMake(80, 80,30,40)];
     myview.backgroundColor=[UIColor redColor];
     UIView *parentView = [[CCDirector sharedDirector] view];
+    
     [parentView addSubview:myview];
 
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:myview animated:YES];
