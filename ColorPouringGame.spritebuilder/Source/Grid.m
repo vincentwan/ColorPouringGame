@@ -97,7 +97,7 @@
                 CGPoint temppp = ccp(tempCreat.positionInPoints.x*[self scaleX] + _posX, tempCreat.positionInPoints.y*[self scaleY] + _posY);
                 NSLog(@"temppp x = %f\n",temppp.x);
                 NSLog(@"temppp y = %f\n",temppp.y);
-                [MainScene setParticlePos:tempCreat.positionInPoints];
+                [MainScene setParticlePos:temppp];
             }
             else {
                 [tempCreat disable];
