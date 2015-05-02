@@ -315,18 +315,21 @@ static int totalLevel = 12;
             break;
         case 0:
             _redBtn.enabled = true;
+            _redBtn.highlighted = true;
             _blueBtn.enabled = false;
             _yellowBtn.enabled = false;
             _restartBtn.enabled = false;
             break;
         case 1:
             _blueBtn.enabled = true;
+            _blueBtn.highlighted = true;
             _redBtn.enabled = false;
             _yellowBtn.enabled = false;
             _restartBtn.enabled = false;
             break;
         case 2:
             _yellowBtn.enabled = true;
+            _yellowBtn.highlighted = true;
             _blueBtn.enabled = false;
             _redBtn.enabled = false;
             _restartBtn.enabled = false;
