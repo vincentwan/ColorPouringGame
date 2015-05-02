@@ -224,37 +224,43 @@ static int totalLevel = 12;
         if(levelNum == 0) {
             switch (stepTutorial) {
                 case 0:
-                    [self displayMessage:@"Here it is"];
+                    [self displayMessage:@"Tutorial begins! Please select the highlighted color"];
                     [self addParticle];
                     [self disableAll:0];
                     [_grid disableAll:-1];
                     break;
                 case 1:
-                    [self displayMessage:@"It is here"];
+                    [self displayMessage:@"Put this color into the first cell"];
                     [self disableAll:-1];
                     [_grid disableAll:2];
                     break;
                 case 2:
+                    [self displayMessage:@"Select the second color"];
                     [self disableAll:1];
                     [_grid disableAll:-1];
                     break;
                 case 3:
+                    [self displayMessage:@"Put into the second cell and you will see the color of its neighbour changes"];
                     [self disableAll:-1];
                     [_grid disableAll:3];
                     break;
                 case 4:
+                    [self displayMessage:@"Put this color into the first cell"];
                     [self disableAll:0];
                     [_grid disableAll:-1];
                     break;
                 case 5:
+                    [self displayMessage:@"Put this color into the first cell"];
                     [self disableAll:-1];
                     [_grid disableAll:0];
                     break;
                 case 6:
+                    [self displayMessage:@"Put this color into the first cell"];
                     [self disableAll:2];
                     [_grid disableAll:-1];
                     break;
                 case 7:
+                    [self displayMessage:@"Put this color into the first cell"];
                     [self disableAll:-1];
                     [_grid disableAll:1];
                     break;
