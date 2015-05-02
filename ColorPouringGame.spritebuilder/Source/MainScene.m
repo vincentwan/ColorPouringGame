@@ -193,12 +193,12 @@ static int totalLevel = 12;
     // unless you use this method for observation of other notifications
     // as well.
     
-    
+    /*
     particle = (CCParticleSystem *)[CCBReader load:@"Shining"];
     particle.autoRemoveOnFinish = NO;
     particle.position = ccp(100,40);
     [self addChild:particle];
-
+     */
     if ([[notification name] isEqualToString:@"TestNotification"]) {
         NSLog (@"Successfully received the test notification!");
         NSLog(@"Here is notification at step: %d\n", stepTutorial);
@@ -211,6 +211,7 @@ static int totalLevel = 12;
                 case 1:
                     [self disableAll:-1];
                     [_grid disableAll:2];
+                    /*
                     particle.visible = NO;
                     [particle stopSystem];
                     [self removeChild:particle cleanup:YES];
@@ -218,6 +219,7 @@ static int totalLevel = 12;
                     [self addChild:particle];
                     particle.visible = YES;
                     [particle resetSystem];
+                     */
                     break;
                 case 2:
                     [self disableAll:1];
