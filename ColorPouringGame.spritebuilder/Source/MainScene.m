@@ -240,12 +240,12 @@ static int totalLevel = 12;
                     [_grid disableAll:-1];
                     break;
                 case 3:
-                    [self displayMessage:@"Put into the second cell and you will see the color of its neighbor changes"];
+                    [self displayMessage:@"Put into the second cell and you will see the color\n of its neighbor changes"];
                     [self disableAll:-1];
                     [_grid disableAll:3];
                     break;
                 case 4:
-                    [self displayMessage:@"If one cell has already meet the target color, it will not be changed again"];
+                    [self displayMessage:@"If one cell has already meet the target color, it will\n not be changed again"];
                     [self disableAll:0];
                     [_grid disableAll:-1];
                     break;
