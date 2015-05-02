@@ -93,12 +93,12 @@ static int totalLevel = 12;
         _timer = [[CCTimer alloc] init];
     }
     
-    NSLog(@"This is MainScene!");
+    
     
     NSNumber *highLevel = [[NSUserDefaults standardUserDefaults]objectForKey:@"highLevel"];
     levelNum = [highLevel intValue];
     
-    
+    NSLog(@"This is MainScene Level %d\n", levelNum);
     /*
     double centralX = 520;
     double centralY = 192;
