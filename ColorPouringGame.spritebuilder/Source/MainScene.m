@@ -319,8 +319,12 @@ static int totalLevel = 12;
 
 - (void)displayMessage
 {
-    UIView *myview=[[UIView alloc] initWithFrame: CGRectMake(80, 80,30,40)];
-    myview.backgroundColor=[UIColor redColor];
+    double height_total = self.contentSizeInPoints.height;
+    double width_total = self.contentSizeInPoints.width;
+    
+    
+    
+    UIView *myview=[[UIView alloc] initWithFrame: CGRectMake(height_total*0.1, width_total*0.4,80,40)];
     UIView *parentView = [[CCDirector sharedDirector] view];
     
     [parentView addSubview:myview];
@@ -330,8 +334,8 @@ static int totalLevel = 12;
     // Configure for text only and offset down
     hud.mode = MBProgressHUDModeText;
     hud.labelText = @"Some message...";
-    hud.margin = 10.f;
-    hud.yOffset = 150.f;
+    //hud.margin = 10.f;
+    //hud.yOffset = 150.f;
     hud.removeFromSuperViewOnHide = YES;
     
     [hud hide:YES afterDelay:3];
