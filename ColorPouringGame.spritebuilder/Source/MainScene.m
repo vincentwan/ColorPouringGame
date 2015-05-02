@@ -328,7 +328,7 @@ static int totalLevel = 12;
 {
     double height_total = self.contentSizeInPoints.height;
     double width_total = self.contentSizeInPoints.width;
-    UIView *myview=[[UIView alloc] initWithFrame: CGRectMake(0, 0, 500, 80)];
+    UIView *myview=[[UIView alloc] initWithFrame: CGRectMake(0, 0, 500, 40)];
     myview.center = CGPointMake(width_total/2, height_total*0.9);
     UIView *parentView = [[CCDirector sharedDirector] view];
     myview.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.0];
@@ -338,7 +338,8 @@ static int totalLevel = 12;
     // Configure for text only and offset down
     hud.mode = MBProgressHUDModeText;
     hud.color = [UIColor colorWithRed:(251.0/255.0) green:0.0 blue:(64.0/255.0) alpha:0.6];
-    hud.labelText = message;
+    //hud.labelText = message;
+    hud.detailsLabelText = message;
     hud.removeFromSuperViewOnHide = YES;
     [hud hide:YES afterDelay:3];
 }
