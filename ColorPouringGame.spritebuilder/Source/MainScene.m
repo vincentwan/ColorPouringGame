@@ -230,6 +230,7 @@ static int totalLevel = 12;
                     [_grid disableAll:-1];
                     break;
                 case 1:
+                    [self displayMessage:@"It is here"];
                     [self disableAll:-1];
                     [_grid disableAll:2];
                     break;
@@ -382,7 +383,6 @@ static int totalLevel = 12;
                     alpha:1.0f];
      */
     currNum = 0;
-
     [_redBtn setSelected:YES];
     [_blueBtn setSelected:NO];
     [_yellowBtn setSelected:NO];
@@ -392,7 +392,6 @@ static int totalLevel = 12;
          postNotificationName:@"TestNotification"
          object:self];
     }
-    
     
     NSLog(@"Here red!");
     //[self loadMyViewController];
