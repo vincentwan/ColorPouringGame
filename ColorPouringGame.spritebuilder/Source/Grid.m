@@ -165,7 +165,7 @@
         }
         printf("\n");
     }
-    
+    [MainScene setParticleVisible:NO];
     [self addChild:EndGamePopover];
 }
 

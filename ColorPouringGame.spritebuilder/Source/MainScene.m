@@ -32,6 +32,8 @@ static CCParticleSystem *particle;
 
 + (void) setParticlePos:(CGPoint)val
 { @synchronized(self) { particle.position = val; } }
++ (void) setParticleVisible:(BOOL)val
+{ @synchronized(self) { particle.visible = val; } }
 
 
 static BOOL tutorialLevel = YES;

@@ -33,5 +33,6 @@
 + (CCParticleSystem *) particle;
 + (void) setParticle:(CCParticleSystem *)val;
 + (void) setParticlePos:(CGPoint)val;
++ (void) setParticleVisible:(BOOL)val;
 
 @end
