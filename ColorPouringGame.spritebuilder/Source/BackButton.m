@@ -7,6 +7,7 @@
 //
 
 #import "BackButton.h"
+#import "MainScene.h"
 
 @implementation BackButton
 
@@ -20,9 +21,15 @@
     self.position = ccp(wid,hei);
     self.anchorPoint = ccp(0.5,0.5);
     self.zOrder = 1;
-    self.enabled = true;
+    [self setTarget:self selector:@selector(backLevel)];
     return self;
 }
 
+- (void) backLevel {
+    [MainScene setLevelNum:([MainScene levelNum]-1)];
+    NSLog(@"Previous Level: %d!", MainScene.levelNum);
+    CCScene *mainScene = [CCBReader loadAsScene:@"MainScene"];
+    [[CCDirector sharedDirector]replaceScene:mainScene];
+}
 
 @end
