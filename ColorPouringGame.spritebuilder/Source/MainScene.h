@@ -13,6 +13,7 @@
 #import "AppDelegate.h"
 #import "ColorButton.h"
 
+
 @interface MainScene : CCNode
 
 @property (nonatomic, retain) ColorButton * redBtn;
