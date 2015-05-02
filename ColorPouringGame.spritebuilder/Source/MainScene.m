@@ -211,6 +211,7 @@ static int totalLevel = 12;
                     particle = (CCParticleSystem *)[CCBReader load:@"Shining"];
                     particle.autoRemoveOnFinish = NO;
                     particle.position = ccp(-20,-20);
+                    particle.zOrder = 2;
                     [self addChild:particle];
                     [self disableAll:0];
                     [_grid disableAll:-1];
