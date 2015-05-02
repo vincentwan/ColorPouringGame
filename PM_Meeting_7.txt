@@ -1,8 +1,21 @@
-For Color Pouring Game
+For FlyingFeather Game
+
+This week
+Change move buttons to move forward, backward
+Facebook sharing functionality added
+User on boarding level added
+Developed up to 10 levels
+Wind particle effect added
+
+Next week
+Documenting things
+
+For Color Pouring Game (Final)
 Tasks finished this week:
 
 1) Add a Facebook sharing button
 2) Polish the game scene
 3) Add a tutorial to improve the on boarding experience
 
-
+Next week
+Documenting things
